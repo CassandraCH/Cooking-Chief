@@ -4,12 +4,10 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
-    { path: 'register',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
