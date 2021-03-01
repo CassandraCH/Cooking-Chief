@@ -9,14 +9,16 @@ import { RouterModule } from '@angular/router';
 import { SectionsComponent } from './sections.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
-import { RecetteComponent } from './recette/recette.component';
+import { RecetteComponent } from '../recette/recette.component';
+import { ReseauxSociauxComponent } from '../reseaux-sociaux/reseaux-sociaux.component';
 
 @NgModule({
   declarations: [
     SectionsComponent,
     NgbdModalComponent,
     NgbdModalContent,
-    RecetteComponent
+    RecetteComponent,
+    ReseauxSociauxComponent
   ],
   entryComponents: [NgbdModalContent],
   imports: [
