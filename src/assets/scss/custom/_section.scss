@@ -1,7 +1,7 @@
 .section {
     position: relative;
-    padding-top: $spacer * 4;
-    padding-bottom: $spacer * 4;
+    padding-top: $spacer;
+    padding-bottom: $spacer ;
 }
 
 .section-xl {
@@ -34,7 +34,7 @@
     .stars-and-coded{
         margin-top: 8rem;
     }
-    
+
     .shape {
         position: absolute;
         top: 0;
@@ -483,14 +483,14 @@
 
 // Profile cover
 .section-profile-cover {
-    height: 580px;
+    height: 370px;
     background-size: cover;
     background-position: center center;
 }
 
 @include media-breakpoint-down(md) {
     .section-profile-cover {
-        height: 400px;
+        height: 100px;
     }
 }
 
