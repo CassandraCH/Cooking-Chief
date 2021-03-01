@@ -30,12 +30,11 @@
 .section-shaped {
     //margin: 180px 0;
     position: relative;
-    background: shapes-primary-color("step-4-gradient-bg");
 
     .stars-and-coded{
         margin-top: 8rem;
     }
-
+    
     .shape {
         position: absolute;
         top: 0;
@@ -82,8 +81,7 @@
 
     // Color variations
     .shape-primary {
-        // background: linear-gradient(150deg, shapes-primary-color("step-1-gradient-bg") 15%, shapes-primary-color("step-2-gradient-bg") 70%, shapes-primary-color("step-3-gradient-bg") 94%);
-        background: shapes-primary-color("step-4-gradient-bg");
+        background: linear-gradient(150deg, shapes-primary-color("step-1-gradient-bg") 15%, shapes-primary-color("step-2-gradient-bg") 70%, shapes-primary-color("step-3-gradient-bg") 94%);
 
         :nth-child(1) {
             background: shapes-primary-color("span-1-bg");
