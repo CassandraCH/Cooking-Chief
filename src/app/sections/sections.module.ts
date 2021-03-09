@@ -11,6 +11,8 @@ import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
 import { RecetteComponent } from '../recette/recette.component';
 import { ReseauxSociauxComponent } from '../reseaux-sociaux/reseaux-sociaux.component';
+import { TwitterComponent } from '../twitter/twitter.component';
+import { InstagramComponent } from '../instagram/instagram.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ReseauxSociauxComponent } from '../reseaux-sociaux/reseaux-sociaux.comp
     NgbdModalComponent,
     NgbdModalContent,
     RecetteComponent,
-    ReseauxSociauxComponent
+    ReseauxSociauxComponent,
+    TwitterComponent,
+    InstagramComponent
   ],
   entryComponents: [NgbdModalContent],
   imports: [

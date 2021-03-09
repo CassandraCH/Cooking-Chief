@@ -12,16 +12,16 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
-import { TwitterComponent } from './twitter/twitter.component';
-import { InstagramComponent } from './instagram/instagram.component';
+// import { TwitterComponent } from './twitter/twitter.component';
+// import { InstagramComponent } from './instagram/instagram.component';
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     NavbarComponent,
     FooterComponent,
-    TwitterComponent,
-    InstagramComponent,
+    // TwitterComponent,
+    // InstagramComponent,
   ],
   imports: [
     BrowserModule,
