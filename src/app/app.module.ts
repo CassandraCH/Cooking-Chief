@@ -17,6 +17,7 @@ import { InstaPostComponent } from './insta-post/insta-post.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { RecetteDescriptionComponent } from './recette-description/recette-description.component';
 import { RecetteDuJourComponent } from './recette-du-jour/recette-du-jour.component';
+import { BarreRechercheComponent } from './barre-recherche/barre-recherche.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RecetteDuJourComponent } from './recette-du-jour/recette-du-jour.compon
     MainContentComponent,
     RecetteDescriptionComponent,
     RecetteDuJourComponent,
+    BarreRechercheComponent,
   ],
   imports: [
     BrowserModule,
