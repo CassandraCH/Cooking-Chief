@@ -13,11 +13,11 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
 
 import { HomeModule } from './home/home.module';
-import { TweetComponent } from './tweet/tweet.component';
-import { InstaPostComponent } from './insta-post/insta-post.component';
-import { MainContentComponent } from './main-content/main-content.component';
-import { RecetteDescriptionComponent } from './recette-description/recette-description.component';
-import { RecetteDuJourComponent } from './recette-du-jour/recette-du-jour.component';
+// import { TweetComponent } from './tweet/tweet.component';
+// import { InstaPostComponent } from './insta-post/insta-post.component';
+// import { MainContentComponent } from './main-content/main-content.component';
+// import { RecetteDescriptionComponent } from './recette-description/recette-description.component';
+// import { RecetteDuJourComponent } from './recette-du-jour/recette-du-jour.component';
 
 
 @NgModule({
@@ -27,11 +27,11 @@ import { RecetteDuJourComponent } from './recette-du-jour/recette-du-jour.compon
     NavbarComponent,
     FooterComponent,
     BarreRechercheComponent,
-    TweetComponent,
-    InstaPostComponent,
-    MainContentComponent,
-    RecetteDescriptionComponent,
-    RecetteDuJourComponent,
+    // TweetComponent,
+    // InstaPostComponent,
+    // MainContentComponent,
+    // RecetteDescriptionComponent,
+    // RecetteDuJourComponent,
 
   ],
   imports: [

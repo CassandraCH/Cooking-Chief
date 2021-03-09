@@ -14,7 +14,11 @@ import { ReseauxSociauxComponent } from '../reseaux-sociaux/reseaux-sociaux.comp
 import { TwitterComponent } from '../twitter/twitter.component';
 import { InstagramComponent } from '../instagram/instagram.component';
 import { RecetteDetailleeComponent } from '../recette-detaillee/recette-detaillee.component';
-
+import { TweetComponent } from '../tweet/tweet.component';
+import { InstaPostComponent } from '../insta-post/insta-post.component';
+import { MainContentComponent } from '../main-content/main-content.component';
+import { RecetteDescriptionComponent } from '../recette-description/recette-description.component';
+import { RecetteDuJourComponent } from '../recette-du-jour/recette-du-jour.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +26,15 @@ import { RecetteDetailleeComponent } from '../recette-detaillee/recette-detaille
     NgbdModalComponent,
     NgbdModalContent,
     RecetteDetailleeComponent,
+    RecetteDuJourComponent,
     ReseauxSociauxComponent,
     TwitterComponent,
-    InstagramComponent
+    InstagramComponent,
+    TweetComponent,
+    InstaPostComponent,
+    MainContentComponent,
+    RecetteDescriptionComponent,
+    RecetteDuJourComponent,
   ],
   entryComponents: [NgbdModalContent],
   imports: [
