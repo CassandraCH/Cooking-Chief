@@ -16,7 +16,7 @@ import { TweetComponent } from './tweet/tweet.component';
 import { InstaPostComponent } from './insta-post/insta-post.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { RecetteDescriptionComponent } from './recette-description/recette-description.component';
-import { BarreRechercheComponent } from './barre-recherche/barre-recherche.component';
+import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
 
 @NgModule({
   declarations: [
