@@ -4,11 +4,11 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { LandingComponent } from './landing/landing.component';
+// import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
-    { path: 'landing',          component: LandingComponent },
+    // { path: 'landing',          component: LandingComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

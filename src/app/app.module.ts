@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { LandingComponent } from './landing/landing.component';
+// import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
 
 import { HomeModule } from './home/home.module';
 import { TweetComponent } from './tweet/tweet.component';
@@ -17,20 +18,21 @@ import { InstaPostComponent } from './insta-post/insta-post.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { RecetteDescriptionComponent } from './recette-description/recette-description.component';
 import { RecetteDuJourComponent } from './recette-du-jour/recette-du-jour.component';
-import { BarreRechercheComponent } from './barre-recherche/barre-recherche.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
+    // LandingComponent,
     NavbarComponent,
     FooterComponent,
+    BarreRechercheComponent,
     TweetComponent,
     InstaPostComponent,
     MainContentComponent,
     RecetteDescriptionComponent,
     RecetteDuJourComponent,
-    BarreRechercheComponent,
+
   ],
   imports: [
     BrowserModule,
