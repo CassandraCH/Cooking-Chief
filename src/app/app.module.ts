@@ -12,16 +12,23 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
-// import { TwitterComponent } from './twitter/twitter.component';
-// import { InstagramComponent } from './instagram/instagram.component';
+import { TweetComponent } from './tweet/tweet.component';
+import { InstaPostComponent } from './insta-post/insta-post.component';
+import { MainContentComponent } from './main-content/main-content.component';
+import { RecetteDescriptionComponent } from './recette-description/recette-description.component';
+import { RecetteDuJourComponent } from './recette-du-jour/recette-du-jour.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     NavbarComponent,
     FooterComponent,
-    // TwitterComponent,
-    // InstagramComponent,
+    TweetComponent,
+    InstaPostComponent,
+    MainContentComponent,
+    RecetteDescriptionComponent,
+    RecetteDuJourComponent,
   ],
   imports: [
     BrowserModule,

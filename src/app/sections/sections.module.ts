@@ -9,17 +9,19 @@ import { RouterModule } from '@angular/router';
 import { SectionsComponent } from './sections.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
-import { RecetteComponent } from '../recette/recette.component';
+
 import { ReseauxSociauxComponent } from '../reseaux-sociaux/reseaux-sociaux.component';
 import { TwitterComponent } from '../twitter/twitter.component';
 import { InstagramComponent } from '../instagram/instagram.component';
+import { RecetteDetailleeComponent } from '../recette-detaillee/recette-detaillee.component';
+
 
 @NgModule({
   declarations: [
     SectionsComponent,
     NgbdModalComponent,
     NgbdModalContent,
-    RecetteComponent,
+    RecetteDetailleeComponent,
     ReseauxSociauxComponent,
     TwitterComponent,
     InstagramComponent
