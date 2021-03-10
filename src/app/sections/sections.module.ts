@@ -12,11 +12,12 @@ import { NgbdModalContent } from './modal/modal.component';
 
 import { ReseauxSociauxComponent } from '../components/reseaux-sociaux/reseaux-sociaux.component';
 import { InstaFeedComponent } from '../components/insta-feed/insta-feed.component';
-import { TwitterFeedComponent } from '../components/twitter-feed/twitter-feed.component';
 import { InstaPostComponent } from '../components/insta-post/insta-post.component';
-import { MainContentComponent } from '../main-content/main-content.component';
-import { RecetteDuJourComponent } from '../recette-du-jour/recette-du-jour.component';
+import { TwitterFeedComponent } from '../components/twitter-feed/twitter-feed.component';
 import { TweetComponent } from '../components/tweet/tweet.component';
+
+import { MainContentComponent } from '../components/main-content/main-content.component';
+import { RecetteComponent } from '../components/recette/recette.component';
 
 
 @NgModule({
@@ -24,13 +25,13 @@ import { TweetComponent } from '../components/tweet/tweet.component';
     SectionsComponent,
     NgbdModalComponent,
     NgbdModalContent,
-    RecetteDuJourComponent,
     ReseauxSociauxComponent,
     InstaFeedComponent,
     TwitterFeedComponent,
     InstaPostComponent,
     MainContentComponent,
     TweetComponent,
+    RecetteComponent,
   ],
   entryComponents: [NgbdModalContent],
   imports: [
