@@ -7,8 +7,6 @@ import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 
 import { SectionsComponent } from './sections.component';
-import { NgbdModalComponent } from './modal/modal.component';
-import { NgbdModalContent } from './modal/modal.component';
 
 import { ReseauxSociauxComponent } from '../components/reseaux-sociaux/reseaux-sociaux.component';
 import { InstaFeedComponent } from '../components/insta-feed/insta-feed.component';
@@ -18,22 +16,32 @@ import { TweetComponent } from '../components/tweet/tweet.component';
 
 import { MainContentComponent } from '../components/main-content/main-content.component';
 import { RecetteComponent } from '../components/recette/recette.component';
+import { RecetteDescriptionComponent } from '../components/recette-description/recette-description.component';
+import { RecettesComponent } from '../components/recettes/recettes.component';
+import { IngredientComponent } from '../components/ingredient/ingredient.component';
+import { IngredientListeComponent } from '../components/ingredient-liste/ingredient-liste.component';
+import { EtapeComponent } from '../components/etape/etape.component';
+import { EtapeListeComponent } from '../components/etape-liste/etape-liste.component';
+
 
 
 @NgModule({
   declarations: [
     SectionsComponent,
-    NgbdModalComponent,
-    NgbdModalContent,
     ReseauxSociauxComponent,
     InstaFeedComponent,
-    TwitterFeedComponent,
     InstaPostComponent,
-    MainContentComponent,
+    TwitterFeedComponent,
     TweetComponent,
+    MainContentComponent,
     RecetteComponent,
+    RecettesComponent,
+    RecetteDescriptionComponent,
+    IngredientListeComponent,
+    IngredientComponent,
+    EtapeListeComponent,
+    EtapeComponent,
   ],
-  entryComponents: [NgbdModalContent],
   imports: [
     CommonModule,
     FormsModule,

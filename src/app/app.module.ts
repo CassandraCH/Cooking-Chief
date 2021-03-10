@@ -12,7 +12,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
 import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [

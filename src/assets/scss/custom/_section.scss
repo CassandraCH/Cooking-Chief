@@ -484,14 +484,14 @@
 }
 
 // Profile cover
-.section-profile-cover {
+.section-recette {
     height: 370px;
     background-size: cover;
     background-position: center center;
 }
 
 @include media-breakpoint-down(md) {
-    .section-profile-cover {
+    .section-recette {
         height: 100px;
     }
 }
