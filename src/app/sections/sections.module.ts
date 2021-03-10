@@ -10,13 +10,14 @@ import { SectionsComponent } from './sections.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
 
-import { ReseauxSociauxComponent } from '../reseaux-sociaux/reseaux-sociaux.component';
-import { TwitterComponent } from '../twitter/twitter.component';
-import { InstagramComponent } from '../instagram/instagram.component';
-import { TweetComponent } from '../tweet/tweet.component';
-import { InstaPostComponent } from '../insta-post/insta-post.component';
+import { ReseauxSociauxComponent } from '../components/reseaux-sociaux/reseaux-sociaux.component';
+import { InstaFeedComponent } from '../components/insta-feed/insta-feed.component';
+import { TwitterFeedComponent } from '../components/twitter-feed/twitter-feed.component';
+import { InstaPostComponent } from '../components/insta-post/insta-post.component';
 import { MainContentComponent } from '../main-content/main-content.component';
 import { RecetteDuJourComponent } from '../recette-du-jour/recette-du-jour.component';
+import { TweetComponent } from '../components/tweet/tweet.component';
+
 
 @NgModule({
   declarations: [
@@ -25,11 +26,11 @@ import { RecetteDuJourComponent } from '../recette-du-jour/recette-du-jour.compo
     NgbdModalContent,
     RecetteDuJourComponent,
     ReseauxSociauxComponent,
-    TwitterComponent,
-    InstagramComponent,
-    TweetComponent,
+    InstaFeedComponent,
+    TwitterFeedComponent,
     InstaPostComponent,
     MainContentComponent,
+    TweetComponent,
   ],
   entryComponents: [NgbdModalContent],
   imports: [

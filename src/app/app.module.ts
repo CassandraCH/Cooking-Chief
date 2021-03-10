@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -15,15 +14,28 @@ import { HomeModule } from './home/home.module';
 import { MainContentComponent } from './main-content/main-content.component';
 import { RecetteDescriptionComponent } from './recette-description/recette-description.component';
 import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
+import { HeaderComponent } from './header/header.component';
+import { IngredientComponent } from './ingredient/ingredient.component';
+import { EtapeComponent } from './etape/etape.component';
+import { EtapeListeComponent } from './etape-liste/etape-liste.component';
+import { IngredientListeComponent } from './ingredient-liste/ingredient-liste.component';
+import { RecetteComponent } from './recette/recette.component';
+import { RecettesComponent } from './recettes/recettes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
     NavbarComponent,
     FooterComponent,
     RecetteDescriptionComponent,
     BarreRechercheComponent,
+    HeaderComponent,
+    IngredientComponent,
+    EtapeComponent,
+    EtapeListeComponent,
+    IngredientListeComponent,
+    RecetteComponent,
+    RecettesComponent,
   ],
   imports: [
     BrowserModule,
