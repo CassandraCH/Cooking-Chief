@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "11.0.5",
     "@angular/router": "11.0.5",
     "@ng-bootstrap/ng-bootstrap": "6.0.0",
+    "bootstrap": "^4.6.0",
     "jw-bootstrap-switch-ng2": "2.0.5",
     "moment": "^2.29.1",
     "ng2-nouislider": "1.8.2",

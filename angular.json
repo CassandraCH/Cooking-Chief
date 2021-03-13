@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/scss/argon.scss"
+              "src/assets/scss/argon.scss",
+              "../Projet-web/node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": []
           },
