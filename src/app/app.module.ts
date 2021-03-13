@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
-import { HomeModule } from './home/home.module';
+import { HomeModule } from '../app/components/home/home.module';
 import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { ErreurPageComponent } from '../app/components/erreur-page/erreur-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HeaderComponent } from './shared/header/header.component';
     FooterComponent,
     BarreRechercheComponent,
     HeaderComponent,
+    ErreurPageComponent,
   ],
   imports: [
     BrowserModule,
