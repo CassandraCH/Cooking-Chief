@@ -1,12 +1,27 @@
 <nav id="navbar-main" class="navbar navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
   <div class="container">
-    <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
-     <!-- <p class="display-3 mb-0">Cooking Chief</p> -->
-     <img id="logo" src="../../../assets/img/photos/logo.svg" alt="Logo avec une toque et une moustache">
-    </a>
-    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
-          [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+       <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
+        <!-- <p class="display-3 mb-0">Cooking Chief</p> -->
+        <img id="logo" src="../../../assets/img/photos/logo.svg" alt="Logo avec une toque et une moustache">
+      </a>
+      <!-- <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item">
+        <a class="nav-link nav-link-icon" href="https://www.instagram.com/web_l3/" target="_blank"  title="Suivez-nous sur Instagram">
+          Instagram
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-link-icon" href="https://twitter.com/web_l3" target="_blank" title="Suivez-nous sur Twitter">
+          Twitter
+        </a>
+      </li>
+    </ul>
+
   </div>
 </nav>
