@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InstagramService } from '../../services/instagram.service';
 
 @Component({
   selector: 'app-insta-post',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstaPostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private instagramService: InstagramService) { }
 
   ngOnInit(): void {
   }
