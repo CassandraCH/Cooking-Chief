@@ -20,6 +20,9 @@ export class BarreRechercheComponent implements OnInit {
     // Recupération de la recherche
     const recherche = form.value['recherche'];
     console.log("Recherche : " + recherche);
+
+    // A implementer => requete a l'api en fonction de la recherche
+
     // redirection vers les resultats de la recherche
     this.router.navigate(['results']);
   }
