@@ -45,11 +45,21 @@ export class BarreRechercheComponent implements OnInit {
       // redirection vers les resultats de la recherche
       this.router.navigate(['/']).then(
         () => {
-          this.router.navigate(['/results']);
+          this.router.navigate(['/results', recherche]);
         }
       );
       this.initForm();
     }
+    // cas où l'api ne fournit pas de resultat
+    // else if(){
+    //   // redirection vers la page 'no-result'
+    //   this.router.navigate(['/']).then(
+    //     () => {
+    //       this.router.navigate(['/results']);
+    //     }
+    //   );
+    // }
+    // Cas ou le champ de recherche est vide
     else{
       this.messageErreur = "Veuillez saisir quelque chose";
     }

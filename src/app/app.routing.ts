@@ -12,7 +12,7 @@ import { NoResultComponent } from './components/no-result/no-result.component';
 const routes: Routes = [
     { path: 'home', component: HomeComponent }, // page d'acceuil
     { path: 'results', component: RecettesComponent }, // page des resultats de recherche
-    // { path: 'results/:id', component: RecettesComponent},
+    { path: 'results/:nom', component: RecettesComponent},
     { path: 'no-result', component: NoResultComponent }, // page quand la recherche n'a pas de résultats
     { path: '', redirectTo: 'home', pathMatch: 'full' }, // par défaut
     { path: 'not-found', component: ErreurPageComponent }, // page d'erreur 404
