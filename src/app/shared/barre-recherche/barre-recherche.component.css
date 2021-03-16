@@ -9,3 +9,8 @@
     color: #463F32;
     background-color:  #aa9879;
 }
+
+#msgErreur{
+    color: white;
+    font-weight: bolder;
+}

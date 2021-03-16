@@ -11,6 +11,7 @@ import { RecettesService } from '../../services/recettes.service';
 export class BarreRechercheComponent implements OnInit {
 
   rechercheForm: FormGroup;
+  messageErreur: string;
 
   constructor(private recettesService: RecettesService,
               private formBuilder: FormBuilder,
@@ -31,15 +32,28 @@ export class BarreRechercheComponent implements OnInit {
   onRecherche(){
     // Recupération de la recherche
     const recherche = this.rechercheForm.get('recherche').value;
-    console.log("Recherche : " + recherche);
-    this.recettesService.setValRecherche(recherche);
+
+    // Vérification que l'utilisateur a saisi quelque chose
+    if(recherche !== ''){
+      console.log("Recherche : " + recherche);
+      this.recettesService.setValRecherche(recherche);
+      this.messageErreur = '';
+
+      // A implementer => requete a l'api en fonction de la recherche
 
 
-    // A implementer => requete a l'api en fonction de la recherche
+      // redirection vers les resultats de la recherche
+      this.router.navigate(['/']).then(
+        () => {
+          this.router.navigate(['/results']);
+        }
+      );
+      this.initForm();
+    }
+    else{
+      this.messageErreur = "Veuillez saisir quelque chose";
+    }
 
-
-    // redirection vers les resultats de la recherche
-    this.router.navigate(['/results']);
   }
 
 }
