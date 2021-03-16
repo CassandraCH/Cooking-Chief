@@ -1,4 +1,4 @@
-let searchButton = document.querySelector("#boutonRecherche");
+let searchButton = document.querySelector("#btnRecherche");
 
 
 const fetchButton = document.querySelector('ul');
