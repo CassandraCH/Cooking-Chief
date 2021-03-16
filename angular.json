@@ -24,7 +24,8 @@
             ],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/img/photos/"
             ],
             "styles": [
               "src/styles.css",

@@ -15,5 +15,14 @@ nav{
 
 #navbar-main{
     background-color: #423725;
-  }
-  
+}
+
+.nav-item a{
+    color: #ffff;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.nav-item a:hover{
+    color: #A48A5C;
+}

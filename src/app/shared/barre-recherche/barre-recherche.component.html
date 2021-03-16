@@ -8,10 +8,15 @@
           <div class="row align-items-center justify-content-center">
             <div class="col-lg-6 text-center">
               <p class="lead text-white">Trouvez votre recette à partir d'un ingrédient</p>
-              <div class="form-group">
-                <input type="text" placeholder="Recherche" class="form-control" />
-              </div>
-              <button id="boutonRecherche" class="btn btn-1 btn-neutral" type="button">C'est parti !</button>
+
+                <form (ngSubmit)="onRecherche(f)" #f="ngForm">
+                  <div class="form-group">
+                    <input id="recherche" name="recherche" type="text" placeholder="Recherche" class="form-control" ngModel required>
+                  </div>
+                  <!-- Bouton indisponible tant que l'utilisateur n'a rien saisi -->
+                  <button id="boutonRecherche" class="btn btn-1 btn-neutral" type="submit" [disabled]="f.invalid">C'est parti !</button>
+                </form>
+
             </div>
           </div>
         </div>

@@ -1,0 +1,11 @@
+#boutonRecherche{
+    background-color:  #A48A5C;
+    color: white;
+    transition: 0.7s;
+}
+
+#boutonRecherche:hover{
+    opacity: 0.8;
+    color: #463F32;
+    background-color:  #aa9879;
+}

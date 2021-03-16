@@ -6,13 +6,13 @@ main{
 }
 
 #reseaux-sociaux{
-    border: 1px solid green;
+    // border: 1px solid green;
     grid-column: 2;
     margin: 20px 10px 0 10px;
 }
 
 #main-content{
-    border: 1px solid fuchsia;
+    // border: 1px solid fuchsia;
     grid-column: 3;
     margin: 20px 10px 0 10px;
 }
@@ -26,12 +26,12 @@ main{
     }
 
     #reseaux-sociaux{
-        border: 1px solid red;
+        // border: 1px solid red;
         grid-column: 2;
     }
 
     #main-content{
-        border: 1px solid blue;
+        // border: 1px solid blue;
         grid-column: 3;
     }
 }
@@ -44,12 +44,12 @@ main{
     }
 
     #reseaux-sociaux{
-        border: 1px solid red;
+        // border: 1px solid red;
         grid-column: 2;
     }
 
     #main-content{
-        border: 1px solid blue;
+        // border: 1px solid blue;
         grid-column: 3;
     }
 }
