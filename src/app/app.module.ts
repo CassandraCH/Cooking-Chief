@@ -31,6 +31,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { NoResultComponent } from './components/no-result/no-result.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { HeaderComponent } from './shared/header/header.component';
     IngredientComponent,
     EtapeListeComponent,
     EtapeComponent,
+    NoResultComponent,
   ],
   imports: [
     BrowserModule,
