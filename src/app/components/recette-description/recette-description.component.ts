@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecettesService } from '../../services/recettes.service';
 import { Resultat } from '../../models/Resultat.models';// modèle de données
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recette-description',
@@ -11,16 +11,16 @@ import { Router } from '@angular/router';
 export class RecetteDescriptionComponent implements OnInit {
 
   constructor(private recettesService: RecettesService,
-              private router: Router,) { }
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
   onClick(){
-    this.router.navigate(['/']).then(
-      () => {
-        this.router.navigate(['/details']);
-      }
-    );
+    const nom = this.route.snapshot.params['nom'];
+    this.router.navigate(['/results', nom ,'details']);
+
+
   }
 }
