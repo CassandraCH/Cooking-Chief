@@ -10,7 +10,6 @@ const client = new Twitter({
 const params = { q: '#cooking_chief'};
 client.get('search/tweets', params, function(error, data, response) {
   const tweets = data.statuses
-        .map(tweet => tweet);
 
   console.log(tweets);
   });
