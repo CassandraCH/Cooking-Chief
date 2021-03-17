@@ -1,4 +1,13 @@
 <main>
-    <p>Nom de la recette</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore nemo ut autem minima. Sapiente, id. Consectetur iste quos temporibus pariatur ex facilis ab. Iste praesentium, explicabo expedita officiis officia iure?</p>
+    <div class="card mb-3">
+        <img src="../../../assets/img/photos/food.jpg" class="card-img-top" alt="..."> <!-- image dans le fichier json -->
+        <div class="card-body">
+          <h5 class="card-title">Nom de la recette : </h5> <!-- label dans le fichier json -->
+          <p class="card-text">Source : </p> <!-- source dans le fichier json -->
+          <p class="card-text">Nombre de personnes : </p> <!-- yield dans le fichier json -->
+          <p class="card-text">Calories :</p><!-- calories dans le fichier json -->
+          <p class="card-text">Tags : <em>Tag1 </em> </p> <!-- healthLabels (tableau de string) dans le fichier json -->
+          <button type="button" (click)="onClick()" class="btn btn-outline-default" href="">Découvrir la recette</button> 
+        </div>
+      </div>
 </main>

@@ -1,0 +1,12 @@
+main{
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap-reverse;
+    justify-content:space-around;
+}
+
+#reseaux-sociaux{
+    /* border: 1px solid green; */
+    grid-column: 2;
+    margin: 20px 10px 0 10px;
+}
