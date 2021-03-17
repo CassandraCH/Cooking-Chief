@@ -19,9 +19,11 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   constructor(private recettesService: RecettesService,
               private formBuilder: FormBuilder,
-              private router: Router) {
+              private router: Router)
+  {
     this.recetteSubscription = this.recettesService.recettesSubject.subscribe(
       (recettes: Recette[]) => {
+        // console.log(recettes)
         this.recettes = recettes;
       }
     );

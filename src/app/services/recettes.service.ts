@@ -8,43 +8,21 @@ import {HttpClient} from '@angular/common/http';
 })
 export class RecettesService {
 
-
-  constructor(private http: HttpClient ){
-
-  }
+  constructor(private http: HttpClient){ }
 
   tempUrl = '../../assets/test_api/pizza.json';
 
   valRecherche: string;
-  // recettes: Recette[] = [];
   recettes: any[] = [];
-  // recettesSubject = new Subject<Recette[]>();
+  tabRecettes: Recette[] = [];
   recettesSubject = new Subject<any[]>();
 
   emitRecette(){
     return this.recettesSubject.next(this.recettes);
   }
-  /*
-    Dans le component où tu récupères les recettes
-    tu fais dans un premier temps
-    recetteService.getRecettes()
-    puis il te faut un objet Subscription
-    tel que recetteSubscription: Subscription
-    this.recetteSubscription=  this.recetteService.subscribe( (result) => {
-    console.log(result);
-      this.taList = result;
-    })
 
-    Il faut implémenter le OnDestroy dans ton component
-    et implémenter
-    ngOnDestroy() {
-      this.recetteSubscription.unsubscribe();
-    }
-    Quand on souscrit à un Observable il faut absolument de désinscrire afin
-  d'éviter toute fuite mémoire
-  */
   getRecettes(){
-    // RECUPERATION DES RECETTES RENVOYEES PAR L'API
+    // RECUPERATION DES RECETTES RENVOYEES PAR L'API (pour le moment par le fichier json pour les tests)
     this.http.get<Recette[]>(this.tempUrl)
     .subscribe( (response) =>  {
       this.recettes = response.hits;
@@ -52,6 +30,24 @@ export class RecettesService {
       // renvoyés une copie et non l'original ;)
       this.recettesSubject.next([...this.recettes]);
       console.log(this.recettes);
+
+      this.recettes.forEach( (value) => {
+        let rec: Recette = {
+          titre: value.recipe.label,
+          image: value.recipe.image,
+          nbPortions: value.recipe.yield,
+          listeIngredients: value.recipe.ingredientLines,
+          calories: value.recipe.calories,
+          tempsPreparation: value.recipe.totalTime,
+          auteur: value.recipe.source,
+          url: value.recipe.url
+        }
+
+        this.tabRecettes.push(rec);
+      })
+
+      console.log("recettes : ");
+      console.log(this.tabRecettes);
     })
   }
 
@@ -61,7 +57,6 @@ export class RecettesService {
     // J'ai pas testé à vérifié
     return this.recettes.find((val) => val.label == nom);
   }
-
 
   setValRecherche(valeur: string){
     this.valRecherche = valeur;
