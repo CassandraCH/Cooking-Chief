@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
+import {HttpClientModule} from '@angular/common/http';
 
 // Component principal
 import { AppComponent } from './app.component';
@@ -65,7 +66,8 @@ import { HeaderComponent } from './shared/header/header.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

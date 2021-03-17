@@ -1,21 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RecettesService } from '../../services/recettes.service';
+import { Recette } from '../../models/Recette.models';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-barre-recherche',
   templateUrl: './barre-recherche.component.html',
   styleUrls: ['./barre-recherche.component.css']
 })
-export class BarreRechercheComponent implements OnInit {
+export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   rechercheForm: FormGroup;
   messageErreur: string;
+  recettes: any[] = [];
+  recetteSubscription: Subscription;
 
   constructor(private recettesService: RecettesService,
               private formBuilder: FormBuilder,
-              private router: Router) { }
+              private router: Router) {
+    this.recetteSubscription = this.recettesService.recettesSubject.subscribe(
+      (recettes: Recette[]) => {
+        this.recettes = recettes;
+      }
+    );
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -38,6 +48,8 @@ export class BarreRechercheComponent implements OnInit {
       console.log("Recherche : " + recherche);
       this.recettesService.setValRecherche(recherche);
       this.messageErreur = '';
+
+      this.recettesService.getRecettes();
 
       // A implementer => requete a l'api en fonction de la recherche
 
@@ -64,6 +76,10 @@ export class BarreRechercheComponent implements OnInit {
       this.messageErreur = "Veuillez saisir quelque chose";
     }
 
+  }
+
+  ngOnDestroy(){
+    this.recetteSubscription.unsubscribe();
   }
 
 }
