@@ -1,73 +1,73 @@
-// var Twitter = require('twit');
+const Twitter = require('twit');
 
-// var client = new Twitter({
-//     consumer_key: 'EuKQfwTijUYZBkSxmgqoPir6F',
-//     consumer_secret: 'xVYQgEZN4L1VYBszUStZEiH6VhjJbMyeQyAzMYB0TwR0bDU9Sg',
-//     access_token: '1359508421301727232-DUalWqDuPUC21F9xd9AZ8LKrQgMVW8',
-//     access_token_secret: 'k7Z60xBmdUFFiLvQkM3yU9KayhvCTQhwvd2pVjho9Ll5s'
-//   });
+const client = new Twitter({
+    consumer_key: 'EuKQfwTijUYZBkSxmgqoPir6F',
+    consumer_secret: 'xVYQgEZN4L1VYBszUStZEiH6VhjJbMyeQyAzMYB0TwR0bDU9Sg',
+    access_token: '1359508421301727232-DUalWqDuPUC21F9xd9AZ8LKrQgMVW8',
+    access_token_secret: 'k7Z60xBmdUFFiLvQkM3yU9KayhvCTQhwvd2pVjho9Ll5s'
+  });
 
-// var params = { q: '#cooking_chief'};
-// client.get('search/tweets', params, function(error, data, response) {
-//   const tweets = data.statuses
-//   .map(tweet => tweet.text);
+const params = { q: '#cooking_chief'};
+client.get('search/tweets', params, function(error, data, response) {
+  const tweets = data.statuses
+        .map(tweet => tweet);
 
-//   console.log(tweets);
-//   });
+  console.log(tweets);
+  });
 
 //=============================================================================================
-import needle from '../node_modules/needle';
+// import needle from '../node_modules/needle';
 
-let twitterBtn = document.querySelector("#btnTwitter");
-twitterBtn.addEventListener("click", getRequest);
+// let twitterBtn = document.querySelector("#btnTwitter");
+// twitterBtn.addEventListener("click", getRequest);
 
-// The code below sets the bearer token from your environment variables
-// To set environment variables on macOS or Linux, run the export command below from the terminal:
-const BEARER_TOKEN= 'AAAAAAAAAAAAAAAAAAAAAAnyNQEAAAAAULjElNBEIkcf8F08BFNnZd8K6P8%3D36aDwblBgbGpGyf7tKdnS8bJqB8VwRvdLZX3VMFM6L0ZN8PRMF';
-// const token = process.env.BEARER_TOKEN;
+// // The code below sets the bearer token from your environment variables
+// // To set environment variables on macOS or Linux, run the export command below from the terminal:
+// const BEARER_TOKEN= 'AAAAAAAAAAAAAAAAAAAAAAnyNQEAAAAAULjElNBEIkcf8F08BFNnZd8K6P8%3D36aDwblBgbGpGyf7tKdnS8bJqB8VwRvdLZX3VMFM6L0ZN8PRMF';
+// // const token = process.env.BEARER_TOKEN;
 
-const endpointURL = "https://api.twitter.com/2/tweets?ids=";
+// const endpointURL = "https://api.twitter.com/2/tweets?ids=";
 
-async function getRequest() {
-    console.log("test")
+// async function getRequest() {
+//     console.log("test")
 
-    // These are the parameters for the API request
-    // specify Tweet IDs to fetch, and any additional fields that are required
-    // by default, only the Tweet ID and text are returned
-    const params = {
-        "ids": "1278747501642657792,1255542774432063488", // Edit Tweet IDs to look up
-        "tweet.fields": "lang,author_id", // Edit optional query parameters here
-        "user.fields": "created_at" // Edit optional query parameters here
-    }
+//     // These are the parameters for the API request
+//     // specify Tweet IDs to fetch, and any additional fields that are required
+//     // by default, only the Tweet ID and text are returned
+//     const params = {
+//         "ids": "1278747501642657792,1255542774432063488", // Edit Tweet IDs to look up
+//         "tweet.fields": "lang,author_id", // Edit optional query parameters here
+//         "user.fields": "created_at" // Edit optional query parameters here
+//     }
 
-    // this is the HTTP header that adds bearer token authentication
-    const res = await needle('get', endpointURL, params, {
-        headers: {
-            "User-Agent": "v2TweetLookupJS",
-            "authorization": `Bearer ${BEARER_TOKEN}`
-        }
-    })
+//     // this is the HTTP header that adds bearer token authentication
+//     const res = await needle('get', endpointURL, params, {
+//         headers: {
+//             "User-Agent": "v2TweetLookupJS",
+//             "authorization": `Bearer ${BEARER_TOKEN}`
+//         }
+//     })
 
-    if (res.body) {
-        return res.body;
-    } else {
-        throw new Error('Unsuccessful request');
-    }
-}
+//     if (res.body) {
+//         return res.body;
+//     } else {
+//         throw new Error('Unsuccessful request');
+//     }
+// }
 
-(async () => {
+// (async () => {
 
-    try {
-        // Make request
-        const response = await getRequest();
-        console.log(response);
+//     try {
+//         // Make request
+//         const response = await getRequest();
+//         console.log(response);
 
-    } catch (e) {
-        console.log(e);
-        process.exit(-1);
-    }
-    process.exit();
-})();
+//     } catch (e) {
+//         console.log(e);
+//         process.exit(-1);
+//     }
+//     process.exit();
+// })();
 
 //=============================================================================================
 // let twitterBtn = document.querySelector("#btnTwitter");
