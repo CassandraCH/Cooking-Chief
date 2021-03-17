@@ -13,7 +13,7 @@ export class RecettesService {
 
   }
 
-  tempUrl = '../../../test_api/pizza.json';
+  tempUrl = '../../assets/test_api/pizza.json';
 
   valRecherche: string;
   // recettes: Recette[] = [];
@@ -47,10 +47,11 @@ export class RecettesService {
     // RECUPERATION DES RECETTES RENVOYEES PAR L'API
     this.http.get<Recette[]>(this.tempUrl)
     .subscribe( (response) =>  {
-      // this.recettes = response.hits;
+      this.recettes = response.hits;
       //   je vais un ... afin de destructurer le tableau et
       // renvoyés une copie et non l'original ;)
       this.recettesSubject.next([...this.recettes]);
+      console.log(this.recettes);
     })
   }
 
