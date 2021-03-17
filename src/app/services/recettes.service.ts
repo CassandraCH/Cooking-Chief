@@ -36,6 +36,7 @@ export class RecettesService {
             titre: value.recipe.label,
             image: value.recipe.image,
             nbPortions: value.recipe.yield,
+            tags: value.recipe.healthLabels,
             listeIngredients: value.recipe.ingredientLines,
             calories: value.recipe.calories,
             tempsPreparation: value.recipe.totalTime,

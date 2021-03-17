@@ -19,8 +19,7 @@ export class RecetteDescriptionComponent implements OnInit {
 
   onClick(){
     const nom = this.route.snapshot.params['nom'];
+    // Redirection
     this.router.navigate(['/results', nom ,'details']);
-
-
   }
 }

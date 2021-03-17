@@ -1,6 +1,7 @@
 export interface Recette {
     titre: string;                  // label
     image: string;                  // image
+    tags: string[];                // healthLabels
     nbPortions: number;             // yield
     listeIngredients: string[];     // ingredientLines
     calories: number;               // calories
