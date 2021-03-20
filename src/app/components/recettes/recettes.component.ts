@@ -10,29 +10,34 @@ import { RecettesService } from 'src/app/services/recettes.service';
 })
 export class RecettesComponent implements OnInit, OnDestroy {
 
-
   valRecherche: string = '';
   recettes: Recette[] = [];
   recetteSubscription: Subscription;
 
-  constructor(private recettesService: RecettesService) { }
-
-  ngOnInit(): void {
-    // récupération de la recherche
-    this.valRecherche = this.recettesService.getValRecherche();
-    this.recetteSubscription = this.recettesService.recettesSubject.subscribe(
-      // On récupère les recettes du service
-      (recettes: Recette[]) => {
-        this.recettes = recettes;
-      }
-    );
-    console.log("avant : recettes-component : ");
-    console.log(this.recettes);
-    this.recettesService.emitRecette();
-    console.log("apres : recettes-component : ");
-    console.log(object);
+  constructor(private recettesService: RecettesService) {
+    console.log("RecetteComponent");
   }
 
+  ngOnInit(): void {
+
+    // On place un ecouteur sur le service recette afin de récupérer le tableau
+    // de recette
+    this.recetteSubscription = this.recettesService.getRecettesUpdateListener().subscribe(
+      // On récupère les recettes du service
+      (data: any) => {
+        console.log(data);
+        this.recettes = data;
+      }
+    );
+
+    // emitRecette n'emet pas mais récupère le tableau de recette
+    this.recettesService.emitRecette();
+
+    this.valRecherche = this.recettesService.getValRecherche();
+  }
+
+
+  // Désinscription de l'observable
   ngOnDestroy(){
     this.recetteSubscription.unsubscribe();
   }

@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-// import { RecettesService } from '../../services/recettes.service';
-// import { Resultat } from '../../models/Resultat.models';// modèle de données
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Recette } from 'src/app/models/Recette.models';
 
 @Component({
   selector: 'app-recette-description',
@@ -9,37 +8,25 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./recette-description.component.css']
 })
 export class RecetteDescriptionComponent implements OnInit {
-  @Input() indexRecette: number;
-  @Input() recetteImage: string;
-  @Input() recetteTitre: string;
-  @Input() recetteAuteur: string;
-  @Input() recetteNbPortions: number;
-  @Input() recetteCalories: number;
-  @Input() recetteTags: string[];
-  @Input() recherche: string;
-  @Input() id: number;
+  @Input() recette: Recette;
 
-
-  constructor(//private recettesService: RecettesService,
-              private router: Router,
+  constructor(private router: Router,
               private route: ActivatedRoute) {
-    this.indexRecette = 0;
-    this.recetteImage = "";
-    this.recetteTitre = "";
-    this.recetteAuteur = "";
-    this.recetteNbPortions = 0;
-    this.recetteCalories = 0;
-    this.recetteTags = [];
-    this.recherche = "";
-    this.id = 0;
   }
 
   ngOnInit(): void {
+
   }
 
+  /**
+   * Probablement à modifier , il faudrait s'orienter vers
+   * des routes enfants plutôt que des routes mères si vous avez le temps ;)
+   */
   onClick(){
     const nom = this.route.snapshot.params['nom'];
     // Redirection
-    this.router.navigate(['/results', nom , this.id]);
+    this.router.navigate(['/results', nom , this.recette.id ]);
   }
+
+
 }

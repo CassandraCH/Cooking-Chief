@@ -35,6 +35,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
 import { HeaderComponent } from './shared/header/header.component';
 
+import { RecettesService } from './services/recettes.service';
+import { RecetteResolver } from './services/recette-resolver.service';
 
 
 @NgModule({
@@ -68,7 +70,10 @@ import { HeaderComponent } from './shared/header/header.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    RecettesService,
+    RecetteResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

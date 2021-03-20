@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RecettesService } from '../../../services/recettes.service';
+import { ActivatedRoute } from '@angular/router';
+import { Recette } from '../../../models/Recette.models';
 
 @Component({
   selector: 'app-recette',
@@ -7,10 +8,17 @@ import { RecettesService } from '../../../services/recettes.service';
   styleUrls: ['./recette.component.css']
 })
 export class RecetteComponent implements OnInit {
-
-  constructor(private recettesService : RecettesService) { }
+  recette: Recette;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // Souscription à la donnée de l'URL (en fonction de la recette cliquée)
+    this.route.data.subscribe(
+      (data) => {
+        console.log(data);
+        this.recette = data.recette;
+      }
+    );
   }
 
 }

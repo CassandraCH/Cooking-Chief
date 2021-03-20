@@ -5,6 +5,7 @@ import { RecettesService } from '../../services/recettes.service';
 import { Recette } from '../../models/Recette.models';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-barre-recherche',
   templateUrl: './barre-recherche.component.html',
@@ -14,23 +15,19 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   rechercheForm: FormGroup;
   messageErreur: string;
-  recettes: any[] = [];
+  private recettes: Recette[] = [];
   recetteSubscription: Subscription;
 
   constructor(private recettesService: RecettesService,
               private formBuilder: FormBuilder,
               private router: Router)
-  { }
+  {
+
+  }
 
   ngOnInit(): void {
-    this.recetteSubscription = this.recettesService.recettesSubject.subscribe(
-      // On récupère les recettes du service
-      (recettes: Recette[]) => {
-        this.recettes = recettes;
-      }
-    );
     this.initForm();
-    this.recettesService.emitRecette();
+    this.recettesService.getRecettes();
   }
 
   initForm(){
@@ -42,6 +39,9 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
   }
 
   onRecherche(){
+
+    console.log(this.recettes)
+
     // Recupération de la recherche
     const recherche = this.rechercheForm.get('recherche').value;
 
@@ -51,12 +51,10 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
       this.recettesService.setValRecherche(recherche);
       this.messageErreur = '';
 
-      this.recettesService.getRecettes();
-
       // A implementer => requete a l'api en fonction de la recherche
 
       // Si l'api a renvoyé 1 ou plusieurs résultats à la recherche
-      if(this.recettes.length > 0){
+      if(this.recettesService.estComplet()){
         // redirection vers les resultats de la recherche
         this.router.navigate(['/']).then(
           () => { this.router.navigate(['/results', recherche]) }
@@ -77,7 +75,6 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
     else{
       this.messageErreur = "Veuillez saisir quelque chose";
     }
-
   }
 
   ngOnDestroy(){

@@ -8,13 +8,14 @@ import { ErreurPageComponent } from './components/erreur-page/erreur-page.compon
 import { RecettesComponent } from './components/recettes/recettes.component';
 import { NoResultComponent } from './components/no-result/no-result.component';
 import { RecetteComponent } from './components/recettes/recette/recette.component';
+import { RecetteResolver } from './services/recette-resolver.service';
 
 // Gestion du routing
 const routes: Routes = [
     { path: 'home', component: HomeComponent }, // page d'acceuil
     { path: 'results', component: RecettesComponent }, // page des resultats de recherche
     { path: 'results/:nom', component: RecettesComponent},
-    { path: 'results/:nom/:id', component: RecetteComponent}, // page de la recette avec la liste des ingrédients
+    { path: 'results/:nom/:id', component: RecetteComponent, resolve:{ recette: RecetteResolver }}, // page de la recette avec la liste des ingrédients
     { path: 'no-result', component: NoResultComponent }, // page quand la recherche n'a pas de résultats
     { path: '', redirectTo: 'home', pathMatch: 'full' }, // par défaut
     { path: 'not-found', component: ErreurPageComponent }, // page d'erreur 404
