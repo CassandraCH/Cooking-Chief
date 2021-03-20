@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RecettesService } from '../../services/recettes.service';
 import { Resultat } from '../../models/Resultat.models';// modèle de données
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,10 +9,29 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./recette-description.component.css']
 })
 export class RecetteDescriptionComponent implements OnInit {
+  @Input() indexRecette: number;
+  @Input() recetteImage: string;
+  @Input() recetteTitre: string;
+  @Input() recetteAuteur: string;
+  @Input() recetteNbPortions: number;
+  @Input() recetteCalories: number;
+  @Input() recetteTags: string[];
+
+  @Input() recherche: string;
+
 
   constructor(private recettesService: RecettesService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+    this.indexRecette = 0;
+    this.recetteImage = "";
+    this.recetteTitre = "";
+    this.recetteAuteur = "";
+    this.recetteNbPortions = 0;
+    this.recetteCalories = 0;
+    this.recetteTags = [];
+    this.recherche = "";
+  }
 
   ngOnInit(): void {
   }

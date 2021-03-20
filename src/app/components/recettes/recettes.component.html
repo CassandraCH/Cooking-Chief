@@ -4,16 +4,25 @@
   </section>
   <section id="results-content">
     <h3>Resultat de la recherche pour "{{ valRecherche }}"</h3>
-
-    <app-recette-description></app-recette-description>
-    <app-recette-description></app-recette-description>
-    <app-recette-description></app-recette-description>
-    <app-recette-description></app-recette-description>
-    <app-recette-description></app-recette-description>
-    <app-recette-description></app-recette-description>
-    <app-recette-description></app-recette-description>
-    <app-recette-description></app-recette-description>
-    <app-recette-description></app-recette-description>
-    <app-recette-description></app-recette-description>
+    <ul class="list-group">
+      <app-recette-description *ngFor="let recette of recettes; let i = index"
+                                [indexRecette]="i"
+                                [recetteImage]="recette.image"
+                                [recetteTitre]="recette.titre"
+                                [recetteAuteur]="recette.auteur"
+                                [recetteNbPortions]="recette.nbPortions"
+                                [recetteCalories]="recette.calories"
+                                [recetteTags]="recette.tags"
+                                [recherche]="valRecherche"></app-recette-description>
+      <!-- <app-recette-description></app-recette-description>
+      <app-recette-description></app-recette-description>
+      <app-recette-description></app-recette-description>
+      <app-recette-description></app-recette-description>
+      <app-recette-description></app-recette-description>
+      <app-recette-description></app-recette-description>
+      <app-recette-description></app-recette-description>
+      <app-recette-description></app-recette-description>
+      <app-recette-description></app-recette-description>-->
+    </ul>
   </section>
 </main>

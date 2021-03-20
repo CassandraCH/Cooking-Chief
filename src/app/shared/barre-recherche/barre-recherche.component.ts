@@ -22,8 +22,8 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
               private router: Router)
   {
     this.recetteSubscription = this.recettesService.recettesSubject.subscribe(
+      // On récupère les recettes du service
       (recettes: Recette[]) => {
-        // console.log(recettes)
         this.recettes = recettes;
       }
     );
@@ -55,24 +55,24 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
       // A implementer => requete a l'api en fonction de la recherche
 
+      // Si l'api a renvoyé 1 ou plusieurs résultats à la recherche
+      if(this.recettes.length > 0){
+        // redirection vers les resultats de la recherche
+        this.router.navigate(['/']).then(
+          () => { this.router.navigate(['/results', recherche]) }
+        );
+      }
+      // cas où l'api ne fournit pas de resultat == tableau vide
+      else {
+        // redirection vers la page 'no-result'
+        this.router.navigate(['/']).then(
+          () => { this.router.navigate(['/no-result']) }
+        );
+      }
 
-      // redirection vers les resultats de la recherche
-      this.router.navigate(['/']).then(
-        () => {
-          this.router.navigate(['/results', recherche]);
-        }
-      );
+
       this.initForm();
     }
-    // cas où l'api ne fournit pas de resultat
-    // else if(){
-    //   // redirection vers la page 'no-result'
-    //   this.router.navigate(['/']).then(
-    //     () => {
-    //       this.router.navigate(['/results']);
-    //     }
-    //   );
-    // }
     // Cas ou le champ de recherche est vide
     else{
       this.messageErreur = "Veuillez saisir quelque chose";
@@ -81,7 +81,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(){
+    // ne pas oublier => sinon, risque de bugs
     this.recetteSubscription.unsubscribe();
   }
-
 }

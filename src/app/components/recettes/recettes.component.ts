@@ -14,20 +14,21 @@ export class RecettesComponent implements OnInit, OnDestroy {
   recettes: Recette[] = [];
   recetteSubscription: Subscription;
 
-  constructor(private recettesService: RecettesService) { }
-
-  ngOnInit(): void {
-    // récupération de la recherche
-    this.valRecherche = this.recettesService.getValRecherche();
+  constructor(private recettesService: RecettesService) {
     this.recetteSubscription = this.recettesService.recettesSubject.subscribe(
+      // On récupère les recettes du service
       (recettes: Recette[]) => {
         this.recettes = recettes;
       }
     );
   }
 
+  ngOnInit(): void {
+    // récupération de la recherche
+    this.valRecherche = this.recettesService.getValRecherche();
+  }
+
   ngOnDestroy(){
     this.recetteSubscription.unsubscribe();
   }
-
 }
