@@ -12,7 +12,7 @@ export class RecettesService {
   valRecherche: string;
   recettes: any[] = [];
   tabRecettes: Recette[] = [];
-  recettesSubject = new Subject<any[]>();
+  recettesSubject = new Subject<Recette[]>();
 
   constructor(private http: HttpClient){ }
 
@@ -42,13 +42,14 @@ export class RecettesService {
             auteur: value.recipe.source,
             url: value.recipe.url
           }
-
           this.tabRecettes.push(rec);
         })
-
-        console.log("recettes : ");
+        this.emitRecette();
+        console.log("recettes - services : ");
         console.log(this.tabRecettes);
-      })
+      }, (error) => {
+        console.log("Erreur de chargement : "+ error);
+      });
   }
 
   getUneRecette(nom: string){

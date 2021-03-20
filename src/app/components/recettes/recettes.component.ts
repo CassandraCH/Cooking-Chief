@@ -26,7 +26,11 @@ export class RecettesComponent implements OnInit, OnDestroy {
         this.recettes = recettes;
       }
     );
+    console.log("avant : recettes-component : ");
+    console.log(this.recettes);
     this.recettesService.emitRecette();
+    console.log("apres : recettes-component : ");
+    console.log(object);
   }
 
   ngOnDestroy(){

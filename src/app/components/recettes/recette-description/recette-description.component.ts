@@ -17,6 +17,7 @@ export class RecetteDescriptionComponent implements OnInit {
   @Input() recetteCalories: number;
   @Input() recetteTags: string[];
   @Input() recherche: string;
+  @Input() id: number;
 
 
   constructor(//private recettesService: RecettesService,
@@ -30,6 +31,7 @@ export class RecetteDescriptionComponent implements OnInit {
     this.recetteCalories = 0;
     this.recetteTags = [];
     this.recherche = "";
+    this.id = 0;
   }
 
   ngOnInit(): void {
@@ -38,6 +40,6 @@ export class RecetteDescriptionComponent implements OnInit {
   onClick(){
     const nom = this.route.snapshot.params['nom'];
     // Redirection
-    this.router.navigate(['/results', nom ,'details']);
+    this.router.navigate(['/results', nom , this.id]);
   }
 }

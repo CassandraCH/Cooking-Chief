@@ -30,6 +30,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
       }
     );
     this.initForm();
+    this.recettesService.emitRecette();
   }
 
   initForm(){
