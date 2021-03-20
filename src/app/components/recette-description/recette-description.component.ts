@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RecettesService } from '../../services/recettes.service';
-import { Resultat } from '../../models/Resultat.models';// modèle de données
+// import { RecettesService } from '../../services/recettes.service';
+// import { Resultat } from '../../models/Resultat.models';// modèle de données
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -16,11 +16,10 @@ export class RecetteDescriptionComponent implements OnInit {
   @Input() recetteNbPortions: number;
   @Input() recetteCalories: number;
   @Input() recetteTags: string[];
-
   @Input() recherche: string;
 
 
-  constructor(private recettesService: RecettesService,
+  constructor(//private recettesService: RecettesService,
               private router: Router,
               private route: ActivatedRoute) {
     this.indexRecette = 0;

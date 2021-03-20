@@ -20,16 +20,15 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
   constructor(private recettesService: RecettesService,
               private formBuilder: FormBuilder,
               private router: Router)
-  {
+  { }
+
+  ngOnInit(): void {
     this.recetteSubscription = this.recettesService.recettesSubject.subscribe(
       // On récupère les recettes du service
       (recettes: Recette[]) => {
         this.recettes = recettes;
       }
     );
-  }
-
-  ngOnInit(): void {
     this.initForm();
   }
 

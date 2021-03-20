@@ -7,9 +7,6 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class RecettesService {
-
-  constructor(private http: HttpClient){ }
-
   tempUrl = '../../assets/test_api/pizza.json';
 
   valRecherche: string;
@@ -17,8 +14,10 @@ export class RecettesService {
   tabRecettes: Recette[] = [];
   recettesSubject = new Subject<any[]>();
 
+  constructor(private http: HttpClient){ }
+
   emitRecette(){
-    return this.recettesSubject.next(this.recettes);
+    return this.recettesSubject.next(this.recettes.slice());
   }
 
   getRecettes(){

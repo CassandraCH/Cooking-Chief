@@ -10,22 +10,23 @@ import { RecettesService } from 'src/app/services/recettes.service';
 })
 export class RecettesComponent implements OnInit, OnDestroy {
 
+
   valRecherche: string = '';
   recettes: Recette[] = [];
   recetteSubscription: Subscription;
 
-  constructor(private recettesService: RecettesService) {
+  constructor(private recettesService: RecettesService) { }
+
+  ngOnInit(): void {
+    // récupération de la recherche
+    this.valRecherche = this.recettesService.getValRecherche();
     this.recetteSubscription = this.recettesService.recettesSubject.subscribe(
       // On récupère les recettes du service
       (recettes: Recette[]) => {
         this.recettes = recettes;
       }
     );
-  }
-
-  ngOnInit(): void {
-    // récupération de la recherche
-    this.valRecherche = this.recettesService.getValRecherche();
+    this.recettesService.emitRecette();
   }
 
   ngOnDestroy(){

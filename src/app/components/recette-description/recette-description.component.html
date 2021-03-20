@@ -1,5 +1,5 @@
 <main>
-  <li>
+  <li [ngClass]="{'list-group-item': true}">
     <div class="card mb-3">
       <img src="../../../assets/img/photos/food.jpg" class="card-img-top" alt="..."> <!-- image dans le fichier json -->
       <div class="card-body">
@@ -12,7 +12,7 @@
           <p class="card-text">Nombre de personnes : {{ recetteNbPortions }} </p> <!-- yield dans le fichier json -->
           <div class="nbPortion-recette"></div>
 
-          <p class="card-text">Calories : {{ recetteNbPortions }}</p><!-- calories dans le fichier json -->
+          <p class="card-text">Calories : {{ recetteCalories }}</p><!-- calories dans le fichier json -->
           <div class="calories-recette"></div>
 
           <p class="card-text">Tags : <em>Tag1 </em> </p> <!-- healthLabels (tableau de string) dans le fichier json -->
