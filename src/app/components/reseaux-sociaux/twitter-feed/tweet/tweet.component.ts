@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TwitterService } from 'src/app/services/twitter.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { TwitterService } from 'src/app/services/twitter.service';
 })
 export class TweetComponent implements OnInit {
 
+  @Input('twitterName') public nom;
+  @Input('arobase') public at;
   constructor(private twitterService: TwitterService) { }
 
   ngOnInit(): void {

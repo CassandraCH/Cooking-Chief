@@ -8,6 +8,9 @@ import { TwitterService } from 'src/app/services/twitter.service';
 })
 export class TwitterFeedComponent implements OnInit {
 
+  public nameUser = "Cooking Chief";
+  public twitterAt = "web_l3";
+
   constructor(private twittersService: TwitterService) { }
 
   ngOnInit(): void {
