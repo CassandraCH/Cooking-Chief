@@ -8,11 +8,17 @@ import { TwitterService } from 'src/app/services/twitter.service';
 })
 export class TweetComponent implements OnInit {
 
+  public tweets = []
   @Input('twitterName') public nom;
   @Input('arobase') public at;
   constructor(private twitterService: TwitterService) { }
 
   ngOnInit(): void {
+    /**this.twitterService.getTwitterLine().subscribe(
+      (data: any) => {
+      console.log(data);
+      this.tweets = data;
+    })**/
   }
 
 }
