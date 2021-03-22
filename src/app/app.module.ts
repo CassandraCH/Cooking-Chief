@@ -5,14 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // Component principal
 import { AppComponent } from './app.component';
 
 // Components
 import { HomeComponent } from './components/home/home.component';
-import { MainContentComponent } from './components/main-content/main-content.component';
 
 import { ReseauxSociauxComponent } from './components/reseaux-sociaux/reseaux-sociaux.component';
 import { InstaFeedComponent } from './components/reseaux-sociaux/insta-feed/insta-feed.component';
@@ -34,11 +33,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
 import { HeaderComponent } from './shared/header/header.component';
 
+// Services
 import { RecettesService } from './services/recettes.service';
 import { RecetteResolver } from './services/recette-resolver.service';
 import { ResultatsGuard } from './services/resultatsGuard.service';
-
-
 
 @NgModule({
   declarations: [
@@ -54,7 +52,6 @@ import { ResultatsGuard } from './services/resultatsGuard.service';
     InstaPostComponent,
     TwitterFeedComponent,
     TweetComponent,
-    MainContentComponent,
     ResultatsComponent,
     RecetteComponent,
     RecetteDescriptionComponent,
