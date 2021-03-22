@@ -5,22 +5,22 @@ import { RecettesService } from 'src/app/services/recettes.service';
 
 @Component({
   selector: 'app-recettes',
-  templateUrl: './recettes.component.html',
-  styleUrls: ['./recettes.component.css']
+  templateUrl: './resultats.component.html',
+  styleUrls: ['./resultats.component.css']
 })
-export class RecettesComponent implements OnInit, OnDestroy {
+export class ResultatsComponent implements OnInit, OnDestroy {
 
   valRecherche: string = '';
   recettes: Recette[] = [];
   recetteSubscription: Subscription;
 
   constructor(private recettesService: RecettesService) {
-    console.log("RecetteComponent");
+    console.log("Resultats component - début");
   }
 
   ngOnInit(): void {
 
-    // On place un ecouteur sur le service recette afin de récupérer le tableau
+    // On place un écouteur sur le service recette afin de récupérer le tableau
     // de recette
     this.recetteSubscription = this.recettesService.getRecettesUpdateListener().subscribe(
       // On récupère les recettes du service
@@ -30,15 +30,14 @@ export class RecettesComponent implements OnInit, OnDestroy {
       }
     );
 
-    // emitRecette n'emet pas mais récupère le tableau de recette
-    this.recettesService.emitRecette();
-
+    // emitRecetteSubject n'emet pas mais récupère le tableau de recette
+    this.recettesService.emitRecetteSubject();
     this.valRecherche = this.recettesService.getValRecherche();
   }
-
 
   // Désinscription de l'observable
   ngOnDestroy(){
     this.recetteSubscription.unsubscribe();
+    console.log("Resultats component - fin");
   }
 }

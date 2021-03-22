@@ -5,18 +5,20 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from '../app/components/home/home.component';
 import { ErreurPageComponent } from './components/erreur-page/erreur-page.component';
-import { RecettesComponent } from './components/recettes/recettes.component';
-import { NoResultComponent } from './components/no-result/no-result.component';
-import { RecetteComponent } from './components/recettes/recette/recette.component';
+import { ResultatsComponent } from './components/resultats/resultats.component';
+import { NoResultComponent } from './components/resultats/no-result/no-result.component';
+import { RecetteComponent } from './components/resultats/recette/recette.component';
+
 import { RecetteResolver } from './services/recette-resolver.service';
+import { ResultatsGuard } from './services/resultatsGuard.service';
 
 // Gestion du routing
 const routes: Routes = [
     { path: 'home', component: HomeComponent }, // page d'acceuil
-    { path: 'results', component: RecettesComponent }, // page des resultats de recherche
-    { path: 'results/:nom', component: RecettesComponent},
-    { path: 'results/:nom/:id', component: RecetteComponent, resolve:{ recette: RecetteResolver }}, // page de la recette avec la liste des ingrédients
-    { path: 'no-result', component: NoResultComponent }, // page quand la recherche n'a pas de résultats
+    { path: 'results/no-result', component: NoResultComponent }, // page quand la recherche n'a pas de résultats
+    { path: 'results/:nom', component: ResultatsComponent},// page des resultats de recherche
+    // { path: 'results/:nom/:id', component: RecetteComponent, resolve:{ recette: RecetteResolver }},
+    { path: 'results/:nom/:id', component: RecetteComponent, canActivate: [ResultatsGuard]}, // page de la recette avec la liste des ingrédients
     { path: '', redirectTo: 'home', pathMatch: 'full' }, // par défaut
     { path: 'not-found', component: ErreurPageComponent }, // page d'erreur 404
     { path: '**', redirectTo: '/not-found'} // gestion des erreurs de saisie de l'url => page 404

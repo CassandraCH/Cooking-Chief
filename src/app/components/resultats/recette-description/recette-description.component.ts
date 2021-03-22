@@ -9,13 +9,13 @@ import { Recette } from 'src/app/models/Recette.models';
 })
 export class RecetteDescriptionComponent implements OnInit {
   @Input() recette: Recette;
+  nom: string;
 
   constructor(private router: Router,
-              private route: ActivatedRoute) {
-  }
+              private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-
+     this.nom = this.route.snapshot.params['nom'];
   }
 
   /**

@@ -20,12 +20,13 @@ import { InstaPostComponent } from './components/reseaux-sociaux/insta-feed/inst
 import { TwitterFeedComponent } from './components/reseaux-sociaux/twitter-feed/twitter-feed.component';
 import { TweetComponent } from './components/reseaux-sociaux/twitter-feed/tweet/tweet.component';
 
-import { RecettesComponent } from './components/recettes/recettes.component';
-import { RecetteComponent } from './components/recettes/recette/recette.component';
-import { RecetteDescriptionComponent } from './components/recettes/recette-description/recette-description.component'
+import { ResultatsComponent } from './components/resultats/resultats.component';
+import { RecetteComponent} from './components/resultats/recette/recette.component';
+import { RecetteDescriptionComponent } from './components/resultats/recette-description/recette-description.component'
+import { NoResultComponent } from './components/resultats/no-result/no-result.component';
 
 import { ErreurPageComponent } from './components/erreur-page/erreur-page.component';
-import { NoResultComponent } from './components/no-result/no-result.component';
+
 
 // Components partagés
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -35,6 +36,8 @@ import { HeaderComponent } from './shared/header/header.component';
 
 import { RecettesService } from './services/recettes.service';
 import { RecetteResolver } from './services/recette-resolver.service';
+import { ResultatsGuard } from './services/resultatsGuard.service';
+
 
 
 @NgModule({
@@ -52,8 +55,8 @@ import { RecetteResolver } from './services/recette-resolver.service';
     TwitterFeedComponent,
     TweetComponent,
     MainContentComponent,
+    ResultatsComponent,
     RecetteComponent,
-    RecettesComponent,
     RecetteDescriptionComponent,
     NoResultComponent,
   ],
@@ -68,7 +71,8 @@ import { RecetteResolver } from './services/recette-resolver.service';
   ],
   providers: [
     RecettesService,
-    RecetteResolver
+    RecetteResolver,
+    ResultatsGuard
   ],
   bootstrap: [AppComponent]
 })

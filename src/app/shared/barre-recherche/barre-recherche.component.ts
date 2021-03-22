@@ -64,7 +64,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
       else {
         // redirection vers la page 'no-result'
         this.router.navigate(['/']).then(
-          () => { this.router.navigate(['/no-result']) }
+          () => { this.router.navigate(['/results', 'no-result']) }
         );
       }
 

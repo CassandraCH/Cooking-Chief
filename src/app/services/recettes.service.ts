@@ -18,7 +18,7 @@ export class RecettesService {
   private recettesSubject = new Subject<Recette[]>();
 
 
-  emitRecette() {
+  emitRecetteSubject() {
      //   je fais un ... afin de destructurer le tableau
     // renvoyés une copie et non l'original ;)
     return this.recettesSubject.next([...this.tabRecettes]);
@@ -62,7 +62,7 @@ export class RecettesService {
   }
 
   // Renvoi une recette si elle est trouve
-  getRecette(id: number){
+  getRecetteById(id: number){
     const recipe = this.tabRecettes.find(
       (r) => { return r.id === id;
     });
