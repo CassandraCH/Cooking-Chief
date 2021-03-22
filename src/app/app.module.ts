@@ -23,8 +23,6 @@ import { TweetComponent } from './components/reseaux-sociaux/twitter-feed/tweet/
 import { RecettesComponent } from './components/recettes/recettes.component';
 import { RecetteComponent } from './components/recettes/recette/recette.component';
 import { RecetteDescriptionComponent } from './components/recettes/recette-description/recette-description.component'
-import { IngredientListeComponent } from './components/recettes/recette/ingredient-liste/ingredient-liste.component';
-import { IngredientComponent } from './components/recettes/recette/ingredient-liste/ingredient/ingredient.component';
 
 import { ErreurPageComponent } from './components/erreur-page/erreur-page.component';
 import { NoResultComponent } from './components/no-result/no-result.component';
@@ -57,8 +55,6 @@ import { RecetteResolver } from './services/recette-resolver.service';
     RecetteComponent,
     RecettesComponent,
     RecetteDescriptionComponent,
-    IngredientListeComponent,
-    IngredientComponent,
     NoResultComponent,
   ],
   imports: [
