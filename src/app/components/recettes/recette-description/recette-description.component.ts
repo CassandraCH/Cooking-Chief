@@ -22,11 +22,11 @@ export class RecetteDescriptionComponent implements OnInit {
    * Probablement à modifier , il faudrait s'orienter vers
    * des routes enfants plutôt que des routes mères si vous avez le temps ;)
    */
-  onClick(){
-    const nom = this.route.snapshot.params['nom'];
-    // Redirection
-    this.router.navigate(['/results', nom , this.recette.id ]);
-  }
+  // onClick(){
+  //   const nom = this.route.snapshot.params['nom'];
+  //   // Redirection
+  //   this.router.navigate(['/results', nom , this.recette.id ]);
+  // }
 
 
 }

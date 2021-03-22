@@ -14,8 +14,8 @@
 
           <p class="card-text">Calories : {{ recette.calories |  number: '1.0-0' }}</p><!-- calories dans le fichier json -->
           <div class="calories-recette"></div>
-
-          <button type="button" (click)="onClick()" class="btn btn-outline-default" href="">Découvrir la recette</button>
+<!--(click)="onClick()"-->
+          <button type="button" class="btn btn-outline-default" [routerLink]="[recette.id]">Découvrir la recette</button>
       </div>
     </div>
   </li>

@@ -9,9 +9,16 @@ import { Recette } from '../../../models/Recette.models';
 })
 export class RecetteComponent implements OnInit {
   recette: Recette;
+  id: number;
+  nom : string;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = +(this.route.snapshot.params['id']);
+    this.nom = this.route.snapshot.params['nom'];
+
+    // console.log('id : ' + this.id + ' - nom : ' + this.nom);
+
     // Souscription à la donnée de l'URL (en fonction de la recette cliquée)
     this.route.data.subscribe(
       (data) => {

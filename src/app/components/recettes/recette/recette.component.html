@@ -17,6 +17,9 @@
             <div class="col-lg-4 order-lg-1">
               <div class="card-recette-stats d-flex justify-content-center">
                 <div>
+                  <a routerLink="/results">Retour</a>
+                </div>
+                <div>
                   <span class="heading">{{ recette.nbPortions }}</span>
                   <span class="description">personnes</span>
                 </div>
@@ -32,6 +35,9 @@
             <h3>{{ recette.titre }}</h3>
           </div>
           <app-ingredient-liste [liste]="recette.listeIngredients"></app-ingredient-liste>
+          <button type="button"s class="btn btn-outline-default">
+            <a [href]="recette.url">Voir la recette</a>
+          </button>
         </div>
       </div>
     </div>
