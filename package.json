@@ -32,6 +32,7 @@
     "moment": "^2.29.1",
     "needle": "^2.6.0",
     "ng2-nouislider": "1.8.2",
+    "ngx-pagination": "^5.0.0",
     "nouislider": "14.6.3",
     "oauth-1.0a": "^2.2.6",
     "popper.js": "1.16.1",

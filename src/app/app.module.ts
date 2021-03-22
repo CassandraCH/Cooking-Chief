@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // Component principal
 import { AppComponent } from './app.component';
@@ -26,7 +27,6 @@ import { NoResultComponent } from './components/resultats/no-result/no-result.co
 
 import { ErreurPageComponent } from './components/erreur-page/erreur-page.component';
 
-
 // Components partagés
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -36,7 +36,7 @@ import { HeaderComponent } from './shared/header/header.component';
 // Services
 import { RecettesService } from './services/recettes.service';
 import { RecetteResolver } from './services/recette-resolver.service';
-import { ResultatsGuard } from './services/resultatsGuard.service';
+import { ResultatsGuard } from './services/resultats-guard.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +65,7 @@ import { ResultatsGuard } from './services/resultatsGuard.service';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPaginationModule,
   ],
   providers: [
     RecettesService,

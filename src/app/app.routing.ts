@@ -10,7 +10,7 @@ import { NoResultComponent } from './components/resultats/no-result/no-result.co
 import { RecetteComponent } from './components/resultats/recette/recette.component';
 
 // import { RecetteResolver } from './services/recette-resolver.service';
-import { ResultatsGuard } from './services/resultatsGuard.service';
+import { ResultatsGuard } from './services/resultats-guard.service';
 
 // Gestion du routing
 const routes: Routes = [
