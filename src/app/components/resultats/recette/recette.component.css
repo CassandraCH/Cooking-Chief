@@ -1,7 +1,30 @@
-.card-recette{
+.card-recette {
     margin-bottom: 2em;
 }
 
-.divTitreRecette{
+.divTitreRecette {
     margin-top: 2em;
+}
+
+.bouton {
+    background-color:  #A48A5C;
+    transition: 0.7s;
+}
+
+.bouton a {
+ color: white;
+}
+
+.bouton:hover{
+    opacity: 0.8;
+    background-color:  #aa9879;
+}
+
+.bouton:hover a {
+    color: #463F32;
+}
+
+#btnVoir {
+    border: none;
+    margin-left: 25%;
 }

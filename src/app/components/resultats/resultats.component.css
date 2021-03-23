@@ -3,6 +3,7 @@ main{
     flex-direction: row;
     flex-flow: wrap-reverse;
     justify-content:space-around;
+    grid-template-columns: 40px 300px auto 40px;
 }
 
 #reseaux-sociaux{

@@ -15,7 +15,7 @@
           <p class="card-text">Calories : {{ recette.calories |  number: '1.0-0' }}</p><!-- calories dans le fichier json -->
           <div class="calories-recette"></div>
 <!-- Bouton pour accéder à la recette => redirection -->
-          <button type="button" class="btn btn-outline-default" [routerLink]="['/results', nom ,recette.id]">Découvrir la recette</button>
+          <button type="button" class="btn btn-outline-default" [routerLink]="['/results', nom , recette.id]">Découvrir la recette</button>
       </div>
     </div>
   </li>

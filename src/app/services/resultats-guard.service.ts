@@ -14,11 +14,12 @@ export class ResultatsGuard implements CanActivate {
         return new Promise(
             (resolve) => {
                 const recette = this.recetteService.getRecetteById(+id);
-                if (recette) {
-                    resolve(true);
-                } else {
+                if (recette === undefined) {
                     this.router.navigate(['/results', 'no-result']);
                     resolve(false);
+                } else {
+
+                    resolve(true);
                 }
             }
         );

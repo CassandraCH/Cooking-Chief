@@ -19,7 +19,10 @@
               <div class="card-recette-stats d-flex justify-content-center">
                 <!-- Bouton de retour-->
                 <div>
-                  <a routerLink="/results/{{nom}}">Retour</a>
+                  <button class="bouton btn btn-1 btn-neutral">
+                    <a routerLink="/results/{{nom}}">Retour</a>
+                  </button>
+
                 </div>
                 <div>
                   <span class="heading">{{ recette.nbPortions }}</span>
@@ -49,12 +52,13 @@
                 </ul>
               </div>
             </div>
+            <!-- Bouton pour accéder à la recette => ouverture dans une autre fenêtre -->
+            <button type="button" class="bouton btn btn-outline-default" id="btnVoir">
+              <a [href]="recette.url" target="_blank">Voir la recette</a>
+            </button>
           </div>
 
-          <!-- Bouton pour accéder à la recette => ouverture dans une autre fenêtre -->
-          <button type="button"s class="btn btn-outline-default">
-            <a [href]="recette.url" target="_blank">Voir la recette</a>
-          </button>
+
         </div>
       </div>
     </div>
