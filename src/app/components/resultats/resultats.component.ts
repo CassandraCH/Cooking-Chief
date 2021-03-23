@@ -19,20 +19,20 @@ export class ResultatsComponent implements OnInit, OnDestroy {
   constructor(private recettesService: RecettesService) {
     console.log("Resultats component - début");
 
+    // Configuration de la pagination
     this.config = {
-      itemsPerPage: 5,
-      currentPage: 1,
-      totalItems: this.recettes.length
+      itemsPerPage: 5, // 5 recettes/page
+      currentPage: 1, // page actuelle == 1
+      totalItems: this.recettes.length // nombre total de recettes == taille
     };
   }
 
   ngOnInit(): void {
 
-    // On place un écouteur sur le service recette afin de récupérer le tableau
-    // de recette
+    // On place un écouteur sur le service recette afin de récupérer le tableau de recettes
     this.recetteSubscription = this.recettesService.getRecettesUpdateListener().subscribe(
       // On récupère les recettes du service
-      (data: any) => {
+      (data: Recette[]) => {
         console.log(data);
         this.recettes = data;
       }

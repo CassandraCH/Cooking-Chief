@@ -6,36 +6,21 @@ main{
     grid-template-columns: 30px 300px auto 30px;
 }
 
-// #reseaux-sociaux{
-//     // border: 1px solid green;
-//     grid-column: 2;
-//     margin: 20px 10px 0 10px;
-// }
-
-// #main-content{
-//     // border: 1px solid fuchsia;
-//     grid-column: 3;
-//     margin: 20px 10px 0 10px;
-// }
-
 @media(min-width:250px){
     main{
         display: grid;
         grid-template-columns: 10px auto 10px;
         grid-column-gap: 80px;
-        //  height: 100%;
     }
 
     #reseaux-sociaux{
         /* border: 1px solid red; */
-        /* grid-column: 2; */
         display: none;
     }
 
     #main-content{
         /* border: 1px solid blue; */
         grid-column: 2;
-
     }
 }
 
@@ -59,7 +44,6 @@ main{
         margin: 0;
     }
 }
-
 
 @media(min-width:1200px){
     main{

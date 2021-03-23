@@ -6,18 +6,6 @@ main{
     grid-template-columns: 30px 300px auto 30px;
 }
 
-/* #reseaux-sociaux{
-    // border: 1px solid green;
-    grid-column: 2;
-    margin: 20px 10px 0 10px;
-}
-
-#results-content{
-    //border: 1px solid fuchsia;
-    grid-column: 3;
-    margin: 20px 10px 0 10px;
-} */
-
 @media(min-width:250px){
     main{
         display: grid;
@@ -27,7 +15,6 @@ main{
 
     #reseaux-sociaux{
         /* border: 1px solid red; */
-        /* grid-column: 2; */
         display: none;
     }
 
@@ -74,5 +61,6 @@ main{
     #results-content{
         /* border: 1px solid blue; */
         grid-column: 3;
+        margin: 20px 10px 0 10px;
     }
 }

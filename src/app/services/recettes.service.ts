@@ -35,6 +35,8 @@ export class RecettesService {
     return this.recettesSubject.asObservable();
   }
 
+  getTabRecettes(): Recette[]{ return this.tabRecettes; }
+
   getRecettes(){
     // RECUPERATION DES RECETTES RENVOYEES PAR L'API
     // (pour le moment par le fichier json pour les tests)

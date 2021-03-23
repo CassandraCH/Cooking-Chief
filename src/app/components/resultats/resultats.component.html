@@ -4,12 +4,15 @@
   </section>
   <section id="results-content">
     <h3>Resultat de la recherche pour "{{ valRecherche }}"</h3>
+
     <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
     <ul class="list-group">
       <app-recette-description *ngFor="let rec of recettes | paginate: config"
                                 [recette]="rec"></app-recette-description>
     </ul>
-    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-  </section>
 
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+  </section>
 </main>
