@@ -25,7 +25,7 @@ export class RecettesService {
   }
 
   // Vérifie si le tableau de recettes est remplis
-  estComplet() {
+  tabNonVide() {
     return (this.tabRecettes.length > 0);
   }
 

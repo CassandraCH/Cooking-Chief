@@ -20,10 +20,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   constructor(private recettesService: RecettesService,
               private formBuilder: FormBuilder,
-              private router: Router)
-  {
-
-  }
+              private router: Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -31,15 +28,10 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
   }
 
   initForm(){
-    this.rechercheForm = this.formBuilder.group(
-      {
-        recherche: ['', Validators.required]
-      }
-    );
+    this.rechercheForm = this.formBuilder.group( { recherche: ['', Validators.required] } );
   }
 
   onRecherche(){
-
     console.log(this.recettes)
 
     // Recupération de la recherche
@@ -54,7 +46,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
       // A implementer => requete a l'api en fonction de la recherche
 
       // Si l'api a renvoyé 1 ou plusieurs résultats à la recherche
-      if(this.recettesService.estComplet()){
+      if(this.recettesService.tabNonVide()){
         // redirection vers les resultats de la recherche
         this.router.navigate(['/']).then(
           () => { this.router.navigate(['/results', recherche]) }

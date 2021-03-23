@@ -28,6 +28,7 @@ export class ResultatsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // this.route.data.subscribe( (data: { recettes: Recette[] }) => this.recettes = data.recettes);
 
     // On place un écouteur sur le service recette afin de récupérer le tableau de recettes
     this.recetteSubscription = this.recettesService.getRecettesUpdateListener().subscribe(

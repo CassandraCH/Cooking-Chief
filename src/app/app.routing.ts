@@ -17,6 +17,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent }, // page d'acceuil
     { path: 'results/no-result', component: NoResultComponent }, // page quand la recherche n'a pas de résultats
     { path: 'results/:nom', component: ResultatsComponent },// page des resultats de recherche
+    // { path: 'results/:nom', component: ResultatsComponent, resolve: { recettes: RecetteResolver } },// page des resultats de recherche
     // { path: 'results/:nom/:id', component: RecetteComponent, resolve:{ recette: RecetteResolver }},
     { path: 'results/:nom/:id', component: RecetteComponent, canActivate: [ResultatsGuard] }, // page de la recette avec la liste des ingrédients
     { path: '', redirectTo: 'home', pathMatch: 'full' }, // par défaut

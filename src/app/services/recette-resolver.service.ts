@@ -1,16 +1,15 @@
 import { Recette } from 'src/app/models/Recette.models';
 import { RecettesService } from 'src/app/services/recettes.service';
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import { Resolve } from '@angular/router';
 import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
 
 @Injectable()
-export class RecetteResolver implements Resolve<Recette> {
+export class RecetteResolver implements Resolve<Recette[]> {
 
-    constructor(private recetteService: RecettesService){}
+    constructor(private recettes: RecettesService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
-    : Observable<Recette> | Promise<Recette> | Recette {
-        return this.recetteService.getRecetteById(+route.params.id);
+    resolve(): Observable<Recette[]>{
+        return this.recettes.getRecettesUpdateListener();
     }
 }
