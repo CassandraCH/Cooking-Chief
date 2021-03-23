@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Tweet } from 'src/app/models/Tweet.models';
 import { TwitterService } from 'src/app/services/twitter.service';
 
 @Component({
@@ -9,9 +10,9 @@ import { TwitterService } from 'src/app/services/twitter.service';
 export class TweetComponent implements OnInit {
 
   public tweets = []
-  @Input('twitterName') public nom;
-  @Input('arobase') public at;
-  constructor(private twitterService: TwitterService) { }
+  @Input('tweet') public unTweet: Tweet;
+
+  constructor() { }
 
   ngOnInit(): void {
     /**this.twitterService.getTwitterLine().subscribe(
