@@ -14,8 +14,16 @@ export class ResultatsComponent implements OnInit, OnDestroy {
   recettes: Recette[] = [];
   recetteSubscription: Subscription;
 
+  config: any;
+
   constructor(private recettesService: RecettesService) {
     console.log("Resultats component - début");
+
+    this.config = {
+      itemsPerPage: 5,
+      currentPage: 1,
+      totalItems: this.recettes.length
+    };
   }
 
   ngOnInit(): void {
@@ -33,6 +41,10 @@ export class ResultatsComponent implements OnInit, OnDestroy {
     // emitRecetteSubject n'emet pas mais récupère le tableau de recette
     this.recettesService.emitRecetteSubject();
     this.valRecherche = this.recettesService.getValRecherche();
+  }
+
+  pageChanged(event){
+    this.config.currentPage = event;
   }
 
   // Désinscription de l'observable

@@ -5,8 +5,9 @@
   <section id="results-content">
     <h3>Resultat de la recherche pour "{{ valRecherche }}"</h3>
     <ul class="list-group">
-      <app-recette-description *ngFor="let rec of recettes;"
+      <app-recette-description *ngFor="let rec of recettes | paginate: config"
                                 [recette]="rec"></app-recette-description>
     </ul>
   </section>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 </main>
