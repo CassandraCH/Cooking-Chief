@@ -28,7 +28,6 @@ export class TwitterFeedComponent implements OnInit {
           arobase:  value.user.screen_name,
           photoDeProfil: value.user.profile_image_url,
           texte: value.text,
-          date: value.created_at,
           favs: value.favorite_count,
           rts: value.retweet_count,
         }
