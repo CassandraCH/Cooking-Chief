@@ -39,8 +39,4 @@ export class TwitterFeedComponent implements OnInit {
      });
      this.twittersService.emitTweetSubject();
   }
-
-  ngOnDestroy(){
-    this.tweetSubscription.unsubscribe();
-  }
 }
