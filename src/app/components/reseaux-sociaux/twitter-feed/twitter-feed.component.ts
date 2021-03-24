@@ -19,13 +19,25 @@ export class TwitterFeedComponent implements OnInit {
   constructor(private twittersService: TwitterService) { }
 
   ngOnInit(): void {
-    this.tweetSubscription = this.twittersService.getTweetUpdateListener().subscribe(
-      (data: Tweet[]) => {
-        this.tabTweets = data
-      }
-    );
-
-    this.twittersService.emitTweetSubject();
+    this.twittersService.getTwitterLine().subscribe( (response) => {
+      let id = 1;
+      response.forEach( (value) => {
+        let tweet: Tweet = {
+          id: id,
+          nom: value.user.name,
+          arobase:  value.user.screen_name,
+          photoDeProfil: value.user.profile_image_url,
+          texte: value.text,
+          date: value.created_at,
+          favs: value.favorite_count,
+          rts: value.retweet_count,
+        }
+        id+= 1;
+        console.log(tweet);
+        this.tabTweets.push(tweet);
+      })
+     });
+     this.twittersService.emitTweetSubject();
   }
 
   ngOnDestroy(){

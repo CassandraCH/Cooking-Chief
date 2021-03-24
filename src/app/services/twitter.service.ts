@@ -8,46 +8,34 @@ import { Tweet } from '../models/Tweet.models';
 })
 export class TwitterService {
 
-  private urlTweetLine:string = "../../assets/test_api/pizza.json";
-  private tweets: Tweet[];
+  private urlTweetLine:string = "../../assets/test_api/tweetLine.json";
+  private tweets: Tweet[] = [];
 
   private tweetSubject = new Subject<Tweet[]>();
 
   constructor(private http: HttpClient) {}
 
   emitTweetSubject(){
+    console.log("tweets : ");
+    console.log(this.tweets);
     return this.tweetSubject.next([...this.tweets]);
   }
 
   estComplet(){
+    console.log("tweets : ");
+    console.log(this.tweets);
     return (this.tweets.length > 0);
   }
 
   getTweetUpdateListener(): Observable<Tweet[]>{
+    console.log("tweets : ");
+    console.log(this.tweets);
     return this.tweetSubject.asObservable();
   }
 
 
   getTwitterLine(){
-   return this.http.get<any>(this.urlTweetLine).subscribe( (response) => {
-    let id = 1;
-    response["hits"].forEach( (value) => {
-      let tweet: Tweet = {
-        id: id,
-        nom: value.user.name,
-        arobase:  value.user.screen_name,
-        photoDeProfil: value.user.profile_image_url,
-        texte: value.text,
-        date: value.created_at,
-        favs: value.favorite_count,
-        rts: value.retweet_count,
-      }
-      id+= 1;
-      this.tweets.push(tweet);
-    })
-    console.log("tweets : ");
-    console.log(this.tweets);
-   });
+   return this.http.get<any>(this.urlTweetLine);
   }
 
 
