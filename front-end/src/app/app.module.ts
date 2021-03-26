@@ -35,6 +35,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { RecettesService } from './services/recettes.service';
 import { RecetteResolver } from './services/recette-resolver.service';
 import { ResultatsGuard } from './services/resultats-guard.service';
+import { TwitterService } from './services/twitter.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ResultatsGuard } from './services/resultats-guard.service';
   providers: [
     RecettesService,
     RecetteResolver,
-    ResultatsGuard
+    ResultatsGuard,
+    TwitterService
   ],
   bootstrap: [AppComponent]
 })
