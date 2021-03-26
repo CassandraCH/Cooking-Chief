@@ -1,0 +1,48 @@
+/* *
+* FC Instagram - Development FCV Team
+* Website: https://foodconnection.vn
+* Since: 2019-11
+* Version: v2.0.0
+* */
+                               
+/* BEGIN - MEDIUM */
+.instagram-gallery-medium {
+    width: 480px;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+                               
+.instagram-gallery-medium > a {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
+}
+                               
+.instagram-gallery-medium > a > video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+                               
+                               
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+    .instagram-gallery-medium {
+        width: 320px;
+    }
+                               
+    .instagram-gallery-medium > a {
+        width: 100px;
+        height: 100px;
+        margin: 2px;
+    }
+}
+                               
+/* END - MEDIUM */
