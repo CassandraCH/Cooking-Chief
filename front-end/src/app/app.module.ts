@@ -15,8 +15,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { ReseauxSociauxComponent } from './components/reseaux-sociaux/reseaux-sociaux.component';
-import { InstaFeedComponent } from './components/reseaux-sociaux/insta-feed/insta-feed.component';
-import { InstaPostComponent } from './components/reseaux-sociaux/insta-feed/insta-post/insta-post.component';
 import { TwitterFeedComponent } from './components/reseaux-sociaux/twitter-feed/twitter-feed.component';
 import { TweetComponent } from './components/reseaux-sociaux/twitter-feed/tweet/tweet.component';
 
@@ -48,8 +46,6 @@ import { ResultatsGuard } from './services/resultats-guard.service';
     ErreurPageComponent,
     HomeComponent,
     ReseauxSociauxComponent,
-    InstaFeedComponent,
-    InstaPostComponent,
     TwitterFeedComponent,
     TweetComponent,
     ResultatsComponent,
