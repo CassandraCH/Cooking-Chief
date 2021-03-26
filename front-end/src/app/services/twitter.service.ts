@@ -8,7 +8,7 @@ import { Tweet } from '../models/Tweet.models';
 })
 export class TwitterService {
 
-  private urlTweetLine:string = "../../assets/test_api/tweetLine.json";
+  private urlTweetLine:string = "assets/test_api/tweetLine.json";
   private tweets: Tweet[] = [];
 
   private tweetSubject = new Subject<Tweet[]>();

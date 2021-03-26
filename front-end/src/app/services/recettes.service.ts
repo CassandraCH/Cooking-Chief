@@ -10,7 +10,7 @@ export class RecettesService {
 
   constructor(private http: HttpClient){ }
 
-  tempUrl = '../../assets/test_api/pizza.json';
+  tempUrl = 'assets/test_api/pizza.json';
 
   valRecherche: string;
 
