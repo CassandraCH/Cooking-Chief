@@ -21,7 +21,7 @@ export class ResultatsComponent implements OnInit, OnDestroy {
 
     // Configuration de la pagination
     this.config = {
-      itemsPerPage: 5, // 5 recettes/page
+      itemsPerPage: 4, // 4 recettes/page
       currentPage: 1, // page actuelle == 1
       totalItems: this.recettes.length // nombre total de recettes == taille
     };
