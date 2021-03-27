@@ -31,9 +31,13 @@ export class TwitterFeedComponent implements OnInit {
           favs: value.favorite_count,
           rts: value.retweet_count,
         }
-        id+= 1;
+
         console.log(tweet);
-        this.tabTweets.push(tweet);
+        // Limiter à 6 tweets pour l'affichage
+        if(id <= 6){
+          this.tabTweets.push(tweet);
+        }
+        id+= 1;
       })
      });
      this.twittersService.emitTweetSubject();

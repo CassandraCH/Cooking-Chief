@@ -26,3 +26,15 @@ nav{
 .nav-item a:hover{
     color: #A48A5C;
 }
+
+@media(min-width:250px){
+    .nav-item{
+        display: none;
+    }
+}
+
+@media(min-width:768px){
+    .nav-item{
+        display: inline;
+    }
+}

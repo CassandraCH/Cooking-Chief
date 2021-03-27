@@ -1,7 +1,30 @@
 .userInfos{
-    margin-top: 0.5em;
+    margin-bottom: 0;
 }
+
 .card{
-    border: black 1px solid;
-    margin-bottom: 20px;
+    border: #79613c 0.4px solid;
+    margin-bottom: 5px;
+    height: 200px;
+}
+
+
+#user{
+    display:flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 80px 2px 30px ;
+}
+
+.card-likes{
+    height: 100%;
+    margin: 0;
+    padding: 1px 15px;
+}
+
+.card-tweet{
+    height: 100%;
+    padding: 1px 20px;
+    margin: 0;
 }
