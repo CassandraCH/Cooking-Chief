@@ -6,9 +6,10 @@ main{
 #reseaux-sociaux{
     grid-column: 2;
     margin: 0;
+    margin-bottom: 15px;
 }
 
-#main-content{
+#results-content{
     grid-column: 3;
     margin: 0;
 }
@@ -49,18 +50,20 @@ main{
 
 @media(min-width:1200px){
     main{
-       display: grid;
-        grid-template-columns: 50px 400px 40px auto 100px;
+        display: grid;
+        grid-template-columns: 50px 400px 90px auto 200px;
         grid-column-gap: 60px;
     }
 
     #reseaux-sociaux{
         grid-column: 2;
         margin: 0;
+        margin-bottom: 15px;
     }
 
     #results-content{
         grid-column: 4;
         margin: 0;
+        padding: 40px;
     }
 }

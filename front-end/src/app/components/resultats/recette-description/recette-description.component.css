@@ -1,6 +1,10 @@
 main{
-    /* border: 1px solid violet; */
     width: 100%;
+}
+
+img{
+    width: 400px;
+    height: auto;
 }
 
 li {

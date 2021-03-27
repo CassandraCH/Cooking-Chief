@@ -14,9 +14,8 @@ import { AppComponent } from './app.component';
 // Components
 import { HomeComponent } from './components/home/home.component';
 
-import { ReseauxSociauxComponent } from './components/reseaux-sociaux/reseaux-sociaux.component';
-import { TwitterFeedComponent } from './components/reseaux-sociaux/twitter-feed/twitter-feed.component';
-import { TweetComponent } from './components/reseaux-sociaux/twitter-feed/tweet/tweet.component';
+import { TwitterFeedComponent } from './components/twitter-feed/twitter-feed.component';
+import { TweetComponent } from './components/twitter-feed/tweet/tweet.component';
 
 import { ResultatsComponent } from './components/resultats/resultats.component';
 import { RecetteComponent} from './components/resultats/recette/recette.component';
@@ -46,7 +45,6 @@ import { TwitterService } from './services/twitter.service';
     HeaderComponent,
     ErreurPageComponent,
     HomeComponent,
-    ReseauxSociauxComponent,
     TwitterFeedComponent,
     TweetComponent,
     ResultatsComponent,
