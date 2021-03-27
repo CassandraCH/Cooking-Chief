@@ -1,19 +1,31 @@
 {
   "name": "back-end",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "back end de Cooking-Chief",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CassandraCH/Cooking-Chief.git"
+  },
+  "keywords": [
+    "back-end",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "YCG Team",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CassandraCH/Cooking-Chief/issues"
+  },
+  "homepage": "https://github.com/CassandraCH/Cooking-Chief#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongodb": "^3.6.5",
     "mongoose": "^5.12.2"
   }
 }
