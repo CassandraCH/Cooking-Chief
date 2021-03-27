@@ -18,12 +18,13 @@ async function run() {
     const database = client.db("sample_mflix");
     const movies = database.collection("movies");
     // Query for a movie that has the title 'The Room'
-    const query = { title: "The Room" };
+    // const query = { title: "The Poor Little Rich Girl" };
+    const query = { year: 1914 };
     const options = {
       // sort matched documents in descending order by rating
       sort: { rating: -1 },
       // Include only the `title` and `imdb` fields in the returned document
-      projection: { _id: 0, title: 1, imdb: 1 },
+      projection: { _id: 0, title: 1, imdb: 1, year: 1 },
     };
     const movie = await movies.findOne(query, options);
     // since this method returns the matched document, not a cursor, print it directly
