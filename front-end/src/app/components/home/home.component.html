@@ -6,107 +6,128 @@
     <h3 id="titreAccueil">Recette du jour !</h3>
     <p>Nous n'avons pas de recette à vous proposer pour le moment ;)</p>
 
-    <div class="card mb-3">
-      <img id="imgRecetteJour" src="assets/img/photos/cheesecake.jpg" class="card-img-top" alt="..."> <!-- image dans le fichier json -->
-      <div class="card-body">
-          <h5 class="card-title">Cheesecake</h5> <!-- label dans le fichier json -->
-          <div class="titre-recette"></div>
-
-          <p class="card-text">Auteur : Marmiton</p> <!-- source dans le fichier json -->
-          <div class="auteur-recette"></div>
-
-          <p class="card-text">Nombre de personnes : 6 </p> <!-- yield dans le fichier json -->
-          <div class="nbPortion-recette"></div>
-
-          <p class="card-text">Calories : 321 Kcal ( 1 part )</p><!-- calories dans le fichier json -->
-          <div class="calories-recette"></div>
-
-
-          <div class="mt-2 py-2 border-top divListeIngredients">
-            <div class="row justify-content">
-              <div class="col-lg-9">
-                <h4>Liste des ingrédients :</h4>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    Une gousse de Vanille
-                  </li>
-                  <li class="list-group-item">
-                    2 cuillères à soupe de Farine
-                  </li>
-                  <li class="list-group-item">
-                    500g de Fromage Blanc (0% ou autre)
-                  </li>
-                  <li class="list-group-item">
-                    50g de Beurre 
-                  </li>
-                  <li class="list-group-item">
-                    3 Oeufs
-                  </li>
-                  <li class="list-group-item">
-                    2 Petits suisses (20 % mg c'est bien)
-                  </li>
-                  <li class="list-group-item">
-                    Sucre à volonté
-                  </li>
-                  <li class="list-group-item">
-                    1 zeste de Citron
-                  </li>
-                  <li class="list-group-item">
-                    1 Citron
-                  </li>
-                  <li class="list-group-item">
-                    1/3 d'un paquet de Petits beurres ( ou autre biscuits sablés )
-                  </li>
-                  <li class="list-group-item">
-                    2 cuillères de Sucre roux
-                  </li>
-                </ul>
+    <div class="recette-page">
+      <section class="section-recette my-0">
+      </section>
+      <section>
+        <div class="container">
+    
+          <div class="card card-recette shadow mt--300">
+            <div class="px-4">
+              <div class="row justify-content-center">
+                <div class="col-lg-3 order-lg-2">
+                  <!-- Photo de la recette-->
+                  <div class="card-recette-image">
+                    <a href="javascript:void(0)">
+                      <img src="assets/img/photos/cheesecake.jpg">
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-4 order-lg-1">
+                  <div class="card-recette-stats d-flex justify-content-center">
+                    <div>
+                      <span class="heading">6</span>
+                      <span class="description">personnes</span>
+                    </div>
+                    <div>
+                      <span class="heading">321</span>
+                      <span class="description">Kcal</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="text-center mt-7 divTitreRecette">
+                <h3>Cheescake</h3>
+              </div>
+    
+              <!-- Gestion de la liste des ingrédients -->
+              <div class="mt-2 py-2 border-top divListeIngredients">
+                <div class="row justify-content">
+                  <div class="col-lg-9">
+                    <h4>Liste des ingrédients :</h4>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        Une gousse de Vanille
+                      </li>
+                      <li class="list-group-item">
+                        2 cuillères à soupe de Farine
+                      </li>
+                      <li class="list-group-item">
+                        500g de Fromage Blanc (0% ou autre)
+                      </li>
+                      <li class="list-group-item">
+                        50g de Beurre 
+                      </li>
+                      <li class="list-group-item">
+                        3 Oeufs
+                      </li>
+                      <li class="list-group-item">
+                        2 Petits suisses (20 % mg c'est bien)
+                      </li>
+                      <li class="list-group-item">
+                        Sucre à volonté
+                      </li>
+                      <li class="list-group-item">
+                        1 zeste de Citron
+                      </li>
+                      <li class="list-group-item">
+                        1 Citron
+                      </li>
+                      <li class="list-group-item">
+                        1/3 d'un paquet de Petits beurres ( ou autre biscuits sablés )
+                      </li>
+                      <li class="list-group-item">
+                        2 cuillères de Sucre roux
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="mt-2 py-2 border-top divListeIngredients">
+                <div class="row justify-content">
+                  <div class="col-lg-9">
+                    <h4>Étapes de la recette :</h4>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        ÉTAPE 1 : Ecraser les petits beurre en grosses miettes dans 1 saladier, y verser dessus le beurre préalablement fondu, mélanger le tout. Ajouter 2 cuillères à soupe de sucre roux et mélanger.
+                      </li>
+                      <li class="list-group-item">
+                        ÉTAPE 2 : Etaler cette préparation dans un moule anti-adhésif (moule à manqué c'est bien). Réserver au frigo en attendant.
+                      </li>
+                      <li class="list-group-item">
+                        ÉTAPE 3 : Mélanger les jaunes d'oeufs et le sucre (pour moi environ 100 g) jusqu'à ce que le mélange devienne mousseux et clair (au batteur électrique c'est plus rapide...).
+                      </li>
+                      <li class="list-group-item">
+                        ÉTAPE 4 : Ajouter le zeste et le jus du 1/2 citron.
+                      </li> 
+                      <li class="list-group-item">
+                        ÉTAPE 5 : Ensuite mélanger avec le fromage blanc et les deux petits suisses.
+                      </li>
+                      <li class="list-group-item">
+                        ÉTAPE 6 : Puis mettre la farine et rendre la préparation homogène.
+                      </li>
+                      <li class="list-group-item">
+                        ÉTAPE 7 : Monter les blancs en neige bien ferme et les incorporer délicatement à la préparation.
+                      </li>
+                      <li class="list-group-item">
+                        ÉTAPE 8 : Verser doucement dans le moule tapissé de petits beurres.
+                      </li>
+                      <li class="list-group-item">
+                        ÉTAPE 9 : Mettre au four pendant 45 mn à 1 heure (cela dépend du four et du la teneur en eau du fromage blanc) Th 150°C ou 4 .
+                      </li>
+                      <li class="list-group-item">
+                        ÉTAPE 10 : Quand c'est cuit (pâte ferme, mousseuse et légèrement colorée) mettre au frais avant de déguster.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="mt-2 py-2 border-top divEtapeRecette">
-            <div class="row justify-content">
-              <div class="col-lg-9">
-                <h4>Etapes de la recette :</h4>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    ÉTAPE 1 : Ecraser les petits beurre en grosses miettes dans 1 saladier, y verser dessus le beurre préalablement fondu, mélanger le tout. Ajouter 2 cuillères à soupe de sucre roux et mélanger.
-                  </li>
-                  <li class="list-group-item">
-                    ÉTAPE 2 : Etaler cette préparation dans un moule anti-adhésif (moule à manqué c'est bien). Réserver au frigo en attendant.
-                  </li>
-                  <li class="list-group-item">
-                    ÉTAPE 3 : Mélanger les jaunes d'oeufs et le sucre (pour moi environ 100 g) jusqu'à ce que le mélange devienne mousseux et clair (au batteur électrique c'est plus rapide...).
-                  </li>
-                  <li class="list-group-item">
-                    ÉTAPE 4 : Ajouter le zeste et le jus du 1/2 citron.
-                  </li> 
-                  <li class="list-group-item">
-                    ÉTAPE 5 : Ensuite mélanger avec le fromage blanc et les deux petits suisses.
-                  </li>
-                  <li class="list-group-item">
-                    ÉTAPE 6 : Puis mettre la farine et rendre la préparation homogène.
-                  </li>
-                  <li class="list-group-item">
-                    ÉTAPE 7 : Monter les blancs en neige bien ferme et les incorporer délicatement à la préparation.
-                  </li>
-                  <li class="list-group-item">
-                    ÉTAPE 8 : Verser doucement dans le moule tapissé de petits beurres.
-                  </li>
-                  <li class="list-group-item">
-                    ÉTAPE 9 : Mettre au four pendant 45 mn à 1 heure (cela dépend du four et du la teneur en eau du fromage blanc) Th 150°C ou 4 .
-                  </li>
-                  <li class="list-group-item">
-                    ÉTAPE 10 : Quand c'est cuit (pâte ferme, mousseuse et légèrement colorée) mettre au frais avant de déguster.
-                  </li>
-                  
-                </ul>
-              </div>
-            </div>
-          </div>
-      </div>
+        </div>
+      </section>
     </div>
-
   </section>
 </main>
