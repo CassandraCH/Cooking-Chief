@@ -5,7 +5,7 @@
 Projet dans le cadre des modules d'IHM et d'Architectures logicielles pour le développement d'applications Web, de la 3ème année de Licence Informatique (Le Mans Université).
 
 
-### Membres de l'équipe : 
+### Membres de l'équipe :
 * ALLAIN Yannis
 * CHAUMULON Cassandra
 * DERRIEN Guillaume
@@ -20,4 +20,4 @@ Créer une application Web ayant les caractéristiques suivantes :
 ### Suivi du projet
 → Lien vers le [Trello](https://trello.com/invite/b/JF5x9ooX/80a29375174e14358e4d60f9d6823364/projet-web)
 
-→ Lien vers l'[Application](https://cassandrach.github.io/Cooking-Chief/)
+→ Lien vers l'[Application](https://cassandrach.github.io/cooking-chief/)
