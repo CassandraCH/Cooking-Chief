@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Cooking-Chief": {
+    "cooking-chief": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Cooking-Chief",
+            "outputPath": "dist/cooking-chief",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Cooking-Chief:build"
+            "browserTarget": "cooking-chief:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Cooking-Chief:build:production"
+              "browserTarget": "cooking-chief:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Cooking-Chief:build"
+            "browserTarget": "cooking-chief:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "Cooking-Chief-e2e": {
+    "cooking-chief-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Cooking-Chief:serve"
+            "devServerTarget": "cooking-chief:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Cooking-Chief:serve:production"
+              "devServerTarget": "cooking-chief:serve:production"
             }
           }
         },
@@ -135,7 +135,7 @@
       }
     }
   },
-  "defaultProject": "Cooking-Chief",
+  "defaultProject": "cooking-chief",
   "cli": {
     "analytics": false
   }

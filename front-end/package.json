@@ -1,5 +1,5 @@
 {
-  "name": "Cooking-Chief",
+  "name": "cooking-chief",
   "version": "1.2.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "deploy": "ng deploy --base-href=Cooking-Chief"
+    "deploy": "ng deploy --base-href='/'"
   },
   "private": true,
   "dependencies": {
