@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 // connexion a mongoDB
 mongoose.connect(
-    "uri", // a remplir !!!!!!!
+    // uri de la bdd
+    "mongodb+srv://YCGManager:CookingChief@cookingchief.1si4k.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     // options
     { useNewUrlParser: true, useUnifiedTopology: true },
     // Callback pour la gestion des erreurs
