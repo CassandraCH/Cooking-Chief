@@ -24,7 +24,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.initForm();
-    this.recettesService.getRecettes();
+
   }
 
   initForm(){
@@ -32,7 +32,16 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
   }
 
   onRecherche(){
-    console.log(this.recettes)
+    this.recettesService.getRecettes();
+    console.log("je recherche pour toi");
+    // console.log(this.recettes)
+    // this.recetteSubscription = this.recettesService.getRecettesUpdateListener().subscribe(
+    //   (data) => {
+    //     this.recettes = data;
+    //     console.log(data);
+    //   }
+    // );
+
 
     // Recupération de la recherche
     const recherche = this.rechercheForm.get('recherche').value;

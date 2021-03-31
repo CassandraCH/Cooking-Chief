@@ -9,12 +9,15 @@ router.get('/', (req, res) => {
     Recette.find()
     .then((recettes) => {
         console.log(recettes);
+        res.status(200).json(recettes);
     }).
     catch((error) => {
-        console.log(error);    });
+        console.log(error);
+    });
+
+
 
 });
-
 
 // Export
 module.exports = router;

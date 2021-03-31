@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Recette } from '../models/Recette.models';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ export class RecettesService {
 
   constructor(private http: HttpClient){ }
 
-  tempUrl = 'assets/test_api/pizza.json';
+  // tempUrl = 'assets/test_api/pizza.json';
+  tempUrl = "http://localhost:3000/";
 
   valRecherche: string;
 
@@ -40,9 +41,13 @@ export class RecettesService {
   getRecettes(){
     // RECUPERATION DES RECETTES RENVOYEES PAR L'API
     // (pour le moment par le fichier json pour les tests)
-    return this.http.get<any>(this.tempUrl).subscribe( (response) =>  {
+    console.log("test 1");
+    return this.http.get<any>(this.tempUrl).subscribe(
+      (response) =>  {
+        const recettes =  response[0];
         let id = 1;
-        response["hits"].forEach( (value) => {
+        console.log(recettes);
+        recettes['hits'].forEach( (value) => {
           let rec: Recette = {
             id: id,
             titre: value.recipe.label,
@@ -56,9 +61,9 @@ export class RecettesService {
           }
           id+= 1;
           this.tabRecettes.push(rec);
+
         })
-        // console.log("recettes : ");
-        // console.log(this.tabRecettes);
+        this.recettesSubject.next([...this.tabRecettes]);
       });
   }
 

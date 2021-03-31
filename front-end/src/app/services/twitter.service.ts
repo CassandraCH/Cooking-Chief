@@ -16,20 +16,20 @@ export class TwitterService {
   constructor(private http: HttpClient) {}
 
   emitTweetSubject(){
-    console.log("tweets : ");
-    console.log(this.tweets);
+    // console.log("tweets : ");
+    // console.log(this.tweets);
     return this.tweetSubject.next([...this.tweets]);
   }
 
   estComplet(){
-    console.log("tweets : ");
-    console.log(this.tweets);
+    // console.log("tweets : ");
+    // console.log(this.tweets);
     return (this.tweets.length > 0);
   }
 
   getTweetUpdateListener(): Observable<Tweet[]>{
-    console.log("tweets : ");
-    console.log(this.tweets);
+    // console.log("tweets : ");
+    // console.log(this.tweets);
     return this.tweetSubject.asObservable();
   }
 

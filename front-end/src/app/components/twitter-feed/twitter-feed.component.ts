@@ -32,7 +32,7 @@ export class TwitterFeedComponent implements OnInit {
           rts: value.retweet_count,
         }
 
-        console.log(tweet);
+        // console.log(tweet);
         // Limiter à 6 tweets pour l'affichage
         if(id <= 6){
           this.tabTweets.push(tweet);
