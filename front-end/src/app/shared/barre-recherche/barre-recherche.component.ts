@@ -32,16 +32,14 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
   }
 
   onRecherche(){
-    this.recettesService.getRecettes();
-    console.log("je recherche pour toi");
-    // console.log(this.recettes)
-    // this.recetteSubscription = this.recettesService.getRecettesUpdateListener().subscribe(
-    //   (data) => {
-    //     this.recettes = data;
-    //     console.log(data);
-    //   }
-    // );
 
+    // 1. Bloquer l'accès à plusieurs requêtes pendant un durée déterminée
+    // 2. Vérifier si la nouvelle recherche n'est pas la même que la précédente :
+    // Si c'est la même : on fait en sorte de pas dupliquer les résultats
+    // Si c'est pas la même : on vide le tableau et on met à jour avec les nouveaux résultats
+
+
+    this.recettesService.getRecettes();
 
     // Recupération de la recherche
     const recherche = this.rechercheForm.get('recherche').value;

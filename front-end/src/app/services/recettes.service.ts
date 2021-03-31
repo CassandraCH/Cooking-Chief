@@ -39,9 +39,7 @@ export class RecettesService {
   getTabRecettes(): Recette[]{ return this.tabRecettes; }
 
   getRecettes(){
-    // RECUPERATION DES RECETTES RENVOYEES PAR L'API
-    // (pour le moment par le fichier json pour les tests)
-    console.log("test 1");
+    // RECUPERATION DES RECETTES RENVOYEES PAR LA BDD (pour le moment)
     return this.http.get<any>(this.tempUrl).subscribe(
       (response) =>  {
         const recettes =  response[0];
