@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = require('./routes/router');
 
@@ -11,7 +10,9 @@ mongoose.set('useFindAndModify', false);
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
 
 app.use(cors()); // autorisation d'accès à tout le monde
 

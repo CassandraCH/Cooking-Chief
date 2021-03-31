@@ -1,19 +1,18 @@
 const mongoose = require('mongoose');
 
 // modèle de données pour les recettes
-const RecetteModel = mongoose.model(
-    "edamam", // nom bdd
-    {
+const RecetteModeletteSchema = mongoose.Schema({
+    q: { type: String, required: true },
+    from: { type: Number},
+    to: { type: Number },
+    more: { type: Boolean},
+    count: { type: Number },
+    hits: { type: Array, required: true }
+});
 
-    }, // modèle de données
-    "recipes" // nom table
-);
 
 // Export du modèle
-module.exports = { RecetteModel };
-
-
-
+module.exports = mongoose.model('recipes', RecetteModeletteSchema);
 
 //  RecetteModel {
 //     id: number;                     // id
@@ -26,5 +25,3 @@ module.exports = { RecetteModel };
 //     auteur: string;                 // source
 //     url: string;                    // url
 // }
-
-// Peut être ajouter le mot-clé qui a été recherché ???
