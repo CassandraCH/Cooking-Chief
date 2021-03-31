@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 // modèle de données pour les recettes
 const RecetteModel = mongoose.model(
-    "nom-bdd", // nom bdd
+    "edamam", // nom bdd
     {
 
     }, // modèle de données
-    "nom-tableau" // nom table
+    "recipes" // nom table
 );
 
 // Export du modèle
