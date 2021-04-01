@@ -19,5 +19,5 @@ app.use(cors()); // autorisation d'accès à tout le monde
 app.use('/', router);
 
 // Lancement du serveur
-const port = 3000;
+const port = 5500;
 app.listen(port, () => console.log(`Début du serveur sur le port ${port}`));
