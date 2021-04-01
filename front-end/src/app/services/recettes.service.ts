@@ -14,6 +14,7 @@ export class RecettesService {
   tempUrl = "http://localhost:3000/";
 
   valRecherche: string;
+  valRecherchePrec: string;
 
   tabRecettes: Recette[] = [];
   private recettesSubject = new Subject<Recette[]>();
@@ -25,13 +26,13 @@ export class RecettesService {
     return this.recettesSubject.next([...this.tabRecettes]);
   }
 
-  // Vérifie si le tableau de recettes est remplis
+  // Vérifie si le tableau de recettes est rempli
   tabNonVide() {
     return (this.tabRecettes.length > 0);
   }
 
-  // Renvoi un observable sur le subjet a observer
-  // dans ce cas présent la liste des recettes
+  // Renvoi un observable sur le subject à observer
+  // dans le cas présent : la liste des recettes
   getRecettesUpdateListener() : Observable<Recette[]> {
     return this.recettesSubject.asObservable();
   }
