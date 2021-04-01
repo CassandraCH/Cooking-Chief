@@ -11,9 +11,9 @@ export class RecettesService {
   constructor(private http: HttpClient){ }
 
   // tempUrl = 'assets/test_api/pizza.json';
-  tempUrl = "http://localhost:3000/";
+  tempUrl = "http://localhost:5500/";
 
-  valRecherche: string;
+  valRecherche: string = "";
   valRecherchePrec: string;
 
   tabRecettes: Recette[] = [];

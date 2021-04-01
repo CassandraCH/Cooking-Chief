@@ -7,15 +7,13 @@ const Recette = require('../models/recetteModel');
 router.get('/', (req, res) => {
     console.log("test ok");
     Recette.find()
-    .then((recettes) => {
-        console.log(recettes);
-        res.status(200).json(recettes);
-    }).
-    catch((error) => {
-        console.log(error);
-    });
-
-
+                .then((recettes) => {
+                    // console.log(recettes);
+                    res.status(200).json(recettes);
+                }).
+                catch((error) => {
+                    console.log(error);
+                });
 
 });
 

@@ -25,31 +25,17 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.initForm();
-
+    this.recettesService.getRecettes();
   }
 
   initForm(){
     this.rechercheForm = this.formBuilder.group( { recherche: ['', Validators.required] } );
   }
 
-  // Bloquer l'accès à plusieurs requêtes pendant 5 secondes
-  onClick() {
-    this.isDisabled = true;
-
-    setTimeout(() => {
-      this.isDisabled = false;
-    }, 5000);
-  }
-
   onRecherche(){
-
-
-    // 2. Vérifier si la nouvelle recherche n'est pas la même que la précédente :
+    // Vérifier si la nouvelle recherche n'est pas la même que la précédente :
     // Si c'est la même : on fait en sorte de pas dupliquer les résultats
     // Si c'est pas la même : on vide le tableau et on met à jour avec les nouveaux résultats
-
-
-    this.recettesService.getRecettes();
 
     // Recupération de la recherche
     const recherche = this.rechercheForm.get('recherche').value;
@@ -79,11 +65,22 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
 
       this.initForm();
+      this.onClick();
     }
     // Cas ou le champ de recherche est vide
     else{
       this.messageErreur = "Veuillez saisir quelque chose";
     }
+
+  }
+
+  // Bloquer l'accès à plusieurs requêtes pendant 5 secondes
+  onClick() {
+    this.isDisabled = true;
+
+    setTimeout(() => {
+      this.isDisabled = false;
+    }, 5000);
   }
 
   ngOnDestroy(){
