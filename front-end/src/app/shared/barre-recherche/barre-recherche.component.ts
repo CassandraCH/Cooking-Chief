@@ -65,13 +65,13 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
 
       this.initForm();
+      this.onClick();
     }
     // Cas ou le champ de recherche est vide
     else{
       this.messageErreur = "Veuillez saisir quelque chose";
     }
 
-    this.onClick();
   }
 
   // Bloquer l'accès à plusieurs requêtes pendant 5 secondes
