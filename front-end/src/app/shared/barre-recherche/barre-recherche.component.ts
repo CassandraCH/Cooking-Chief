@@ -17,6 +17,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
   messageErreur: string;
   private recettes: Recette[] = [];
   recetteSubscription: Subscription;
+  isDisabled: boolean;
 
   constructor(private recettesService: RecettesService,
               private formBuilder: FormBuilder,
@@ -31,9 +32,18 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
     this.rechercheForm = this.formBuilder.group( { recherche: ['', Validators.required] } );
   }
 
+  // Bloquer l'accès à plusieurs requêtes pendant 5 secondes
+  onClick() {
+    this.isDisabled = true;
+
+    setTimeout(() => {
+      this.isDisabled = false;
+    }, 5000);
+  }
+
   onRecherche(){
 
-    // 1. Bloquer l'accès à plusieurs requêtes pendant un durée déterminée
+
     // 2. Vérifier si la nouvelle recherche n'est pas la même que la précédente :
     // Si c'est la même : on fait en sorte de pas dupliquer les résultats
     // Si c'est pas la même : on vide le tableau et on met à jour avec les nouveaux résultats
