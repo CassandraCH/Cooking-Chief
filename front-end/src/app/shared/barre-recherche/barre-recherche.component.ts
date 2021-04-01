@@ -84,6 +84,8 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
     else{
       this.messageErreur = "Veuillez saisir quelque chose";
     }
+
+    this.onClick();
   }
 
   ngOnDestroy(){
