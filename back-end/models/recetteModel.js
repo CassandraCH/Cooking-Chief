@@ -13,15 +13,3 @@ const RecetteModeletteSchema = mongoose.Schema({
 
 // Export du modèle
 module.exports = mongoose.model('recipes', RecetteModeletteSchema);
-
-//  RecetteModel {
-//     id: number;                     // id
-//     titre: string;                  // label
-//     image: string;                  // image
-//     nbPortions: number;             // yield
-//     listeIngredients: string[];     // ingredientLines
-//     calories: number;               // calories
-//     tempsPreparation: number;       // totalTime
-//     auteur: string;                 // source
-//     url: string;                    // url
-// }
