@@ -39,15 +39,15 @@ async function fetchPosts() {
 
 
 async function requeteApi(){
-    // let APP_ID = "4c9755a7";
-    // let APP_KEY = "4f1e59bb1fddf09974a0bb3b33de90d8";
+    let APP_ID = "4c9755a7";
+    let APP_KEY = "4f1e59bb1fddf09974a0bb3b33de90d8";
 
     // Petite modification pour travailler sur le fichier json plutôt que l'api
     // rien ne change fetch travaille avec le json de la même manière qu'avec une url classique ;)
 
 
-    // return fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}&q=pizza`)
-   return fetch(`pizza.json`).then(response => {
+    return fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}&q=beef`).then(response => {
+//    return fetch(`pizza.json`).then(response => {
         // Si ma réponse est valide autrement dit renvoi 200 la requêtes est transformée en json et retourner
         if ( response.status >= 200 && response.status < 300 ){
             return response.json();
