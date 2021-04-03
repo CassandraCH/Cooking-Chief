@@ -11,7 +11,8 @@ export class RecettesService {
 	constructor(private http: HttpClient){ }
 
 	// tempUrl = 'assets/test_api/pizza.json';
-	tempUrl = "http://localhost:5500/";
+	// tslint:disable-next-line:indent
+	tempUrl = 'http://localhost:5500/';
 
 	valRecherche: string = "";
 	valRecherchePrec: string;
@@ -37,11 +38,12 @@ export class RecettesService {
 	requetteBdd(recette_id :string) {
 		// RECUPERATION DES RECETTES RENVOYEES PAR LA BDD
 		return this.http
-			.get<{message:string, recette: any}>(`http://localhost:5500/recettes/${recette_id}`)
+			.get<{message: string, recette: any}>(`http://localhost:5500/recettes/${recette_id}`)
 			.subscribe(
 			(response) => {
-				console.log(response);
-				const recettes =  response[0];
+				// console.log(response.recette);
+				// const recettes =  response[0];
+				const recettes =  response.recette;
 				let id = 1;
 				console.log(recettes);
 				recettes['hits'].forEach( (value) => {
