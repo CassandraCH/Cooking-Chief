@@ -25,7 +25,7 @@ export class RecettesService {
 	private recettesSubject = new Subject<Recette[]>();
 
 	emitRecetteSubject() {
-		//   je fais un ... afin de destructurer le tableau
+		// je fais un ... afin de destructurer le tableau
 		// renvoyés une copie et non l'original
 		return this.recettesSubject.next([...this.tabRecettes]);
 	}
@@ -38,9 +38,9 @@ export class RecettesService {
 	getTabRecettes(): Recette[]{ return this.tabRecettes; }
 
 
-	// Technique pas optimale mais seule solution trouvée pouravoir des résultats car
-	// sans faire comme ça, nous avions des problèmes car les données arrivaient trop tard
-	// vu que les requêtes sont asynchones.
+	// Technique pas optimale mais seule solution trouvée pour avoir des résultats car
+	// sans faire comme ça, nous avions des problèmes car les données arrivaient après la mise
+	// à jour de l'afficahge, vu que les requêtes sont asynchones.
 	// IDEE : récupérer tout ce qu'il y a de stocké sur la bdd et en faire une
 	// copie. Lors d'une recherche par l'utilisateur, on vérifie que ce qu'il cherché est
 	// présent dans le tableau.
@@ -88,11 +88,12 @@ export class RecettesService {
 	// sinon : on fait une requête à l'api
 	async rechercher(motCle: string){
 		let trouve = false;
+
+		// toLowerCase permet d'éviter de se préoccuper de la casse
 		motCle = motCle.toLowerCase();
 
-		// si on trouve le mot-clé dans le tableau => on remplit le tableau
+		// si on trouve le mot-clé dans le tableau => on remplit le tableau avec les données correspondantes
 		this.tableauBDD.find( ({q, hits}) => {
-			// toLowerCase permet d'éviter de se préoccuper de la casse
 			if(q == motCle) {
 				console.log("J'ai trouvé pour "+motCle);
 				this.ajouterDansTableau(hits);
@@ -103,21 +104,21 @@ export class RecettesService {
 		// Si on ne trouve pas dans la bdd => requete à l'api
 		if(!trouve) {
 			console.log("J'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
-			// this.viderTableau();
 			await this.recupererResultatViaAPI(motCle);
-			// Mise à jour du tableau de la bdd
-			// this.getRecettesFromBDD();
 		}
 	}
 
+	// Permet de récupérer le résultat de la requête à l'api
 	async recupererResultatViaAPI(motCle: string){
 		console.log("Appel de l'api en cours...");
 		const data = await this.requeteApi(motCle);
-		console.log(data);
+		// console.log(data);
+
+		// Envoyer les données dans la base de données
 		this.enregistrerDansBDD(data);
 
+		// Ajouter les recettes dans le tableau de recettes
 		this.ajouterDansTableau(data['hits']);
-
 	}
 
 	// Methode qui permet de faire une requete à l'api
@@ -126,7 +127,7 @@ export class RecettesService {
 		let APP_KEY = "4f1e59bb1fddf09974a0bb3b33de90d8";
 
 		return fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}&q=${motCle}`).then(response => {
-			// Si la réponse est valide (=> renvoi 200) : la requêtes est transformée en json et retournée
+			// Si la réponse est valide (=> renvoi 200) : la requête est transformée en json et retournée
 			if ( response.status >= 200 && response.status < 300 ){
 				return response.json();
 			}
@@ -136,11 +137,12 @@ export class RecettesService {
 			}
 		})
 		.catch(error => {
-			alert(error);
+			// alert(error);
 			throw new Error('Erreur durant le chargement');
 		});
 	}
 
+	// Permet de faire un post dans la bdd (ajout d'une nouvelle donnée)
 	enregistrerDansBDD(data){
 		this.http.post(this.url, data).subscribe(
 			() => { console.log("Enregistrement dans la bdd OK"); },
@@ -153,14 +155,13 @@ export class RecettesService {
 	}
 
 
-	// Renvoi une recette si elle est trouve
+	// Renvoi une recette si elle est trouve (en fonction de l'id)
 	getRecetteById(id: number){
 		const recipe = this.tabRecettes.find(
 			(r) => { return r.id === id;
 		});
 		return recipe;
 	}
-
 
 	// Vérifie si le tableau de recettes est rempli
 	tabNonVide() { return (this.tabRecettes.length > 0); }
