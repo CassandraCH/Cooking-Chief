@@ -15,7 +15,6 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   rechercheForm: FormGroup;
   messageErreur: string;
-  private recettes: Recette[] = [];
   recetteSubscription: Subscription;
   isDisabled: boolean;
 
@@ -24,19 +23,20 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
               private router: Router) { }
 
   ngOnInit(): void {
+    // Récupération des données stockées dans la bdd
+    this.recettesService.getRecettesFromBDD();
     this.initForm();
-    // this.recettesService.getRecettes();
   }
 
+  // Initialisation du formulaire
   initForm(){
     this.rechercheForm = this.formBuilder.group( { recherche: ['', Validators.required] } );
+     // Récupération des données stockées dans la bdd
+    this.recettesService.getRecettesFromBDD();
   }
 
+  // Méthode exécutée lors du clic sur le bouton de la barre de recherche
   onRecherche(){
-    // Vérifier si la nouvelle recherche n'est pas la même que la précédente :
-    // Si c'est la même : on fait en sorte de pas dupliquer les résultats
-    // Si c'est pas la même : on vide le tableau et on met à jour avec les nouveaux résultats
-
     // Recupération de la recherche
     const recherche = this.rechercheForm.get('recherche').value;
 
@@ -44,20 +44,20 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
     if(recherche !== ''){
       console.log("Recherche : " + recherche);
       this.recettesService.setValRecherche(recherche);
-      this.recettesService.requetteBdd(recherche);
+
+      // Recherche
+      this.recettesService.rechercher(recherche);
+
       this.messageErreur = '';
 
-      // Demande à la bdd
-      // this.recettesService.requetteBdd(recherche);
-
-      // Si l'api a renvoyé 1 ou plusieurs résultats à la recherche
+      // Si au moins un resultat est obtenu (== tableau non vide)
       if(this.recettesService.tabNonVide()){
         // redirection vers les resultats de la recherche
         this.router.navigate(['/']).then(
           () => { this.router.navigate(['/results', recherche]) }
         );
       }
-      // cas où l'api ne fournit pas de resultat == tableau vide
+      // cas ou pas de résultat (== tableau vide)
       else {
         // redirection vers la page 'no-result'
         this.router.navigate(['/']).then(
@@ -65,11 +65,12 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
         );
       }
 
-
       this.initForm();
+
+      // On bloque le bouton
       this.onClick();
     }
-    // Cas ou le champ de recherche est vide
+    // Cas ou le champ de recherche est vide => affichage du message d'erreur
     else{
       this.messageErreur = "Veuillez saisir quelque chose";
     }

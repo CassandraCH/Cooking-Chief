@@ -4,18 +4,19 @@ const router = express.Router();
 const Recette = require('../models/recetteModel');
 
 // Récupération des données de la bdd
-// router.get('/', (req, res) => {
-//     console.log("test ok");
-//     Recette.find()
-//                 .then((recettes) => {
-//                     // console.log(recettes);
-//                     res.status(200).json(recettes);
-//                 }).
-//                 catch((error) => {
-//                     console.log(error);
-//                 });
+router.get('/', (req, res) => {
 
-// });
+    Recette.find()
+                .then((recettes) => {
+                    // console.log(recettes);
+                     console.log("test ok");
+                    res.status(200).json(recettes);
+                }).
+                catch((error) => {
+                    console.log(error);
+                });
+
+});
 
 
 // Récupération d'une donnée
@@ -24,7 +25,7 @@ router.get('/recettes/:id', (req, res) => {
     const id = req.params.id.toLowerCase();
     console.log(req.params.id);
 
-    Recette.findOne(id)
+    Recette.findOne({q: id})
         .then((recette) => {
             // Cas où recherche trouvée
             console.log(recette);
