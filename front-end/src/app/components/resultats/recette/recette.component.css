@@ -1,10 +1,8 @@
-.card-recette {
+/* .card-recette {
     margin-bottom: 2em;
-}
+} */
 
-.divTitreRecette {
-    margin-top: 2em;
-}
+
 
 .bouton {
     background-color:  #A48A5C;
@@ -27,4 +25,112 @@
 #btnVoir {
     border: none;
     margin-left: 25%;
+}
+
+.title
+{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.infos
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 10px 10px;
+    margin-top: 10px;
+}
+
+.infos-content
+{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+}
+
+.photo-principale
+{
+    text-align: center;
+    width: 100%;
+}
+
+.photo-principale img
+{
+    width: 350px;
+    text-align: center;
+}
+
+.subtitle
+{
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.ingredients
+{
+    margin-top: 10px;
+    padding: 0px 50px;
+}
+
+.ingredients-list ul li
+{
+    margin: 10px 0px;
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+.recette-page{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media(min-width:250px){
+    .ingredients
+    {
+        margin-top: 5px;
+        padding: 0;
+    }
+
+    .ingredients-list ul li
+    {
+        margin: 1px 0px;
+        padding: 0px 2px;
+    }
+
+    .photo-principale img
+    {
+        width: 250px;
+        text-align: center;
+    }
+}
+
+@media(min-width:768px){
+    .ingredients
+    {
+        margin-top: 5px;
+        padding: 0 10px;
+    }
+
+    .ingredients-list ul li
+    {
+        margin: 0 5px;
+        padding: 0 10px;
+    }
+}
+
+@media(min-width:1200px){
+    .ingredients
+    {
+        margin-top: 10px;
+        padding: 0px 50px;
+    }
+
+    .ingredients-list ul li
+    {
+        margin: 10px 0px;
+        padding: 0px 10px;
+    }
 }
