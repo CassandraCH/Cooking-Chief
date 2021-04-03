@@ -25,7 +25,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.initForm();
-    this.recettesService.getRecettes();
+    // this.recettesService.getRecettes();
   }
 
   initForm(){
@@ -44,9 +44,11 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
     if(recherche !== ''){
       console.log("Recherche : " + recherche);
       this.recettesService.setValRecherche(recherche);
+      this.recettesService.requetteBdd(recherche);
       this.messageErreur = '';
 
-      // A implementer => requete a l'api en fonction de la recherche
+      // Demande à la bdd
+      // this.recettesService.requetteBdd(recherche);
 
       // Si l'api a renvoyé 1 ou plusieurs résultats à la recherche
       if(this.recettesService.tabNonVide()){
