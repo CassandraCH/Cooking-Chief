@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecettesService } from '../../../services/recettes.service';
 
 @Component({
   selector: 'app-no-result',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./no-result.component.css']
 })
 export class NoResultComponent implements OnInit {
+  valRecherche: string;
 
-  constructor() { }
+  constructor(private recetteService: RecettesService) { }
 
   ngOnInit(): void {
+    this.valRecherche = this.recetteService.getValRecherche();
   }
 
 }

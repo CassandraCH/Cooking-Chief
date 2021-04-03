@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // modèle de données pour les recettes
-const RecetteModeletteSchema = mongoose.Schema({
+const RecetteSchema = mongoose.Schema({
     q: { type: String, required: true },
     from: { type: Number},
     to: { type: Number },
@@ -12,4 +12,4 @@ const RecetteModeletteSchema = mongoose.Schema({
 
 
 // Export du modèle
-module.exports = mongoose.model('recipes', RecetteModeletteSchema);
+module.exports = mongoose.model('recipes', RecetteSchema);

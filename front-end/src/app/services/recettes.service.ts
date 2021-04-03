@@ -80,7 +80,8 @@ export class RecettesService {
 	}
 
 	// Recherche dans le tableau avec toutes les données de la bdd
-	// si le mot-clé recherche
+	// si le mot-clé recherche est present dans la bdd : on récupère les recettes
+	// sinon : on fait une requête à l'api
 	rechercher(motCle: string){
 		let trouve = false;
 		motCle = motCle.toLowerCase();
@@ -89,7 +90,7 @@ export class RecettesService {
 		this.tableauBDD.find( ({q, hits}) => {
 			// toLowerCase permet d'éviter de se préoccuper de la casse
 			if(q == motCle) {
-				console.log("j'ai trouvé pour "+motCle);
+				console.log("J'ai trouvé pour "+motCle);
 				this.ajouterDansTableau(hits);
 				trouve = true;
 			}
@@ -97,16 +98,17 @@ export class RecettesService {
 
 		// Si on ne trouve pas dans la bdd => requete à l'api
 		if(!trouve) {
-			console.log("j'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
+			console.log("J'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
 			// this.viderTableau();
-			this.recupererRepViaAPI(motCle);
+			this.recupererResultatViaAPI(motCle);
 		}
 	}
 
-	async recupererRepViaAPI(motCle: string){
+	async recupererResultatViaAPI(motCle: string){
 		console.log("Appel de l'api en cours...");
 		const data = await this.requeteApi(motCle);
 		console.log(data);
+		this.enregistrerDansBDD(data);
 
 		this.ajouterDansTableau(data['hits']);
 	}
@@ -130,6 +132,13 @@ export class RecettesService {
 			alert(error);
 			throw new Error('Erreur durant le chargement');
 		});
+	}
+
+	enregistrerDansBDD(data){
+		this.http.post(this.url, data).subscribe(
+			() => { console.log("Enregistrement dans la bdd OK"); },
+			(err) =>  { console.log("Erreur de sauvegarde : "+err); }
+		);
 	}
 
 

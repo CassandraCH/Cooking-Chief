@@ -9,13 +9,31 @@ router.get('/', (req, res) => {
     Recette.find()
                 .then((recettes) => {
                     // console.log(recettes);
-                     console.log("test ok");
+                     console.log("Récupération des données OK");
                     res.status(200).json(recettes);
                 }).
                 catch((error) => {
                     console.log(error);
                 });
 
+});
+
+// Ajout d'une nouvelle donnée à la bdd
+router.post('/', (req, res) => {
+    const nouveau = new Recette({
+        q: req.body.q,
+        from: req.body.from,
+        to: req.body.to,
+        more: req.body.more,
+        count: req.body.count,
+        hits: req.body.hits
+    });
+
+
+    nouveau.save({ checkKeys: false }, (err, docs) => {
+        if(!err) res.send(docs);
+        else console.log("Erreur pour créer une nouvelle donnée : "+err);
+    })
 });
 
 

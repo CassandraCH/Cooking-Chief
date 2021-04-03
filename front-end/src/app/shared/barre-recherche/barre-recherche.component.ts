@@ -29,9 +29,9 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   // Initialisation du formulaire
   initForm(){
+    // Récupération des données stockées dans la bdd
+   this.recettesService.getRecettesFromBDD();
     this.rechercheForm = this.formBuilder.group( { recherche: ['', Validators.required] } );
-     // Récupération des données stockées dans la bdd
-    this.recettesService.getRecettesFromBDD();
   }
 
   // Méthode exécutée lors du clic sur le bouton de la barre de recherche
@@ -44,7 +44,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
       console.log("Recherche : " + recherche);
       this.recettesService.setValRecherche(recherche);
 
-      // Recherche
+      // Recherche dans la bdd ou requete via api si pas de résultat
       this.recettesService.rechercher(recherche);
 
       this.messageErreur = '';
@@ -64,6 +64,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
         );
       }
 
+      // Réinitialisation de la barre de recherche
       this.initForm();
 
       // On bloque le bouton
