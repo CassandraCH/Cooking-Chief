@@ -16,6 +16,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
   messageErreur: string;
   recetteSubscription: Subscription;
   isDisabled: boolean;
+  recherche: string = "";
 
   constructor(private recettesService: RecettesService,
               private formBuilder: FormBuilder,
@@ -23,7 +24,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     // Récupération des données stockées dans la bdd
-    this.recettesService.getRecettesFromBDD();
+    // this.recettesService.getRecettesFromBDD();
     this.initForm();
   }
 
@@ -37,32 +38,43 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
   // Méthode exécutée lors du clic sur le bouton de la barre de recherche
   onRecherche(){
     // Recupération de la recherche
-    const recherche = this.rechercheForm.get('recherche').value;
+    this.recherche = this.rechercheForm.get('recherche').value;
 
     // Vérification que l'utilisateur a saisi quelque chose
-    if(recherche !== ''){
-      console.log("Recherche : " + recherche);
-      this.recettesService.setValRecherche(recherche);
-
-      // Recherche dans la bdd ou requete via api si pas de résultat
-      this.recettesService.rechercher(recherche);
+    if(this.recherche !== ''){
+      console.log("Recherche : " + this.recherche);
+      this.recettesService.setValRecherche(this.recherche);
 
       this.messageErreur = '';
+      // Recherche dans la bdd ou requete via api si pas de résultat
+      this.recettesService.rechercher(this.recherche).then(
+        ()=>{
+          this.rediriger(this.recettesService.tabNonVide());
+          console.log("redirection Ok");
+        }, (err) => {
+          console.log("Erreur : "+err);
+        }
+      );
+
+      // this.recettesService.getRecettesUpdateListener().toPromise().
+
+
 
       // Si au moins un resultat est obtenu (== tableau non vide)
-      if(this.recettesService.tabNonVide()){
-        // redirection vers les resultats de la recherche
-        this.router.navigate(['/']).then(
-          () => { this.router.navigate(['/results', recherche]) }
-        );
-      }
-      // cas ou pas de résultat (== tableau vide)
-      else {
-        // redirection vers la page 'no-result'
-        this.router.navigate(['/']).then(
-          () => { this.router.navigate(['/results', 'no-result']) }
-        );
-      }
+
+      // if(this.recettesService.tabNonVide()){
+      //   // redirection vers les resultats de la recherche
+      //   this.router.navigate(['/']).then(
+      //     () => { this.router.navigate(['/results', recherche]) }
+      //   );
+      // }
+      // // cas ou pas de résultat (== tableau vide)
+      // else {
+      //   // redirection vers la page 'no-result'
+      //   this.router.navigate(['/']).then(
+      //     () => { this.router.navigate(['/results', 'no-result']) }
+      //   );
+      // }
 
       // Réinitialisation de la barre de recherche
       this.initForm();
@@ -75,6 +87,21 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
       this.messageErreur = "Veuillez saisir quelque chose";
     }
 
+  }
+
+  rediriger(val: boolean){
+    if(val){
+      // redirection vers les resultats de la recherche
+        this.router.navigate(['/']).then(
+          () => { this.router.navigate(['/results', this.recherche]) }
+        );
+    }
+    else{
+       // redirection vers la page 'no-result'
+        this.router.navigate(['/']).then(
+          () => { this.router.navigate(['/results', 'no-result']) }
+        );
+    }
   }
 
   // Bloquer l'accès à plusieurs requêtes pendant 5 secondes

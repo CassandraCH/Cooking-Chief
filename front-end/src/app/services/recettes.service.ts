@@ -13,6 +13,7 @@ export class RecettesService {
 	// url vers la bdd (en local pour le moment)
 	url = 'http://localhost:5500/';
 
+	// mot-clé recherché
 	valRecherche: string;
 
 	// tableau avec les recettes de la recherche actuelle
@@ -36,6 +37,7 @@ export class RecettesService {
 	// permet de récupérer le tableau avec les recettes de la recherche
 	getTabRecettes(): Recette[]{ return this.tabRecettes; }
 
+
 	// Technique pas optimale mais seule solution trouvée pouravoir des résultats car
 	// sans faire comme ça, nous avions des problèmes car les données arrivaient trop tard
 	// vu que les requêtes sont asynchones.
@@ -47,8 +49,9 @@ export class RecettesService {
 	// Cette technique permet d'éviter de faire trop d'appel à la bdd et trop de
 	// requêtes à l'api (dont le nombre de requêtes est limité)
 	getRecettesFromBDD(){
-	// RECUPERATION DES TOUTES LES DONNEES DANS LA BDD
-		return this.http.get<any>(this.url).subscribe(
+		this.viderTableauBDD();
+		// RECUPERATION DES TOUTES LES DONNEES DANS LA BDD
+		this.http.get<any>(this.url).subscribe(
 			(response) =>  {
 				this.tableauBDD = response; // copie des données de la bdd
 				console.log(this.tableauBDD);
@@ -62,6 +65,7 @@ export class RecettesService {
 		this.viderTableau();
 		let id = 1;
 
+		// Ajout des recettes dans le tableau selon le modèle
 		res.forEach( (value) => {
 			let rec: Recette = {
 				id: id,
@@ -82,7 +86,7 @@ export class RecettesService {
 	// Recherche dans le tableau avec toutes les données de la bdd
 	// si le mot-clé recherche est present dans la bdd : on récupère les recettes
 	// sinon : on fait une requête à l'api
-	rechercher(motCle: string){
+	async rechercher(motCle: string){
 		let trouve = false;
 		motCle = motCle.toLowerCase();
 
@@ -100,7 +104,9 @@ export class RecettesService {
 		if(!trouve) {
 			console.log("J'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
 			// this.viderTableau();
-			this.recupererResultatViaAPI(motCle);
+			await this.recupererResultatViaAPI(motCle);
+			// Mise à jour du tableau de la bdd
+			// this.getRecettesFromBDD();
 		}
 	}
 
@@ -111,6 +117,7 @@ export class RecettesService {
 		this.enregistrerDansBDD(data);
 
 		this.ajouterDansTableau(data['hits']);
+
 	}
 
 	// Methode qui permet de faire une requete à l'api
@@ -139,6 +146,10 @@ export class RecettesService {
 			() => { console.log("Enregistrement dans la bdd OK"); },
 			(err) =>  { console.log("Erreur de sauvegarde : "+err); }
 		);
+
+		// Mise à jour du tableau de la bdd
+		this.getRecettesFromBDD();
+		this.emitRecetteSubject();
 	}
 
 
@@ -156,6 +167,8 @@ export class RecettesService {
 
 	// Permet de vide le tableau de recettes (avec le mot-clé actuel)
 	viderTableau(){	this.tabRecettes = []; }
+
+	viderTableauBDD(){ this.tableauBDD = []; }
 
 	setValRecherche(valeur: string){ this.valRecherche = valeur; }
 
