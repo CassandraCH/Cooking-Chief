@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 });
 
 
-// Récupération d'une donnée
+// Récupération d'une donnée (pas utilisé :/ )
 router.get('/recettes/:id', (req, res) => {
     // tout mettre en minuscule
     const id = req.params.id.toLowerCase();

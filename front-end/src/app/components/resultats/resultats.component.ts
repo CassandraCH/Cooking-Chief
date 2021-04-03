@@ -17,8 +17,6 @@ export class ResultatsComponent implements OnInit, OnDestroy {
   config: any;
 
   constructor(private recettesService: RecettesService) {
-    console.log("Resultats component - début");
-
     // Configuration de la pagination
     this.config = {
       itemsPerPage: 4, // 4 recettes/page

@@ -76,7 +76,6 @@ export class RecettesService {
 			}
 			id+= 1;
 			this.tabRecettes.push(rec);
-
 		});
 	}
 
@@ -84,23 +83,55 @@ export class RecettesService {
 	// si le mot-clé recherche
 	rechercher(motCle: string){
 		let trouve = false;
+		motCle = motCle.toLowerCase();
 
 		// si on trouve le mot-clé dans le tableau => on remplit le tableau
-		const res = this.tableauBDD.find( ({q, hits}) => {
+		this.tableauBDD.find( ({q, hits}) => {
 			// toLowerCase permet d'éviter de se préoccuper de la casse
-			if(q == motCle.toLowerCase()) {
+			if(q == motCle) {
 				console.log("j'ai trouvé pour "+motCle);
 				this.ajouterDansTableau(hits);
 				trouve = true;
 			}
 		});
 
-		// Sinon, on vide le tableau (au cas où, il avait déjà été rempli dans une recherche précédente)
+		// Si on ne trouve pas dans la bdd => requete à l'api
 		if(!trouve) {
-			console.log("j'ai pas trouvé pour "+motCle);
-			this.viderTableau();
+			console.log("j'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
+			// this.viderTableau();
+			this.recupererRepViaAPI(motCle);
 		}
 	}
+
+	async recupererRepViaAPI(motCle: string){
+		console.log("Appel de l'api en cours...");
+		const data = await this.requeteApi(motCle);
+		console.log(data);
+
+		this.ajouterDansTableau(data['hits']);
+	}
+
+	// Methode qui permet de faire une requete à l'api
+	async requeteApi(motCle: string){
+		let APP_ID = "4c9755a7";
+		let APP_KEY = "4f1e59bb1fddf09974a0bb3b33de90d8";
+
+		return fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}&q=${motCle}`).then(response => {
+			// Si la réponse est valide (=> renvoi 200) : la requêtes est transformée en json et retournée
+			if ( response.status >= 200 && response.status < 300 ){
+				return response.json();
+			}
+			// Sinon on lance une erreur
+			else {
+				return  new Error('Erreur durant le chargement - coté serveur');
+			}
+		})
+		.catch(error => {
+			alert(error);
+			throw new Error('Erreur durant le chargement');
+		});
+	}
+
 
 	// Renvoi une recette si elle est trouve
 	getRecetteById(id: number){
