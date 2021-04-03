@@ -20,13 +20,15 @@ const Recette = require('../models/recetteModel');
 
 // Récupération d'une donnée
 router.get('/recettes/:id', (req, res) => {
-        const id = req.params.id.toLowerCase();
+    // tout mettre en minuscule
+    const id = req.params.id.toLowerCase();
     console.log(req.params.id);
-    Recette.findOne({q: "pizza"}  )
+
+    Recette.findOne(id)
         .then((recette) => {
             // Cas où recherche trouvée
             console.log(recette);
-             return res.status(200).json({
+            return res.status(200).json({
                 message: "Success : "+ recette,
                 recette: recette
             });
