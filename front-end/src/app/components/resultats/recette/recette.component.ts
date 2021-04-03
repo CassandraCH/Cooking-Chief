@@ -12,15 +12,13 @@ export class RecetteComponent implements OnInit {
   recette: Recette;
   id: number;
   nom : string;
+  valRecherche: string;
   constructor(private route: ActivatedRoute, private recetteService: RecettesService) { }
 
   ngOnInit(): void {
     const id = +(this.route.snapshot.params['id']);
     this.nom = this.route.snapshot.params['nom'];
-
-   // this.recette = this.recetteService.getRecetteById(+id)!;
-
-    // console.log('id : ' + this.id + ' - nom : ' + this.nom);
+    this.valRecherche = this.recetteService.getValRecherche();
 
     this.route.queryParams.subscribe( params => {
       this.id = +(params['id']);

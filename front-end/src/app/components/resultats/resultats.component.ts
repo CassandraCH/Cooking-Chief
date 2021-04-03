@@ -32,7 +32,7 @@ export class ResultatsComponent implements OnInit, OnDestroy {
     this.recetteSubscription = this.recettesService.getRecettesUpdateListener().subscribe(
       // On récupère les recettes du service
       (data: Recette[]) => {
-        console.log(data);
+        // console.log(data);
         this.recettes = data;
       }
     );
@@ -49,6 +49,5 @@ export class ResultatsComponent implements OnInit, OnDestroy {
   // Désinscription de l'observable
   ngOnDestroy(){
     this.recetteSubscription.unsubscribe();
-    console.log("Resultats component - fin");
   }
 }

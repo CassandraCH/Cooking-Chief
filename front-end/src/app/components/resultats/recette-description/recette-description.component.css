@@ -1,12 +1,30 @@
 main{
     width: 100%;
+    margin:0;
 }
 
-img{
-    width: 400px;
-    height: auto;
-}
 
 li {
     list-style: none;
+}
+
+@media(min-width:250px){
+    img{
+        width: 250px;
+        height: auto;
+    }
+}
+
+@media(min-width:768px){
+    img{
+        width: 300px;
+        height: auto;
+    }
+}
+
+@media(min-width:1200px){
+    img{
+        width: 400px;
+        height: auto;
+    }
 }
