@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
         hits: req.body.hits
     });
 
-
+    // le checkKeys => permet d'éviter d'avoir l'erreur "pas de '.' dans une key"
     nouveau.save({ checkKeys: false }, (err, docs) => {
         if(!err) res.send(docs);
         else console.log("Erreur pour créer une nouvelle donnée : "+err);
@@ -52,8 +52,8 @@ router.get('/recettes/:id', (req, res) => {
                 recette: recette
             });
         }).catch((error) => {
-            //Cas où il n'y a pas de résultat
-            console.log("nous n'avons pas trouvé...");
+            // sCas où il n'y a pas de résultat
+            console.log("Je n'ai pas trouvé...");
             return res.status(401).json({
                 message: "Error",
                 recette: null
