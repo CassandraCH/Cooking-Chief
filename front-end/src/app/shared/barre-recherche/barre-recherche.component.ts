@@ -33,55 +33,57 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
 	// Méthode exécutée lors du clic sur le bouton de la barre de recherche
 	onRecherche(){
-	// Recupération de la recherche
-	this.recherche = this.rechercheForm.get('recherche').value;
+		// Recupération de la recherche
+		this.recherche = this.rechercheForm.get('recherche').value;
 
-	// Vérification que l'utilisateur a saisi quelque chose
-	if(this.recherche !== ''){
-		console.log("Recherche : " + this.recherche);
-		this.recettesService.setValRecherche(this.recherche);
+		// Vérification que l'utilisateur a saisi quelque chose
+		if(this.recherche !== ''){
+			console.log("Recherche : " + this.recherche);
+			this.recettesService.setValRecherche(this.recherche);
 
-		this.messageErreur = '';
+			this.messageErreur = '';
 
-		// Recherche dans la bdd ou requete via api si pas de résultat dans la bdd
-		this.recettesService.rechercher(this.recherche).then(
-		() => {
-			// redirection de l'utilisateur sur la bonne page
-			this.rediriger(this.recettesService.tabNonVide());
-		}, (err) => {
-			console.log("Erreur : "+err);
+			// Recherche dans la bdd ou requete via api si pas de résultat dans la bdd
+			this.recettesService.rechercher(this.recherche).then(
+			() => {
+				// redirection de l'utilisateur sur la bonne page
+				this.rediriger(this.recettesService.tabNonVide());
+			}, (err) => {
+				console.log("Erreur dans la recherche : "+err);
+			}
+			);
+
+			// Réinitialisation de la barre de recherche
+			this.initForm();
+
+			// On bloque le bouton
+			this.onClick();
 		}
-		);
-
-		// Réinitialisation de la barre de recherche
-		this.initForm();
-
-		// On bloque le bouton
-		this.onClick();
-	}
-	// Cas ou le champ de recherche est vide => affichage du message d'erreur
-	else{
-		this.messageErreur = "Veuillez saisir quelque chose";
-	}
+		// Cas ou le champ de recherche est vide => affichage du message d'erreur
+		else{
+			this.messageErreur = "Veuillez saisir quelque chose";
+		}
 
 	}
 
 	// Permet de rédiger l'utilisateur soit vers la page de résultats, soit vers la page
 	// 'no-result'
 	rediriger(val: boolean){
-	if(val){
-		// redirection vers les resultats de la recherche
-		this.router.navigate(['/']).then(
-			() => { this.router.navigate(['/results', this.recherche]) }
-		);
-	}
-	else{
-		// redirection vers la page 'no-result'
-		this.router.navigate(['/']).then(
-			() => { this.router.navigate(['/results', 'no-result']) }
-		);
-	}
-	console.log("redirection OK");
+		if(val){
+			// redirection vers les resultats de la recherche
+			this.router.navigate(['/']).then(
+				() => { this.router.navigate(['/results', this.recherche]) }
+			);
+			console.log("redirection OK");
+		}
+		else{
+			// redirection vers la page 'no-result'
+			this.router.navigate(['/']).then(
+				() => { this.router.navigate(['/results', 'no-result']) }
+			);
+			console.log("redirection 'no-result' OK");
+		}
+
 	}
 
 	// Bloquer l'accès à plusieurs requêtes pendant 5 secondes

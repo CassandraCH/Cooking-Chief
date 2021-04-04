@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Recette } from '../models/Recette.models';
 import { HttpClient } from '@angular/common/http';
+// import { arrayShuffle } from 'array-shuffle';
+import arrayShuffle from "array-shuffle";
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -151,7 +156,7 @@ export class RecettesService {
 
 		// Mise à jour du tableau de la bdd
 		this.getRecettesFromBDD();
-		this.emitRecetteSubject();
+		// this.emitRecetteSubject();
 	}
 
 
@@ -161,6 +166,12 @@ export class RecettesService {
 			(r) => { return r.id === id;
 		});
 		return recipe;
+	}
+
+	genererRecetteAleatoire(){
+		const shuffled = arrayShuffle(this.tableauBDD);
+		console.log("genererRecetteAleatoire()");
+		console.log(shuffled);
 	}
 
 	// Vérifie si le tableau de recettes est rempli
@@ -174,4 +185,7 @@ export class RecettesService {
 	setValRecherche(valeur: string){ this.valRecherche = valeur; }
 
 	getValRecherche(){ return this.valRecherche; }
+}
+function arrayShuffle(tableauBDD: any[]) {
+	throw new Error('Function not implemented.');
 }
