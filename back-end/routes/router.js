@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Recette = require('../models/recetteModel');
-
+const Twitter = require('twit');
 // Récupération des données de la bdd
 router.get('/', (req, res) => {
 
@@ -61,6 +61,29 @@ router.get('/recettes/:id', (req, res) => {
         });
 
 });
+
+// Connexion à l'api Twitter : 
+const api_client = new Twitter({
+    consumer_key: 'EuKQfwTijUYZBkSxmgqoPir6F',
+    consumer_secret: 'xVYQgEZN4L1VYBszUStZEiH6VhjJbMyeQyAzMYB0TwR0bDU9Sg',
+    access_token: '1359508421301727232-DUalWqDuPUC21F9xd9AZ8LKrQgMVW8',
+    access_token_secret: 'k7Z60xBmdUFFiLvQkM3yU9KayhvCTQhwvd2pVjho9Ll5s'
+  });
+
+  
+  router.get('/home_timeline', (req, res) => {
+    var params = {screen_name: 'cooking chief'};
+    api_client
+      .get(`statuses/user_timeline`, params)
+      .then(timeline => {
+        console.log("Récupération tweets : ")
+        console.log(timeline);
+        res.send(timeline);
+      })
+      .catch(error => {
+      res.send(error);
+    });
+  });   
 
 // Export
 module.exports = router;
