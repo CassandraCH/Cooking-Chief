@@ -9,19 +9,19 @@
 
       <div class="container">
 
-          <h4 class="title">Nom de la recette</h4>
+          <h4 class="title">{{ recetteDuJour.titre }}</h4>
 
           <div class="photo-principale">
-            <img src="assets/img/photos/cookies.jpg" alt="...">
+             <img [src]="recetteDuJour.image"  [alt]="description">
           </div>
 
           <div class="infos">
             <div class="infos-content">
-              <span class="heading">6</span>
+             <span class="heading">{{ recetteDuJour.nbPortions }}</span>
               <span class="description"> personnes</span>
             </div>
             <div class="infos-content">
-              <span class="heading">321</span>
+             <span class="heading">{{ recetteDuJour.calories | number: '1.0-0' }}</span>
               <span class="description">Kcal</span>
             </div >
           </div>
@@ -32,17 +32,14 @@
             <h2 class="subtitle">Ingrédients :</h2>
             <div class="ingredients-list">
                 <ul class="list-group">
-                    <li class="list-group-item" >Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                    <li class="list-group-item" >Aliquam tincidunt mauris eu risus.</li>
-                    <li class="list-group-item" >Vestibulum auctor dapibus neque.</li>
-                    <li class="list-group-item" >Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                    <li class="list-group-item" >Aliquam tincidunt mauris eu risus.</li>
-                    <li class="list-group-item" >Vestibulum auctor dapibus neque.</li>
-                    <li class="list-group-item" >Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                    <li class="list-group-item" >Aliquam tincidunt mauris eu risus.</li>
-                    <li class="list-group-item" >Vestibulum auctor dapibus neque.</li>
+                  <li class="list-group-item" *ngFor="let ing of recetteDuJour.listeIngredients">
+                    {{ing}}
+                  </li>
                 </ul>
-                <button (click)="chercherRecetteAleatoire()">Cliquer</button>
+                <!-- <button (click)="chercherRecetteAleatoire()">Cliquer</button> -->
+                 <button type="button" class="bouton btn btn-outline-default" id="btnVoir">
+                  <a [href]="recetteDuJour.url" target="_blank">Voir la recette</a>
+                </button>
             </div>
           </div>
 
