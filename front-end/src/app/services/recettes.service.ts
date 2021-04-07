@@ -204,7 +204,8 @@ export class RecettesService {
 				auteur: tmp.recipe.source,
 				url: tmp.recipe.url
 			}
-			console.log("Recette du jour : "+rec);
+			console.log("Recette du jour : ");
+			console.log(rec);
 			return rec;
 		}
 	}

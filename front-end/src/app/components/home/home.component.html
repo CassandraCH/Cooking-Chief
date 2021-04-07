@@ -7,7 +7,9 @@
     <div class="recette-page">
       <h3 id="titreAccueil">Recette du jour</h3>
 
-      <button (click)="chargerRecette()">Charger la recette du jour !</button>
+      <div class="btnChargement">
+        <button class="bouton btn btn-1 btn-neutral" (click)="chargerRecette()">Découvrir la recette du jour </button>
+      </div>
 
       <div *ngIf="chargement" class="container">
 
