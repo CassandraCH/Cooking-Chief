@@ -12,7 +12,8 @@ export class HomeComponent implements OnInit {
     constructor(private recettesService: RecettesService) { }
 
     ngOnInit() {
-        this.recettesService.getRecettesFromBDD();
+        console.log("Debut home component");
+        // this.recettesService.getRecettesFromBDD();
     }
 
     chercherRecetteAleatoire(){

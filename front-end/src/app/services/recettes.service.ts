@@ -48,18 +48,23 @@ export class RecettesService {
 	// SI OUI : on remplit le tableau tabRecettes en conséquence
 	// SINON : on fait appel à l'api
 	// Cette technique permet d'éviter de faire trop d'appel à la bdd et trop de
-	// requêtes à l'api (dont le nombre de requêtes est limité)
+	// requêtes à l'api (dont le nombre de requêtes est limité
 	getRecettesFromBDD(){
 		this.viderTableauBDD();
+
+		console.log("getRecettesFromBDD()");
+
 		// RECUPERATION DES TOUTES LES DONNEES DANS LA BDD
-		this.http.get<any>(this.url).subscribe(
+		this.http.get<any>(this.url).toPromise().then(
 			(response) =>  {
 				this.tableauBDD = response; // copie des données de la bdd
 				console.log(this.tableauBDD);
 				console.log("Recuperation des données de la bdd OK");
-				return true;
-		});
-		return false;
+			},
+			(err) => {
+				console.log("Erreur : "+err);
+			}
+		);
 	}
 
 	// Permet d'ajouter les recettes correspondantes à la recherche
@@ -91,7 +96,7 @@ export class RecettesService {
 	// sinon : on fait une requête à l'api
 	async rechercher(motCle: string){
 		// let trouve = false;
-		this.getRecettesFromBDD();
+		// this.getRecettesFromBDD();
 
 		// toLowerCase permet d'éviter de se préoccuper de la casse
 		motCle = motCle.toLowerCase();

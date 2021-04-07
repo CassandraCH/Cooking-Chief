@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import 'rxjs/add/operator/filter';
 import { Location } from '@angular/common';
+import { RecettesService } from './services/recettes.service';
 
 var lastScrollTop = 0;
 var delta = 5;
@@ -13,7 +14,9 @@ var navbarHeight = 0;
 })
 export class AppComponent implements OnInit {
 
-    constructor( public location: Location) {}
+    constructor( public location: Location,
+                 private recetteService: RecettesService) {}
+
     @HostListener('window:scroll', ['$event'])
     hasScrolled() {
 
@@ -49,5 +52,7 @@ export class AppComponent implements OnInit {
     };
     ngOnInit() {
       this.hasScrolled();
+      this.recetteService.getRecettesFromBDD();
+      console.log("debut app");
     }
 }
