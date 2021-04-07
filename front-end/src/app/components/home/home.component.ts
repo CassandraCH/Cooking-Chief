@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { RecettesService } from '../../services/recettes.service';
 
@@ -10,7 +11,9 @@ import { RecettesService } from '../../services/recettes.service';
 export class HomeComponent implements OnInit {
     constructor(private recettesService: RecettesService) { }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.recettesService.getRecettesFromBDD();
+    }
 
     chercherRecetteAleatoire(){
         this.recettesService.genererRecetteAleatoire();

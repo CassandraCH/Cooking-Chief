@@ -22,12 +22,16 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 				private formBuilder: FormBuilder,
 				private router: Router) { }
 
-	ngOnInit(): void { this.initForm(); }
+	ngOnInit(): void {
+		this.initForm();
+		// Récupération des données stockées dans la bdd
+		this.recettesService.getRecettesFromBDD();
+	}
 
 	// Initialisation du formulaire
 	initForm(){
 		// Récupération des données stockées dans la bdd
-		this.recettesService.getRecettesFromBDD();
+		// this.recettesService.getRecettesFromBDD();
 		this.rechercheForm = this.formBuilder.group( { recherche: ['', Validators.required] } );
 	}
 
@@ -50,8 +54,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 				this.rediriger(this.recettesService.tabNonVide());
 			}, (err) => {
 				console.log("Erreur dans la recherche : "+err);
-			}
-			);
+			});
 
 			// Réinitialisation de la barre de recherche
 			this.initForm();

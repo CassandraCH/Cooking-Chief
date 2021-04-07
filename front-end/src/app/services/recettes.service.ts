@@ -2,10 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Recette } from '../models/Recette.models';
 import { HttpClient } from '@angular/common/http';
-// import { arrayShuffle } from 'array-shuffle';
-import arrayShuffle from "array-shuffle";
-
-
 
 
 @Injectable({
@@ -61,7 +57,9 @@ export class RecettesService {
 				this.tableauBDD = response; // copie des données de la bdd
 				console.log(this.tableauBDD);
 				console.log("Recuperation des données de la bdd OK");
+				return true;
 		});
+		return false;
 	}
 
 	// Permet d'ajouter les recettes correspondantes à la recherche
@@ -92,7 +90,8 @@ export class RecettesService {
 	// si le mot-clé recherche est present dans la bdd : on récupère les recettes
 	// sinon : on fait une requête à l'api
 	async rechercher(motCle: string){
-		let trouve = false;
+		// let trouve = false;
+		this.getRecettesFromBDD();
 
 		// toLowerCase permet d'éviter de se préoccuper de la casse
 		motCle = motCle.toLowerCase();
@@ -102,15 +101,14 @@ export class RecettesService {
 			if(q == motCle) {
 				console.log("J'ai trouvé pour "+motCle);
 				this.ajouterDansTableau(hits);
-				trouve = true;
+				return  true;
 			}
 		});
-
 		// Si on ne trouve pas dans la bdd => requete à l'api
-		if(!trouve) {
+		// if(!trouve) {
 			console.log("J'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
 			await this.recupererResultatViaAPI(motCle);
-		}
+		// }
 	}
 
 	// Permet de récupérer le résultat de la requête à l'api
@@ -120,10 +118,14 @@ export class RecettesService {
 		// console.log(data);
 
 		// Envoyer les données dans la base de données
-		this.enregistrerDansBDD(data);
-
-		// Ajouter les recettes dans le tableau de recettes
-		this.ajouterDansTableau(data['hits']);
+		if(data != null){
+			this.enregistrerDansBDD(data);
+			// Ajouter les recettes dans le tableau de recettes
+			this.ajouterDansTableau(data['hits']);
+		}
+		else{
+			console.log("Pas de resultats via l'api");
+		}
 	}
 
 	// Methode qui permet de faire une requete à l'api
@@ -169,9 +171,7 @@ export class RecettesService {
 	}
 
 	genererRecetteAleatoire(){
-		const shuffled = arrayShuffle(this.tableauBDD);
-		console.log("genererRecetteAleatoire()");
-		console.log(shuffled);
+		// A FAIRE
 	}
 
 	// Vérifie si le tableau de recettes est rempli
