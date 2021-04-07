@@ -21,6 +21,7 @@ export class TwitterFeedComponent implements OnInit {
   ngOnInit(): void {
     this.twittersService.getTwitterLine().subscribe( (response) => {
       let id = 1;
+      console.log(response.data)
       response.data.forEach( (value) => {
         let tweet: Tweet = {
           id: id,
@@ -32,7 +33,6 @@ export class TwitterFeedComponent implements OnInit {
           rts: value.retweet_count,
         }
 
-        // console.log(tweet);
         // Limiter à 6 tweets pour l'affichage
         if(id <= 6){
           this.tabTweets.push(tweet);

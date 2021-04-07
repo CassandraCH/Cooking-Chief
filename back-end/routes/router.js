@@ -62,7 +62,7 @@ router.get('/recettes/:id', (req, res) => {
 
 });
 
-// Connexion à l'api Twitter : 
+// Création client Twitter avec toutes les clés d'accès 
 const api_client = new Twitter({
     consumer_key: 'EuKQfwTijUYZBkSxmgqoPir6F',
     consumer_secret: 'xVYQgEZN4L1VYBszUStZEiH6VhjJbMyeQyAzMYB0TwR0bDU9Sg',
@@ -70,14 +70,13 @@ const api_client = new Twitter({
     access_token_secret: 'k7Z60xBmdUFFiLvQkM3yU9KayhvCTQhwvd2pVjho9Ll5s'
   });
 
-  
+// Lorsque on ping le serveur sur la page http://localhost:5500/home_timeline 
   router.get('/home_timeline', (req, res) => {
     var params = {screen_name: 'cooking chief'};
+    //Requête get pour récupérer la timeline de notre compte puis envoie des données
     api_client
       .get(`statuses/user_timeline`, params)
       .then(timeline => {
-        console.log("Récupération tweets : ")
-        console.log(timeline);
         res.send(timeline);
       })
       .catch(error => {
