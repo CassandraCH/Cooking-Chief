@@ -168,10 +168,15 @@ export class RecettesService {
 
 	// Permet de faire un post dans la bdd (ajout d'une nouvelle donnée)
 	enregistrerDansBDD(data){
-		this.http.post(this.url, data).subscribe(
-			() => { console.log("Enregistrement dans la bdd OK"); },
-			(err) =>  { console.log("Erreur de sauvegarde : "+err); }
-		);
+		if(data.more != false){
+			this.http.post(this.url, data).subscribe(
+				() => { console.log("Enregistrement dans la bdd OK"); },
+				(err) =>  { console.log("Erreur de sauvegarde : "+err); }
+			);
+		}
+		else{
+			console.log("Pas de résultat => pas d'enregistrement")
+		}
 
 		// Mise à jour du tableau de la bdd
 		this.getRecettesFromBDD();
