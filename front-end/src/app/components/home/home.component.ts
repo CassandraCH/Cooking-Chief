@@ -20,6 +20,6 @@ export class HomeComponent implements OnInit {
     }
 
     chercherRecetteAleatoire(){
-        this.recetteDuJour = this.recettesService.genererRecetteAleatoire();
+        this.recetteDuJour = this.recettesService.getRecetteDuJour();
     }
 }
