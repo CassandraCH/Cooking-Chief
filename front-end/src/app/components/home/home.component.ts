@@ -23,11 +23,13 @@ export class HomeComponent implements OnInit {
     chargerRecette(){
         let btn = document.querySelector('.btnChargement');
         let recette = document.querySelector(".container");
-
-        btn.className = "cacher";
-        recette.className = "afficher";
-
-        this.chargement = true;
         this.recetteDuJour = this.recettesService.getRecetteDuJour();
+
+        if(this.recetteDuJour != undefined){
+            btn.className = "cacher";
+            recette.className = "afficher";
+
+            this.chargement = true;
+        }
     }
 }

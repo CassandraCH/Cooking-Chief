@@ -61,14 +61,13 @@ export class RecettesService {
 				// Suppression des doublons
 				const tmp = Array.from(new Set(this.tableauBDD));
 				this.tableauBDD = tmp;
-				console.log("Tout va bien");
 
 				// génération aléatoire de la recette du jour
 				this.recetteDuJour = this.genererRecetteAleatoire();
 				console.log("Fin getRecettesFromBDD()");
 			},
 			(err) => {
-				console.log("Erreur : "+err);
+				console.log("Erreur getRecettesFromBDD() : "+err);
 			}
 		);
 
@@ -102,7 +101,7 @@ export class RecettesService {
 	// si le mot-clé recherche est present dans la bdd : on récupère les recettes
 	// sinon : on fait une requête à l'api
 	async rechercher(motCle: string){
-		// let trouve = false;
+		let trouve;
 		// this.getRecettesFromBDD();
 
 		// toLowerCase permet d'éviter de se préoccuper de la casse
@@ -113,15 +112,21 @@ export class RecettesService {
 			if(q == motCle) {
 				console.log("J'ai trouvé pour "+motCle);
 				this.ajouterDansTableau(hits);
-				return  true;
+				trouve = true;
+				return trouve;
+			}
+			else{
+				trouve = false
 			}
 		});
 		// Si on ne trouve pas dans la bdd => requete à l'api
-		// if(!trouve) {
+		if(!trouve) {
 			console.log("J'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
 			await this.recupererResultatViaAPI(motCle);
-		// }
+		}
 	}
+
+
 
 	// Permet de récupérer le résultat de la requête à l'api
 	async recupererResultatViaAPI(motCle: string){
@@ -204,7 +209,7 @@ export class RecettesService {
 				auteur: tmp.recipe.source,
 				url: tmp.recipe.url
 			}
-			console.log("Recette du jour : ");
+
 			console.log(rec);
 			return rec;
 		}
