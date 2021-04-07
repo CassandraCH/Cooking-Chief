@@ -21,7 +21,7 @@ export class TwitterFeedComponent implements OnInit {
   ngOnInit(): void {
     this.twittersService.getTwitterLine().subscribe( (response) => {
       let id = 1;
-      response.forEach( (value) => {
+      response.data.forEach( (value) => {
         let tweet: Tweet = {
           id: id,
           nom: value.user.name,
