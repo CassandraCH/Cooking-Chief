@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Recette } from 'src/app/models/Recette.models';
 import { RecettesService } from '../../services/recettes.service';
 
 @Component({
@@ -9,14 +10,16 @@ import { RecettesService } from '../../services/recettes.service';
 })
 
 export class HomeComponent implements OnInit {
+    recetteDuJour: Recette;
+
     constructor(private recettesService: RecettesService) { }
 
     ngOnInit() {
         console.log("Debut home component");
-        // this.recettesService.getRecettesFromBDD();
+        this.chercherRecetteAleatoire();
     }
 
     chercherRecetteAleatoire(){
-        this.recettesService.genererRecetteAleatoire();
+        this.recetteDuJour = this.recettesService.genererRecetteAleatoire();
     }
 }

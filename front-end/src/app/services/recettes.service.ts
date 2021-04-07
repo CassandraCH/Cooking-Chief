@@ -58,6 +58,7 @@ export class RecettesService {
 		this.http.get<any>(this.url).toPromise().then(
 			(response) =>  {
 				this.tableauBDD = response; // copie des données de la bdd
+
 				console.log(this.tableauBDD);
 				console.log("Recuperation des données de la bdd OK");
 			},
@@ -65,6 +66,8 @@ export class RecettesService {
 				console.log("Erreur : "+err);
 			}
 		);
+		const tmp = Array.from(new Set(this.tableauBDD));
+		this.tableauBDD = tmp;
 	}
 
 	// Permet d'ajouter les recettes correspondantes à la recherche
@@ -163,7 +166,6 @@ export class RecettesService {
 
 		// Mise à jour du tableau de la bdd
 		this.getRecettesFromBDD();
-		// this.emitRecetteSubject();
 	}
 
 
@@ -176,7 +178,29 @@ export class RecettesService {
 	}
 
 	genererRecetteAleatoire(){
-		// A FAIRE
+		const nb1 = Math.floor(Math.random() * this.getTailleTableauBdd());
+		const nb2 = Math.floor(Math.random() * 10);
+		// console.log(`nb1 = ${nb1} et nb2 = ${nb2}`);
+
+		const tab = this.tableauBDD[nb1];
+		// console.log(tab);
+
+		const tmp = tab['hits'][nb2];
+		// console.log(tabRecettes);
+
+		let rec: Recette = {
+			id: -1,
+			titre: tmp.recipe.label,
+			image: tmp.recipe.image,
+			nbPortions: tmp.recipe.yield,
+			listeIngredients: tmp.recipe.ingredientLines,
+			calories: tmp.recipe.calories,
+			tempsPreparation: tmp.recipe.totalTime,
+			auteur: tmp.recipe.source,
+			url: tmp.recipe.url
+		}
+
+		return rec;
 	}
 
 	// Vérifie si le tableau de recettes est rempli
@@ -190,7 +214,6 @@ export class RecettesService {
 	setValRecherche(valeur: string){ this.valRecherche = valeur; }
 
 	getValRecherche(){ return this.valRecherche; }
-}
-function arrayShuffle(tableauBDD: any[]) {
-	throw new Error('Function not implemented.');
+
+	getTailleTableauBdd(){ return (this.tableauBDD.length);	}
 }

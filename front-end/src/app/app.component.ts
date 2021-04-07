@@ -52,6 +52,7 @@ export class AppComponent implements OnInit {
     };
     ngOnInit() {
       this.hasScrolled();
+      // Récupération des données via la bdd
       this.recetteService.getRecettesFromBDD();
       console.log("debut app");
     }
