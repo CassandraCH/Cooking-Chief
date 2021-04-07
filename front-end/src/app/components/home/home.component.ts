@@ -12,14 +12,16 @@ import { RecettesService } from '../../services/recettes.service';
 export class HomeComponent implements OnInit {
     recetteDuJour: Recette;
 
+    chargement: Boolean = false;
+
     constructor(private recettesService: RecettesService) { }
 
     ngOnInit() {
         console.log("Debut home component");
-        this.chercherRecetteAleatoire();
     }
 
-    chercherRecetteAleatoire(){
-        this.recetteDuJour = this.recettesService.genererRecetteAleatoire();
+    chargerRecette(){
+        this.chargement = true;
+        this.recetteDuJour = this.recettesService.getRecetteDuJour();
     }
 }
