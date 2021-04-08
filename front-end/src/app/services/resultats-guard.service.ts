@@ -23,13 +23,5 @@ export class ResultatsGuard implements CanActivate {
                 }
             }
         );
-
-        // const id = route.params['id'];
-        // if (this.recetteService.getRecetteById(+id) === undefined) {
-        //     this.router.navigate([`/not-found`]);
-        //     return false;
-        // } else {
-        //     return true;
-        // }
     }
 }
