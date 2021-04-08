@@ -1,31 +1,9 @@
-main{
-    display: grid;
-    grid-template-columns: 10px 400px auto 10px;
-    grid-column-gap: 20px;
-}
-
-#reseaux-sociaux{
-    grid-column: 2;
-    margin: 0;
-    margin-bottom: 15px;
-}
-
 .afficher{
-    // display: inline-block;
     visibility: visible;
 }
 
 .cacher{
-    // display: none;
     visibility: hidden;
-}
-
-#main-content{
-    // border: 1px solid red;
-    grid-column: 3;
-    margin: 0;
-    text-align: center;
-    // position: relative;
 }
 
 .bouton {
@@ -33,7 +11,7 @@ main{
     transition: 0.7s;
 }
 
-.bouton a {
+.bouton a{
     color: white;
 }
 
@@ -50,16 +28,21 @@ main{
     font-weight: bold;
 }
 
-#btnVoir {
+#btnVoir{
     border: none;
     margin-top: 50px;
     margin-left: 25%;
+}
+
+#titreAccueil{
+    text-align: center;
 }
 
 .title{
     text-align: center;
     margin-bottom: 15px;
 }
+
 .infos{
     display: flex;
     flex-direction: row;
@@ -69,46 +52,42 @@ main{
     margin-top: 10px;
 }
 
-.infos-content
-{
+.infos-content{
     display: flex;
     flex-direction: column;
     padding: 10px;
     text-align: center;
 }
 
-.photo-principale
-{
+.photo-principale{
     text-align: center;
     width: 100%;
 }
 
-.photo-principale img
-{
+.photo-principale img{
     width: 350px;
     text-align: center;
 }
 
-.subtitle
-{
+.subtitle{
     font-size: 28px;
     text-transform: uppercase;
     margin-bottom: 25px;
 }
 
-.ingredients
-{
-    margin-top: 10px;
-    padding: 0px 50px;
-    text-align: left;
-}
+// .ingredients
+// {
+//     margin-top: 10px;
+//     padding: 0px 50px;
+//     text-align: left;
+// }
 
-.ingredients-list ul li
-{
-    margin: 10px 0px;
-    display: inline-block;
-    padding: 0px 10px;
-}
+// .ingredients-list ul li
+// {
+//     margin: 10px 0px;
+//     display: inline-block;
+//     padding: 0px 10px;
+// }
 
 .recette-page{
     margin-top: 10px;
@@ -127,22 +106,20 @@ main{
 
     #main-content{
         grid-column: 1;
+        text-align: center;
     }
 
-    .ingredients
-    {
+    .ingredients{
         margin-top: 5px;
         padding: 0;
     }
 
-    .ingredients-list ul li
-    {
+    .ingredients-list ul li{
         margin: 1px 0px;
         padding: 0px 2px;
     }
 
-    .photo-principale img
-    {
+    .photo-principale img{
         width: 250px;
         text-align: center;
     }
@@ -161,21 +138,19 @@ main{
         margin: 0;
     }
 
-    .ingredients
-    {
+    #main-content{
+        grid-column: 3;
+        margin: 0;
+    }
+
+    .ingredients{
         margin-top: 5px;
         padding: 0 10px;
     }
 
-    .ingredients-list ul li
-    {
+    .ingredients-list ul li{
         margin: 0 5px;
         padding: 0 10px;
-    }
-
-    #main-content{
-        grid-column: 3;
-        margin: 0;
     }
 }
 
@@ -197,19 +172,13 @@ main{
         margin: 0;
     }
 
-    .ingredients
-    {
+    .ingredients{
         margin-top: 10px;
         padding: 0px 50px;
     }
 
-    .ingredients-list ul li
-    {
+    .ingredients-list ul li{
         margin: 10px 0px;
         padding: 0px 10px;
     }
-}
-
-#titreAccueil{
-    text-align: center;
 }

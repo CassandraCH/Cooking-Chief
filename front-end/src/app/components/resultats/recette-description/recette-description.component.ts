@@ -11,22 +11,7 @@ export class RecetteDescriptionComponent implements OnInit {
   @Input() recette: Recette;
   nom: string;
 
-  constructor(private router: Router,
-              private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-     this.nom = this.route.snapshot.params['nom'];
-  }
-
-  /**
-   * Probablement à modifier , il faudrait s'orienter vers
-   * des routes enfants plutôt que des routes mères si vous avez le temps ;)
-   */
-  // onClick(){
-  //   const nom = this.route.snapshot.params['nom'];
-  //   // Redirection
-  //   this.router.navigate(['/results', nom , this.recette.id ]);
-  // }
-
-
+  ngOnInit(): void { this.nom = this.route.snapshot.params['nom']; }
 }
