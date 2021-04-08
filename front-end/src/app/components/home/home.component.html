@@ -12,7 +12,8 @@
       </div>
       <p id="msgChargement">{{ messageChargement }}</p>
 
-      <div *ngIf="recetteChargee" class="container">
+      <div >
+        <div *ngIf="recetteChargee" class="container">
 
           <h4 class="title">{{ recetteDuJour.titre }}</h4>
 
@@ -48,6 +49,7 @@
             </div>
           </div>
 
+        </div>
       </div>
     </div>
   </section>

@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
 
     messageChargement: String;
 
-
     constructor(private recettesService: RecettesService) { }
 
     ngOnInit() {

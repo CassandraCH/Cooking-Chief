@@ -110,22 +110,27 @@ export class RecettesService {
 		// toLowerCase permet d'éviter de se préoccuper de la casse
 		motCle = motCle.toLowerCase();
 
-		// si on trouve le mot-clé dans le tableau => on remplit le tableau avec les données correspondantes
-		this.tableauBDD.find( ({q, hits}) => {
-			if(q == motCle) {
-				console.log("J'ai trouvé pour "+motCle);
-				this.ajouterDansTableau(hits);
-				trouve = true;
-				return trouve;
+		// On vérifie que les données de la bdd ont bien été récupérées
+		if(this.chargement){
+
+			// si on trouve le mot-clé dans le tableau => on remplit le tableau avec les données correspondantes
+			this.tableauBDD.find( ({q, hits}) => {
+				if(q == motCle) {
+					console.log("J'ai trouvé pour "+motCle);
+					this.ajouterDansTableau(hits);
+					trouve = true;
+					return trouve;
+				}
+				else{
+					trouve = false
+				}
+			});
+			// Si on ne trouve pas dans la bdd => requete à l'api
+			if(!trouve) {
+				console.log("J'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
+				await this.recupererResultatViaAPI(motCle);
 			}
-			else{
-				trouve = false
-			}
-		});
-		// Si on ne trouve pas dans la bdd => requete à l'api
-		if(!trouve) {
-			console.log("J'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
-			await this.recupererResultatViaAPI(motCle);
+
 		}
 	}
 
