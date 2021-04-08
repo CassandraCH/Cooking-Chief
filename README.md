@@ -25,8 +25,9 @@ Créer une application Web ayant les caractéristiques suivantes :
 ### Etapes pour faire fonctionner l'application en local
 
 1. Cloner le répertoire.
-2. Aller dans le dossier back-end.
-3. Faire la commande :  ``npm start`` (lors de la première utilisation, si vous rencontrez une erreur : faites d'abord ``npm install`` puis ``npm start``).
-4. Aller dans le dossier front-end.
-5. Faire la commande : ``ng serve`` (lors de la première utilisation, si vous rencontrez une erreur : faites d'abord ``npm install`` puis ``ng serve``).
-6. Ensuite, dans votre navigateur rendez-vous à l'adresse : http://localhost:4200/.
+2. Ouvrir un terminal.
+3. Aller dans le dossier back-end.
+4. Ecrire la commande :  ``npm start`` (lors de la première utilisation, si vous rencontrez une erreur : faites d'abord ``npm install`` puis ``npm start``).
+5. Aller dans le dossier front-end.
+6. Ecrire la commande : ``ng serve`` (lors de la première utilisation, si vous rencontrez une erreur : faites d'abord ``npm install`` puis ``ng serve``).
+7. Ensuite, dans votre navigateur rendez-vous à l'adresse : http://localhost:4200/.
