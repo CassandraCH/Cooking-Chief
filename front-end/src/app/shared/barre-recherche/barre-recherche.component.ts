@@ -24,8 +24,6 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
 	ngOnInit(): void {
 		this.initForm();
-		// Récupération des données stockées dans la bdd
-		// this.recettesService.getRecettesFromBDD();
 	}
 
 	// Initialisation du formulaire

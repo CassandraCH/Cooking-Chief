@@ -11,11 +11,13 @@ main{
 }
 
 .afficher{
-    display: inline-block;
+    // display: inline-block;
+    visibility: visible;
 }
 
 .cacher{
-    display: none;
+    // display: none;
+    visibility: hidden;
 }
 
 #main-content{

@@ -50,6 +50,52 @@ nav{
 
 @media(min-width:768px){
     .nav-item{
-        display: inline;
+        display: inline-block;
     }
+}
+
+@media(min-width:1200px){
+    #logo{
+    margin-top: 0;
+    width: 250px;
+    height: auto;
+    transition: 0.6s;
+    border: 1px solid fuchsia;
+}
+
+#logo:hover{
+    opacity: 0.7;
+}
+
+nav{
+    height: 80px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navbar-main{
+    background-color: #423725;
+    border: 1px solid green;
+}
+
+.nav-item a{
+    color: #ffff;
+    text-decoration: none;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-nav{
+    border: 1px solid aqua;
+}
+
+.nav-item a:hover{
+    color: #A48A5C;
+}
 }
