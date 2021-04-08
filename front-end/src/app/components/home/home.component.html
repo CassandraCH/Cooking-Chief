@@ -5,9 +5,14 @@
 
   <section id="main-content">
     <div class="recette-page">
-      <h3 id="titreAccueil">Recette du jour</h3>
+      <h3 id="titreAccueil">Idée du jour</h3>
 
-      <div class="container">
+      <div class="btnChargement">
+        <button class="bouton btn btn-1 btn-neutral" (click)="onClick()">Découvrir la recette du jour </button>
+      </div>
+      <p id="msgChargement">{{ messageChargement }}</p>
+
+      <div *ngIf="recetteChargee" class="container">
 
           <h4 class="title">{{ recetteDuJour.titre }}</h4>
 
@@ -36,7 +41,7 @@
                     {{ing}}
                   </li>
                 </ul>
-                <!-- <button (click)="chercherRecetteAleatoire()">Cliquer</button> -->
+
                  <button type="button" class="bouton btn btn-outline-default" id="btnVoir">
                   <a [href]="recetteDuJour.url" target="_blank">Voir la recette</a>
                 </button>

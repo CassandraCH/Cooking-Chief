@@ -23,6 +23,11 @@ export class RecettesService {
 	// tableau avec toutes les données stockées de la bdd
 	tableauBDD: any[] = [];
 
+	// recette du jour
+	recetteDuJour: Recette;
+
+	chargement: Boolean = false;
+
 	private recettesSubject = new Subject<Recette[]>();
 
 	emitRecetteSubject() {
@@ -35,10 +40,6 @@ export class RecettesService {
 	// dans le cas présent : la liste des recettes
 	getRecettesUpdateListener() : Observable<Recette[]> { return this.recettesSubject.asObservable(); }
 
-	// permet de récupérer le tableau avec les recettes de la recherche
-	getTabRecettes(): Recette[]{ return this.tabRecettes; }
-
-
 	// Technique pas optimale mais seule solution trouvée pour avoir des résultats car
 	// sans faire comme ça, nous avions des problèmes car les données arrivaient après la mise
 	// à jour de l'afficahge, vu que les requêtes sont asynchones.
@@ -50,8 +51,6 @@ export class RecettesService {
 	// Cette technique permet d'éviter de faire trop d'appel à la bdd et trop de
 	// requêtes à l'api (dont le nombre de requêtes est limité
 	getRecettesFromBDD(){
-		this.viderTableauBDD();
-
 		console.log("getRecettesFromBDD()");
 
 		// RECUPERATION DES TOUTES LES DONNEES DANS LA BDD
@@ -61,13 +60,20 @@ export class RecettesService {
 
 				console.log(this.tableauBDD);
 				console.log("Recuperation des données de la bdd OK");
+				// Suppression des doublons
+				const tmp = Array.from(new Set(this.tableauBDD));
+				this.tableauBDD = tmp;
+
+				// génération aléatoire de la recette du jour
+				this.recetteDuJour = this.genererRecetteAleatoire();
+				console.log("Fin getRecettesFromBDD()");
+				this.chargement = true;
 			},
 			(err) => {
-				console.log("Erreur : "+err);
+				console.log("Erreur getRecettesFromBDD() : "+err);
 			}
 		);
-		const tmp = Array.from(new Set(this.tableauBDD));
-		this.tableauBDD = tmp;
+
 	}
 
 	// Permet d'ajouter les recettes correspondantes à la recherche
@@ -98,7 +104,7 @@ export class RecettesService {
 	// si le mot-clé recherche est present dans la bdd : on récupère les recettes
 	// sinon : on fait une requête à l'api
 	async rechercher(motCle: string){
-		// let trouve = false;
+		let trouve;
 		// this.getRecettesFromBDD();
 
 		// toLowerCase permet d'éviter de se préoccuper de la casse
@@ -109,15 +115,21 @@ export class RecettesService {
 			if(q == motCle) {
 				console.log("J'ai trouvé pour "+motCle);
 				this.ajouterDansTableau(hits);
-				return  true;
+				trouve = true;
+				return trouve;
+			}
+			else{
+				trouve = false
 			}
 		});
 		// Si on ne trouve pas dans la bdd => requete à l'api
-		// if(!trouve) {
+		if(!trouve) {
 			console.log("J'ai pas trouvé pour "+motCle+" ==> je demande à l'api");
 			await this.recupererResultatViaAPI(motCle);
-		// }
+		}
 	}
+
+
 
 	// Permet de récupérer le résultat de la requête à l'api
 	async recupererResultatViaAPI(motCle: string){
@@ -159,10 +171,15 @@ export class RecettesService {
 
 	// Permet de faire un post dans la bdd (ajout d'une nouvelle donnée)
 	enregistrerDansBDD(data){
-		this.http.post(this.url, data).subscribe(
-			() => { console.log("Enregistrement dans la bdd OK"); },
-			(err) =>  { console.log("Erreur de sauvegarde : "+err); }
-		);
+		if(data.more != false){
+			this.http.post(this.url, data).subscribe(
+				() => { console.log("Enregistrement dans la bdd OK"); },
+				(err) =>  { console.log("Erreur de sauvegarde : "+err); }
+			);
+		}
+		else{
+			console.log("Pas de résultat => pas d'enregistrement")
+		}
 
 		// Mise à jour du tableau de la bdd
 		this.getRecettesFromBDD();
@@ -182,26 +199,40 @@ export class RecettesService {
 		const nb2 = Math.floor(Math.random() * 10);
 		// console.log(`nb1 = ${nb1} et nb2 = ${nb2}`);
 
-		const tab = this.tableauBDD[nb1];
-		// console.log(tab);
+		if(this.getTailleTableauBdd() != 0){
+			const tab = this.tableauBDD[nb1];
+			// console.log(tab);
 
-		const tmp = tab['hits'][nb2];
-		// console.log(tabRecettes);
+			const tmp = tab['hits'][nb2];
+			// console.log(tmp);
 
-		let rec: Recette = {
-			id: -1,
-			titre: tmp.recipe.label,
-			image: tmp.recipe.image,
-			nbPortions: tmp.recipe.yield,
-			listeIngredients: tmp.recipe.ingredientLines,
-			calories: tmp.recipe.calories,
-			tempsPreparation: tmp.recipe.totalTime,
-			auteur: tmp.recipe.source,
-			url: tmp.recipe.url
+			let rec: Recette = {
+				id: -1,
+				titre: tmp.recipe.label,
+				image: tmp.recipe.image,
+				nbPortions: tmp.recipe.yield,
+				listeIngredients: tmp.recipe.ingredientLines,
+				calories: tmp.recipe.calories,
+				tempsPreparation: tmp.recipe.totalTime,
+				auteur: tmp.recipe.source,
+				url: tmp.recipe.url
+			}
+
+			// console.log(rec);
+			return rec;
 		}
-
-		return rec;
 	}
+
+	setValRecherche(valeur: string){ this.valRecherche = valeur; }
+
+	getValRecherche(){ return this.valRecherche; }
+
+	getTailleTableauBdd(){ return (this.tableauBDD.length);	}
+
+	getRecetteDuJour(){ return this.recetteDuJour; }
+
+	// permet de récupérer le tableau avec les recettes de la recherche
+	getTabRecettes(): Recette[]{ return this.tabRecettes; }
 
 	// Vérifie si le tableau de recettes est rempli
 	tabNonVide() { return (this.tabRecettes.length > 0); }
@@ -209,11 +240,6 @@ export class RecettesService {
 	// Permet de vide le tableau de recettes (avec le mot-clé actuel)
 	viderTableau(){	this.tabRecettes = []; }
 
-	viderTableauBDD(){ this.tableauBDD = []; }
 
-	setValRecherche(valeur: string){ this.valRecherche = valeur; }
-
-	getValRecherche(){ return this.valRecherche; }
-
-	getTailleTableauBdd(){ return (this.tableauBDD.length);	}
+	chargementOK(): Boolean{ return this.chargement; }
 }

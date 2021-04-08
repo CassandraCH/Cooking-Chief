@@ -10,9 +10,47 @@ main{
     margin-bottom: 15px;
 }
 
+.afficher{
+    display: inline-block;
+}
+
+.cacher{
+    display: none;
+}
+
 #main-content{
+    // border: 1px solid red;
     grid-column: 3;
     margin: 0;
+    text-align: center;
+}
+
+.bouton {
+    background-color:  #A48A5C;
+    transition: 0.7s;
+}
+
+.bouton a {
+ color: white;
+}
+
+.bouton:hover{
+    opacity: 0.8;
+    background-color:  #aa9879;
+}
+
+.bouton:hover a {
+    color: #463F32;
+}
+
+#msgChargement{
+    font-weight: bold;
+}
+
+#btnVoir {
+    border: none;
+    margin-top: 50px;
+    margin-left: 25%;
 }
 
 .title
@@ -61,6 +99,7 @@ main{
 {
     margin-top: 10px;
     padding: 0px 50px;
+    text-align: left;
 }
 
 .ingredients-list ul li
