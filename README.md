@@ -30,4 +30,4 @@ Créer une application Web ayant les caractéristiques suivantes :
 4. Ecrire la commande :  ``npm start`` (lors de la première utilisation, si vous rencontrez une erreur : faites d'abord ``npm install`` puis ``npm start``).
 5. Aller dans le dossier front-end.
 6. Ecrire la commande : ``ng serve`` (lors de la première utilisation, si vous rencontrez une erreur : faites d'abord ``npm install`` puis ``ng serve``).
-7. Ensuite, dans votre navigateur rendez-vous à l'adresse : http://localhost:4200/.
+7. Ensuite, rendez-vous à l'adresse dans votre navigateur : http://localhost:4200/.
