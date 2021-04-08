@@ -3,6 +3,7 @@
     width: 250px;
     height: auto;
     transition: 0.6s;
+    border: 1px solid fuchsia;
 }
 
 #logo:hover{
@@ -13,14 +14,28 @@ nav{
     height: 80px;
 }
 
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 #navbar-main{
     background-color: #423725;
+    border: 1px solid green;
 }
 
 .nav-item a{
     color: #ffff;
     text-decoration: none;
     transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-nav{
+    border: 1px solid aqua;
 }
 
 .nav-item a:hover{

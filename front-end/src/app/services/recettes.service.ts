@@ -26,6 +26,8 @@ export class RecettesService {
 	// recette du jour
 	recetteDuJour: Recette;
 
+	chargement: Boolean = false;
+
 	private recettesSubject = new Subject<Recette[]>();
 
 	emitRecetteSubject() {
@@ -65,6 +67,7 @@ export class RecettesService {
 				// génération aléatoire de la recette du jour
 				this.recetteDuJour = this.genererRecetteAleatoire();
 				console.log("Fin getRecettesFromBDD()");
+				this.chargement = true;
 			},
 			(err) => {
 				console.log("Erreur getRecettesFromBDD() : "+err);
@@ -215,7 +218,7 @@ export class RecettesService {
 				url: tmp.recipe.url
 			}
 
-			console.log(rec);
+			// console.log(rec);
 			return rec;
 		}
 	}
@@ -236,4 +239,7 @@ export class RecettesService {
 
 	// Permet de vide le tableau de recettes (avec le mot-clé actuel)
 	viderTableau(){	this.tabRecettes = []; }
+
+
+	chargementOK(): Boolean{ return this.chargement; }
 }

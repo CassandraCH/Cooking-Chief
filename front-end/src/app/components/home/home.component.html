@@ -8,10 +8,11 @@
       <h3 id="titreAccueil">Idée du jour</h3>
 
       <div class="btnChargement">
-        <button class="bouton btn btn-1 btn-neutral" (click)="chargerRecette()">Découvrir la recette du jour </button>
+        <button class="bouton btn btn-1 btn-neutral" (click)="onClick()">Découvrir la recette du jour </button>
       </div>
+      <p id="msgChargement">{{ messageChargement }}</p>
 
-      <div *ngIf="chargement" class="container">
+      <div *ngIf="recetteChargee" class="container">
 
           <h4 class="title">{{ recetteDuJour.titre }}</h4>
 

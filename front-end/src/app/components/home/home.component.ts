@@ -12,7 +12,9 @@ import { RecettesService } from '../../services/recettes.service';
 export class HomeComponent implements OnInit {
     recetteDuJour: Recette;
 
-    chargement: Boolean = false;
+    recetteChargee: Boolean = false;
+
+    messageChargement: String = "";
 
     constructor(private recettesService: RecettesService) { }
 
@@ -21,15 +23,27 @@ export class HomeComponent implements OnInit {
     }
 
     chargerRecette(){
-        let btn = document.querySelector('.btnChargement');
-        let recette = document.querySelector(".container");
+
         this.recetteDuJour = this.recettesService.getRecetteDuJour();
 
-        if(this.recetteDuJour != undefined){
+
+    }
+
+    onClick(){
+        let btn = document.querySelector('.btnChargement');
+        let recette = document.querySelector(".container");
+
+
+        if(this.recettesService.chargement){
             btn.className = "cacher";
             recette.className = "afficher";
+            this.chargerRecette();
 
-            this.chargement = true;
+            this.recetteChargee = true;
+            this.messageChargement = ""
+        }else{
+            console.log("Recette pas encore chargee");
+            this.messageChargement = "Nous chargons la recette :)"
         }
     }
 }
