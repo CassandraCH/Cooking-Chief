@@ -13,23 +13,25 @@ import { Subscription } from 'rxjs';
 export class BarreRechercheComponent implements OnInit, OnDestroy{
 	// formulaire (input de la barre de recherche)
 	rechercheForm: FormGroup;
+
+	// Message d'erreur (lorsque l'utilisateur clique sur le bouton sans n'avoir rien saisi)
 	messageErreur: string;
 	recetteSubscription: Subscription;
+
+	// booleen qui permet de bloquer le bouton
 	isDisabled: boolean;
+
+	// mot-clé rechercher
 	recherche: string = "";
 
 	constructor(private recettesService: RecettesService,
 				private formBuilder: FormBuilder,
 				private router: Router) { }
 
-	ngOnInit(): void {
-		this.initForm();
-	}
+	ngOnInit(): void { this.initForm(); }
 
 	// Initialisation du formulaire
-	initForm(){
-		this.rechercheForm = this.formBuilder.group( { recherche: ['', Validators.required] } );
-	}
+	initForm(){ this.rechercheForm = this.formBuilder.group( { recherche: ['', Validators.required] } ); }
 
 	// Méthode exécutée lors du clic sur le bouton de la barre de recherche
 	onRecherche(){
@@ -38,10 +40,10 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 
 		// Vérification que l'utilisateur a saisi quelque chose
 		if(this.recherche !== ''){
-			console.log("Recherche : " + this.recherche);
+			// console.log("Recherche : " + this.recherche);
 			this.recettesService.setValRecherche(this.recherche);
 
-			this.messageErreur = '';
+			this.messageErreur = "";
 
 			// Recherche dans la bdd ou requete via api si pas de résultat dans la bdd
 			this.recettesService.rechercher(this.recherche).then(
@@ -59,10 +61,7 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 			this.onClick();
 		}
 		// Cas ou le champ de recherche est vide => affichage du message d'erreur
-		else{
-			this.messageErreur = "Veuillez saisir quelque chose";
-		}
-
+		else{ this.messageErreur = "Veuillez saisir quelque chose"; }
 	}
 
 	// Permet de rédiger l'utilisateur soit vers la page de résultats, soit vers la page
@@ -70,17 +69,13 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 	rediriger(val: boolean){
 		if(val){
 			// redirection vers les resultats de la recherche
-			this.router.navigate(['/']).then(
-				() => { this.router.navigate(['/results', this.recherche]) }
-			);
-			console.log("redirection OK");
+			this.router.navigate(['/']).then( () => { this.router.navigate(['/results', this.recherche]) } );
+			// console.log("redirection OK");
 		}
 		else{
 			// redirection vers la page 'no-result'
-			this.router.navigate(['/']).then(
-				() => { this.router.navigate(['/results', 'no-result']) }
-			);
-			console.log("redirection 'no-result' OK");
+			this.router.navigate(['/']).then( () => { this.router.navigate(['/results', 'no-result']) } );
+			// console.log("redirection 'no-result' OK");
 		}
 
 	}
@@ -88,15 +83,10 @@ export class BarreRechercheComponent implements OnInit, OnDestroy{
 	// Bloquer l'accès à plusieurs requêtes pendant 5 secondes
 	// Permet de limiter les requêtes à l'api et à la bdd
 	onClick() {
-	this.isDisabled = true;
-
-	setTimeout(() => {
-		this.isDisabled = false;
-	}, 5000);
+		this.isDisabled = true;
+		setTimeout( () => { this.isDisabled = false; }, 5000);
 	}
 
-	ngOnDestroy(){
 	// ne pas oublier => sinon, risque de bugs
-	this.recetteSubscription.unsubscribe();
-	}
+	ngOnDestroy(){ this.recetteSubscription.unsubscribe(); }
 }

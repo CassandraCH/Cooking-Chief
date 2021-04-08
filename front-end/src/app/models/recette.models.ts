@@ -1,3 +1,4 @@
+// Modèle de données pour une recette (personnalisation des données récupérées)
 export interface Recette {
     id: number;                     // id
     titre: string;                  // label

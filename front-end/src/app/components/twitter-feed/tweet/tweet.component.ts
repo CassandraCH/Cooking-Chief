@@ -8,14 +8,9 @@ import { TwitterService } from 'src/app/services/twitter.service';
   styleUrls: ['./tweet.component.css']
 })
 export class TweetComponent implements OnInit {
-
-  public tweets = []
   @Input('tweet') public unTweet: Tweet;
 
   constructor(private twitterService: TwitterService) { }
 
-  ngOnInit(): void {
-    this.twitterService.getTwitterLine();
-  }
-
+  ngOnInit(): void { this.twitterService.getTwitterLine(); }
 }

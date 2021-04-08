@@ -10,9 +10,11 @@ import { TwitterService } from 'src/app/services/twitter.service';
 })
 export class TwitterFeedComponent implements OnInit {
 
+  // Données à fournir pour la requête à l'api
   public nameUser = "Cooking Chief";
   public twitterAt = "web_l3";
 
+  // tableau des tweets
   public tabTweets: Tweet[] = [];
   public tweetSubscription: Subscription;
 
@@ -21,7 +23,9 @@ export class TwitterFeedComponent implements OnInit {
   ngOnInit(): void {
     this.twittersService.getTwitterLine().subscribe( (response) => {
       let id = 1;
-      console.log(response.data)
+      // console.log(response.data);
+
+      // Ajout des tweets dans le tableau selon le modèle
       response.data.forEach( (value) => {
         let tweet: Tweet = {
           id: id,
@@ -34,12 +38,12 @@ export class TwitterFeedComponent implements OnInit {
         }
 
         // Limiter à 6 tweets pour l'affichage
-        if(id <= 6){
-          this.tabTweets.push(tweet);
-        }
+        if(id <= 6){ this.tabTweets.push(tweet); }
+
         id+= 1;
-      })
-     });
-     this.twittersService.emitTweetSubject();
+      });
+    });
+
+    this.twittersService.emitTweetSubject();
   }
 }
