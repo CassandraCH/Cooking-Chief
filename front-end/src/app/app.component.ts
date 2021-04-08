@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import 'rxjs/add/operator/filter';
 import { Location } from '@angular/common';
 import { RecettesService } from './services/recettes.service';
@@ -9,8 +9,7 @@ var navbarHeight = 0;
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
 
@@ -52,8 +51,9 @@ export class AppComponent implements OnInit {
     };
     ngOnInit() {
       this.hasScrolled();
+
       // Récupération des données via la bdd
       this.recetteService.getRecettesFromBDD();
-      console.log("Début app");
+    //   console.log("Début app");
     }
 }

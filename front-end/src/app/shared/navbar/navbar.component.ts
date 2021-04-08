@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
-import { Location, PopStateEvent } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-navbar',
