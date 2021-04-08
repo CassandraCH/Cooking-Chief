@@ -1,5 +1,5 @@
+![logo-2](https://user-images.githubusercontent.com/45634386/114101003-670fcc80-98c5-11eb-8b5b-c92dd4b7d6c9.png)
 
-![Logo de Cooking Chief](front-end/src/assets/img/photos/logo.svg)
 
 # Projet-web
 Projet dans le cadre des modules d'IHM et d'Architectures logicielles pour le développement d'applications Web, de la 3ème année de Licence Informatique (Le Mans Université).
@@ -20,4 +20,13 @@ Créer une application Web ayant les caractéristiques suivantes :
 ### Suivi du projet
 → Lien vers le [Trello](https://trello.com/invite/b/JF5x9ooX/80a29375174e14358e4d60f9d6823364/projet-web)
 
-→ Lien vers l'[Application](https://cassandrach.github.io/Cooking-Chief)
+→ Lien vers l'[Application](https://cassandrach.github.io/Cooking-Chief) (pas à jour)
+
+### Etapes pour faire fonctionner l'application en local
+
+1. Cloner le répertoire.
+2. Aller dans le dossier back-end.
+3. Faire la commande :  ``npm start`` (lors de la première utilisation, si vous rencontrez une erreur : faites d'abord ``npm install`` puis ``npm start``).
+4. Aller dans le dossier front-end.
+5. Faire la commande : ``ng serve`` (lors de la première utilisation, si vous rencontrez une erreur : faites d'abord ``npm install`` puis ``ng serve``).
+6. Ensuite, dans votre navigateur rendez-vous à l'adresse : http://localhost:4200/.
