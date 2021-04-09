@@ -1,15 +1,9 @@
-/* .card-recette {
-    margin-bottom: 2em;
-} */
-
-
-
-.bouton {
+.bouton{
     background-color:  #A48A5C;
     transition: 0.7s;
 }
 
-.bouton a {
+.bouton a{
  color: white;
 }
 
@@ -18,22 +12,20 @@
     background-color:  #aa9879;
 }
 
-.bouton:hover a {
+.bouton:hover a{
     color: #463F32;
 }
 
-#btnVoir {
+#btnVoir{
     border: none;
     margin-left: 25%;
 }
 
-.title
-{
+.title{
     text-align: center;
     margin-bottom: 15px;
 }
-.infos
-{
+.infos{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -42,44 +34,27 @@
     margin-top: 10px;
 }
 
-.infos-content
-{
+.infos-content{
     display: flex;
     flex-direction: column;
     padding: 10px;
     text-align: center;
 }
 
-.photo-principale
-{
+.photo-principale{
     text-align: center;
     width: 100%;
 }
 
-.photo-principale img
-{
+.photo-principale img{
     width: 350px;
     text-align: center;
 }
 
-.subtitle
-{
+.subtitle{
     font-size: 28px;
     text-transform: uppercase;
     margin-bottom: 25px;
-}
-
-.ingredients
-{
-    margin-top: 10px;
-    padding: 0px 50px;
-}
-
-.ingredients-list ul li
-{
-    margin: 10px 0px;
-    display: inline-block;
-    padding: 0px 10px;
 }
 
 .recette-page{
@@ -88,48 +63,41 @@
 }
 
 @media(min-width:250px){
-    .ingredients
-    {
+    .ingredients    {
         margin-top: 5px;
         padding: 0;
     }
 
-    .ingredients-list ul li
-    {
+    .ingredients-list ul li    {
         margin: 1px 0px;
         padding: 0px 2px;
     }
 
-    .photo-principale img
-    {
+    .photo-principale img    {
         width: 250px;
         text-align: center;
     }
 }
 
 @media(min-width:768px){
-    .ingredients
-    {
+    .ingredients    {
         margin-top: 5px;
         padding: 0 10px;
     }
 
-    .ingredients-list ul li
-    {
+    .ingredients-list ul li    {
         margin: 0 5px;
         padding: 0 10px;
     }
 }
 
 @media(min-width:1200px){
-    .ingredients
-    {
+    .ingredients    {
         margin-top: 10px;
         padding: 0px 50px;
     }
 
-    .ingredients-list ul li
-    {
+    .ingredients-list ul li    {
         margin: 10px 0px;
         padding: 0px 10px;
     }

@@ -3,19 +3,15 @@ const router = express.Router();
 
 const Recette = require('../models/recetteModel');
 const Twitter = require('twit');
-// Récupération des données de la bdd
+
+// Récupération des données de la bdd (recettes)
 router.get('/', (req, res) => {
 
     Recette.find()
-                .then((recettes) => {
-                    // console.log(recettes);
-                     console.log("Récupération des données OK");
-                    res.status(200).json(recettes);
-                }).
-                catch((error) => {
-                    console.log(error);
-                });
-
+            .then((recettes) => {
+                    console.log("Récupération des données OK");
+                res.status(200).json(recettes);
+            }).catch((error) => {console.log(error);});
 });
 
 // Ajout d'une nouvelle donnée à la bdd
@@ -44,33 +40,32 @@ router.get('/recettes/:id', (req, res) => {
     console.log(req.params.id);
 
     Recette.findOne({q: id})
-        .then((recette) => {
-            // Cas où recherche trouvée
-            console.log(recette);
-            return res.status(200).json({
-                message: "Success : "+ recette,
-                recette: recette
+            .then((recette) => {
+                // Cas où recherche trouvée
+                console.log(recette);
+                return res.status(200).json({
+                    message: "Success : "+ recette,
+                    recette: recette
+                });
+            }).catch((error) => {
+                // Cas où il n'y a pas de résultat
+                console.log("Je n'ai pas trouvé...");
+                return res.status(401).json({
+                    message: "Error",
+                    recette: null
+                });
             });
-        }).catch((error) => {
-            // sCas où il n'y a pas de résultat
-            console.log("Je n'ai pas trouvé...");
-            return res.status(401).json({
-                message: "Error",
-                recette: null
-            });
-        });
-
 });
 
-// Création client Twitter avec toutes les clés d'accès 
+// Création client Twitter avec toutes les clés d'accès
 const api_client = new Twitter({
     consumer_key: 'EuKQfwTijUYZBkSxmgqoPir6F',
     consumer_secret: 'xVYQgEZN4L1VYBszUStZEiH6VhjJbMyeQyAzMYB0TwR0bDU9Sg',
     access_token: '1359508421301727232-DUalWqDuPUC21F9xd9AZ8LKrQgMVW8',
     access_token_secret: 'k7Z60xBmdUFFiLvQkM3yU9KayhvCTQhwvd2pVjho9Ll5s'
-  });
+});
 
-// Lorsque on ping le serveur sur la page http://localhost:5500/home_timeline 
+// Lorsque on ping le serveur sur la page http://localhost:5500/home_timeline
   router.get('/home_timeline', (req, res) => {
     var params = {screen_name: 'cooking chief'};
     //Requête get pour récupérer la timeline de notre compte puis envoie des données
@@ -82,7 +77,7 @@ const api_client = new Twitter({
       .catch(error => {
       res.send(error);
     });
-  });   
+  });
 
 // Export
 module.exports = router;

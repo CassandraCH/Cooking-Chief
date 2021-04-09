@@ -8,9 +8,13 @@
     height: 200px;
 }
 
+.card p{
+    font-weight: 400;
+}
+
 
 #user{
-    display:flex;
+    display: flex;
     text-align: center;
     align-items: center;
     justify-content: space-around;

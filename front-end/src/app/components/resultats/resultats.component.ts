@@ -19,15 +19,13 @@ export class ResultatsComponent implements OnInit, OnDestroy {
   constructor(private recettesService: RecettesService) {
     // Configuration de la pagination
     this.config = {
-      itemsPerPage: 4, // 4 recettes/page
-      currentPage: 1, // page actuelle == 1
-      totalItems: this.recettes.length // nombre total de recettes == taille
+      itemsPerPage: 4,                  // 4 recettes/page
+      currentPage: 1,                   // page actuelle == 1
+      totalItems: this.recettes.length  // nombre total de recettes == taille
     };
   }
 
   ngOnInit(): void {
-    // this.route.data.subscribe( (data: { recettes: Recette[] }) => this.recettes = data.recettes);
-
     // On place un écouteur sur le service recette afin de récupérer le tableau de recettes
     this.recetteSubscription = this.recettesService.getRecettesUpdateListener().subscribe(
       // On récupère les recettes du service
@@ -39,15 +37,13 @@ export class ResultatsComponent implements OnInit, OnDestroy {
 
     // emitRecetteSubject n'emet pas mais récupère le tableau de recette
     this.recettesService.emitRecetteSubject();
+
+    // Récupération du mot-clé cherché
     this.valRecherche = this.recettesService.getValRecherche();
   }
 
-  pageChanged(event){
-    this.config.currentPage = event;
-  }
+  pageChanged(event){ this.config.currentPage = event; }
 
   // Désinscription de l'observable
-  ngOnDestroy(){
-    this.recetteSubscription.unsubscribe();
-  }
+  ngOnDestroy(){ this.recetteSubscription.unsubscribe(); }
 }

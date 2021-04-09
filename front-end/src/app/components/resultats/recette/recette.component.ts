@@ -12,26 +12,22 @@ export class RecetteComponent implements OnInit {
   recette: Recette;
   id: number;
   nom : string;
+
+  // Mot-clé de la recherche
   valRecherche: string;
+
   constructor(private route: ActivatedRoute, private recetteService: RecettesService) { }
 
   ngOnInit(): void {
     const id = +(this.route.snapshot.params['id']);
+
     this.nom = this.route.snapshot.params['nom'];
     this.valRecherche = this.recetteService.getValRecherche();
 
     this.route.queryParams.subscribe( params => {
       this.id = +(params['id']);
     });
+
     this.recette = this.recetteService.getRecetteById(+id);
-
-    // Souscription à la donnée de l'URL (en fonction de la recette cliquée)
-    // this.route.data.subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //     this.recette = data.recette;
-    //   }
-    // );
   }
-
 }

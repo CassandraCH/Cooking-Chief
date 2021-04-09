@@ -1,3 +1,4 @@
+// Modèle de données pour un tweet (personnalisation des données récupérées)
 export interface Tweet {
     id:number,              // id tweet
     nom: string;            // user.name

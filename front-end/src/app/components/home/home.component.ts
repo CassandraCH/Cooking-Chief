@@ -14,7 +14,15 @@ export class HomeComponent implements OnInit {
 
     recetteChargee: Boolean = false;
 
-    messageChargement: String = "";
+    messages: Array<string> = [
+        "Nos chef sont en train de concocter la recette",
+        "Patience, ils ne vont plus tarder",
+        "Nos chefs vont arriver d'une seconde à l'autre pour nous apporter la recette du jour :)"
+    ];
+
+    indice: number = 0;
+
+    messageChargement: String;
 
     constructor(private recettesService: RecettesService) { }
 
@@ -23,10 +31,8 @@ export class HomeComponent implements OnInit {
     }
 
     chargerRecette(){
-
         this.recetteDuJour = this.recettesService.getRecetteDuJour();
-
-
+        this.recetteChargee = (this.recettesService.getRecetteDuJour() != undefined);
     }
 
     onClick(){
@@ -39,11 +45,11 @@ export class HomeComponent implements OnInit {
             recette.className = "afficher";
             this.chargerRecette();
 
-            this.recetteChargee = true;
-            this.messageChargement = ""
+            this.messageChargement = "";
         }else{
             console.log("Recette pas encore chargee");
-            this.messageChargement = "Nous chargons la recette :)"
+            this.messageChargement = this.messages[this.indice];
+            this.indice = (this.indice+1)%3;
         }
     }
 }

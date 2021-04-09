@@ -32,7 +32,6 @@ import { HeaderComponent } from './shared/header/header.component';
 
 // Services
 import { RecettesService } from './services/recettes.service';
-import { RecetteResolver } from './services/recette-resolver.service';
 import { ResultatsGuard } from './services/resultats-guard.service';
 import { TwitterService } from './services/twitter.service';
 
@@ -64,7 +63,6 @@ import { TwitterService } from './services/twitter.service';
   ],
   providers: [
     RecettesService,
-    RecetteResolver,
     ResultatsGuard,
     TwitterService
   ],

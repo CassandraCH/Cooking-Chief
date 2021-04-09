@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,15 +6,10 @@ import { Router } from '@angular/router';
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
     test : Date = new Date();
 
     constructor(private router: Router ) {}
 
-    ngOnInit() {
-
-    }
-    getPath(){
-      return this.router.url;
-    }
+    getPath(){ return this.router.url; }
 }
