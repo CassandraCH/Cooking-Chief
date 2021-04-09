@@ -26,22 +26,24 @@ export class HomeComponent implements OnInit {
 
     constructor(private recettesService: RecettesService) { }
 
-    ngOnInit() {
-        console.log("Debut home component");
-    }
+    ngOnInit() { console.log("Debut home component"); }
 
+    // Récupération de la recette du jour
     chargerRecette(){
         this.recetteDuJour = this.recettesService.getRecetteDuJour();
         this.recetteChargee = (this.recettesService.getRecetteDuJour() != undefined);
     }
 
+    // Action a effectuer lors du clic sur le bouton
     onClick(){
         let btn = document.querySelector('.btnChargement');
         let recette = document.querySelector(".container");
 
 
         if(this.recettesService.chargement){
+            // Masquer le bouton
             btn.className = "cacher";
+            // Afficher la recette
             recette.className = "afficher";
             this.chargerRecette();
 
