@@ -14,10 +14,18 @@ Projet dans le cadre des modules d'IHM et d'Architectures logicielles pour le d�
 ## Objectifs :
 Créer une application Web ayant les caractéristiques suivantes :
 * single page application (SPA);
-* utilisation d'API REST type réseaux sociaux, météo, maps, jeux;
+* utilisation d'API REST (type réseaux sociaux, météo, maps, jeux, ect.);
 * les données fournies par les API doivent être au format JSON;
 * développer une interface Client responsive ;
 
+## Technologies utilisées :
+* Pour le Front-end :
+  * Angular 
+  * Bootstrap
+* Pour le Back-end :
+  * Node.js
+  * Framework Express
+  * MongoDB  
 
 ## Suivi du projet :
 → Lien vers le [Trello](https://trello.com/invite/b/JF5x9ooX/80a29375174e14358e4d60f9d6823364/projet-web)
