@@ -29,10 +29,7 @@ export class ResultatsComponent implements OnInit, OnDestroy {
     // On place un écouteur sur le service recette afin de récupérer le tableau de recettes
     this.recetteSubscription = this.recettesService.getRecettesUpdateListener().subscribe(
       // On récupère les recettes du service
-      (data: Recette[]) => {
-        // console.log(data);
-        this.recettes = data;
-      }
+      (data: Recette[]) => { this.recettes = data; }
     );
 
     // emitRecetteSubject n'emet pas mais récupère le tableau de recette
@@ -42,6 +39,7 @@ export class ResultatsComponent implements OnInit, OnDestroy {
     this.valRecherche = this.recettesService.getValRecherche();
   }
 
+  // Changement de page ('précédent' ou 'suivant')
   pageChanged(event){ this.config.currentPage = event; }
 
   // Désinscription de l'observable

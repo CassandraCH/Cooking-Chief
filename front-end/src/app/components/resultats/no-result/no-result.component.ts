@@ -11,8 +11,6 @@ export class NoResultComponent implements OnInit {
 
   constructor(private recetteService: RecettesService) { }
 
-  ngOnInit(): void {
-    this.valRecherche = this.recetteService.getValRecherche();
-  }
-
+  // Récupération du mot-clé recherché
+  ngOnInit(): void { this.valRecherche = this.recetteService.getValRecherche(); }
 }

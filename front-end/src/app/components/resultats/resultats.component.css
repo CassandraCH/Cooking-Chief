@@ -3,6 +3,7 @@ main{
     grid-template-columns: 10px 400px auto 10px;
     grid-column-gap: 20px;
 }
+
 #reseaux-sociaux{
     grid-column: 2;
     margin: 0;

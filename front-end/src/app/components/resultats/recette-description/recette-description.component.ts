@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Recette } from 'src/app/models/Recette.models';
 
 @Component({
@@ -11,7 +11,7 @@ export class RecetteDescriptionComponent implements OnInit {
   @Input() recette: Recette;
   nom: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void { this.nom = this.route.snapshot.params['nom']; }
 }
