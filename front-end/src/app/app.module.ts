@@ -11,6 +11,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // Component principal
 import { AppComponent } from './app.component';
 
+
 // Components
 import { HomeComponent } from './components/home/home.component';
 
@@ -24,11 +25,13 @@ import { NoResultComponent } from './components/resultats/no-result/no-result.co
 
 import { ErreurPageComponent } from './components/erreur-page/erreur-page.component';
 
+
 // Components partagés
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { BarreRechercheComponent } from './shared/barre-recherche/barre-recherche.component';
 import { HeaderComponent } from './shared/header/header.component';
+
 
 // Services
 import { RecettesService } from './services/recettes.service';

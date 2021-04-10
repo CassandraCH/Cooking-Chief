@@ -54,6 +54,5 @@ export class AppComponent implements OnInit {
 
       // Récupération des données via la bdd
       this.recetteService.getRecettesFromBDD();
-    //   console.log("Début app");
     }
 }
