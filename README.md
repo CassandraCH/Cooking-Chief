@@ -5,26 +5,33 @@
 Projet dans le cadre des modules d'IHM et d'Architectures logicielles pour le développement d'applications Web, de la 3ème année de Licence Informatique (Le Mans Université).
 
 
-### Membres de l'équipe :
+## Membres de l'équipe :
 * ALLAIN Yannis
 * CHAUMULON Cassandra
 * DERRIEN Guillaume
 
-### Objectifs :
+
+## Objectifs :
 Créer une application Web ayant les caractéristiques suivantes :
 * single page application (SPA);
 * utilisation d'API REST type réseaux sociaux, météo, maps, jeux;
 * les données fournies par les API doivent être au format JSON;
 * développer une interface Client responsive ;
 
-### Suivi du projet :
+
+## Suivi du projet :
 → Lien vers le [Trello](https://trello.com/invite/b/JF5x9ooX/80a29375174e14358e4d60f9d6823364/projet-web)
+
+→ Lien vers la [Démonstration vidéo](https://drive.google.com/file/d/1WwSVAbY2005VtUvT3fj0h9Z5PZQSNjcV/view?usp=sharing)
 
 → Lien vers l'[Application](https://cassandrach.github.io/Cooking-Chief) (pas à jour)
 
-### Etapes pour faire fonctionner l'application en local :
 
-##### **Attention : Laissez tourner les 2 terminaux, sinon l'application ne fonctionnera pas ;)**
+## Etapes pour faire fonctionner l'application en local :
+
+
+### :warning:  **Attention : Laissez tourner les 2 terminaux, sinon l'application ne fonctionnera pas :wink:** :warning: 
+----------
 
 1. Cloner le répertoire.
 
