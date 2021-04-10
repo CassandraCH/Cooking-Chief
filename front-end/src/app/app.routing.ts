@@ -3,12 +3,14 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
+// Components
 import { HomeComponent } from '../app/components/home/home.component';
 import { ErreurPageComponent } from './components/erreur-page/erreur-page.component';
 import { ResultatsComponent } from './components/resultats/resultats.component';
 import { NoResultComponent } from './components/resultats/no-result/no-result.component';
 import { RecetteComponent } from './components/resultats/recette/recette.component';
 
+// Guard
 import { ResultatsGuard } from './services/resultats-guard.service';
 
 // Gestion du routing

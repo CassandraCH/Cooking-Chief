@@ -24,6 +24,8 @@ Créer une application Web ayant les caractéristiques suivantes :
 
 ### Etapes pour faire fonctionner l'application en local :
 
+##### **Attention : Laissez tourner les 2 terminaux, sinon l'application ne fonctionnera pas ;)**
+
 1. Cloner le répertoire.
 
 2. Ouvrir un terminal.
@@ -39,5 +41,3 @@ Créer une application Web ayant les caractéristiques suivantes :
 7. Ecrire la commande : ``ng serve`` (lors de la première utilisation, si vous rencontrez une erreur : faites d'abord ``npm install`` puis ``ng serve``).
 
 8. Ensuite, rendez-vous à l'adresse dans votre navigateur : http://localhost:4200/.
-
-**Attention : Laissez tourner les 2 terminaux, sinon l'application ne fonctionnera pas ;)**
