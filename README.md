@@ -38,7 +38,7 @@ Créer une application Web ayant les caractéristiques suivantes :
 ## Etapes pour faire fonctionner l'application en local :
 
 
-### :warning:  **Attention : Laissez tourner les 2 terminaux, sinon l'application ne fonctionnera pas :wink:** :warning: 
+### :warning:  **Attention : Laissez tourner les 2 terminaux, sinon l'application ne fonctionnera pas :wink:**
 ----------
 
 1. Cloner le répertoire.
